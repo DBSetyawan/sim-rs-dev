@@ -21,7 +21,7 @@ services:
         context: ./docker
         dockerfile: php.dockerfile
       container_name: simrs-dev-app
-      image: rs/php-fpm:production
+      image: simrs_medicfpm:production
       restart: unless-stopped
       ports:
       - '${FORWARD_FPM_PORT:-9004}:9000'

@@ -120,19 +120,19 @@
         <div class="row">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
-                    <div class="card-header bg-white border-0">
+                    {{-- <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="mb-0"></h3>
-                         <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-form">{{ __('Ambil data detail saim dari SIM, manual disini.') }}</button>
+                            <h3 class="mb-0"></h3> --}}
+                         {{-- <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-form">{{ __('Ambil data detail saim dari SIM, manual disini.') }}</button> --}}
 
-                        </div>
-                    </div>
+                        {{-- </div>
+                    </div> --}}
                   
                     <div class="card-body">
                         <form method="post" action="{{ route('roles.store') }}" autocomplete="off">
                             @csrf
                             @method('post')
-                            <h6 class="heading-small text-muted mb-4">{{ __('SAIM detail') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">{{ __('SIM RS MEDIKA | PENDAFTARAN') }}</h6>
                             @if (session('messages'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('messages') }}
@@ -150,20 +150,63 @@
                                     </button>
                                 </div>
                             @endif
-
-
                             <div class="container">
                                 <div class="row">
-                                  <div class="col">
+                                     <div class="col">
                                     <span>
                                         <div class="pl-lg-4">
                                             <div class="form-group{{ $errors->has('saim_no') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-name">{{ __('No. SAI') }}</label>
+                                                <label class="form-control-label" for="input-name">{{ __('No. REKAM MEDIK') }}</label>
                                                 <input type="text" name="saim_no" id="saim_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
             
                                                 @if ($errors->has('saim_no'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('saim_no') }}</strong>
+                                                    </span>
+                                                @endif
+            
+                                            </div>
+                                        </div>
+                                    </span>
+                                     <span>
+                                        <div class="pl-lg-4">
+                                            <div class="form-group{{ $errors->has('saim_no') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-name">{{ __('Jenis Kelamin') }}</label>
+                                                <input type="text" name="saim_no" id="saim_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+            
+                                                @if ($errors->has('saim_no'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('saim_no') }}</strong>
+                                                    </span>
+                                                @endif
+            
+                                            </div>
+                                        </div>
+                                    </span>
+                                  </div>
+                                  <div class="col">
+                                    <span>
+                                        <div class="pl-lg-4">
+                                            <div class="form-group{{ $errors->has('saim_no') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-name">{{ __('No. KTP') }}</label>
+                                                <input type="text" name="saim_no" id="saim_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+            
+                                                @if ($errors->has('saim_no'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('saim_no') }}</strong>
+                                                    </span>
+                                                @endif
+            
+                                            </div>
+                                        </div>
+                                         <div class="pl-lg-4">
+                                            <div class="form-group{{ $errors->has('no_sod') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-no_sod">{{ __('Alamat') }}</label>
+                                                <input type="text" name="no_sod" id="no_sod" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+            
+                                                @if ($errors->has('no_sod'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('no_sod') }}</strong>
                                                     </span>
                                                 @endif
             
@@ -176,7 +219,20 @@
                                     <span>
                                         <div class="pl-lg-4">
                                             <div class="form-group{{ $errors->has('no_sod') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-no_sod">{{ __('No. SOD') }}</label>
+                                                <label class="form-control-label" for="input-no_sod">{{ __('No. BPJS') }}</label>
+                                                <input type="text" name="no_sod" id="no_sod" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+            
+                                                @if ($errors->has('no_sod'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('no_sod') }}</strong>
+                                                    </span>
+                                                @endif
+            
+                                            </div>
+                                        </div>
+                                         <div class="pl-lg-4">
+                                            <div class="form-group{{ $errors->has('no_sod') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-no_sod">{{ __('Nama Pasien') }}</label>
                                                 <input type="text" name="no_sod" id="no_sod" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
             
                                                 @if ($errors->has('no_sod'))
@@ -189,225 +245,6 @@
                                         </div>
                                     </span>
                                   </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-5">
-                                    <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('customer_name') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-customer_name">{{ __('Customer name') }}</label>
-                                                <input type="text" name="customer_name" id="customer_name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-            
-                                                @if ($errors->has('customer_name'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('customer_name') }}</strong>
-                                                    </span>
-                                                @endif
-            
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('tax_no') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-tax_no">{{ __('Tax No') }}</label>
-                                                <input type="text" name="tax_no" id="tax_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-            
-                                                @if ($errors->has('tax_no'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('tax_no') }}</strong>
-                                                    </span>
-                                                @endif
-            
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('gid') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-gid">{{ __('GID') }}</label>
-                                                <input type="text" name="gid" id="gid" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-            
-                                                @if ($errors->has('gid'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('gid') }}</strong>
-                                                    </span>
-                                                @endif
-            
-                                            </div>
-                                        </div>
-                                    </span>
-                                     <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('jumlah_waktu') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-jumlah_waktu">{{ __('Jumlah waktu') }}</label>
-                                                <input type="text" name="jumlah_waktu" id="jumlah_waktu" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-            
-                                                @if ($errors->has('jumlah_waktu'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('jumlah_waktu') }}</strong>
-                                                    </span>
-                                                @endif
-            
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('jatuh_tempo') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-jumlah_waktu">{{ __('Jatuh Tempo') }}</label>
-                                                <input type="text" name="jatuh_tempo" id="jatuh_tempo" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                              <div style="display: none">
-                                                <input type="text" name="code_customer" id="code_customer" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                                <input type="text" name="printed" id="printed" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                             
-                                                <input type="text" name="changedby" id="changedby" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                                <input type="text" name="changeddate" id="changeddate" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                                <input type="text" name="createdby" id="createdby" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                                <input type="text" name="createddate" id="createddate" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                                <input type="text" name="approvedby" id="approvedby" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-                                            </div>
-                                                @if ($errors->has('jatuh_tempo'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('jatuh_tempo') }}</strong>
-                                                    </span>
-                                                @endif
-            
-                                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-                                        </div>
-                                    </span>
-                                    <span>
-                                        <div id="pogroup">
-                                            <div class="form-group" id="datapo1">
-                                              <div class="col-md-12 ">
-                                                <div class="col-md-4">
-                                                  <label>PO :</label>
-                                                </div>
-                                                <div class="pl-lg-10">
-                                                <table width="100%">
-                                                  <tbody><tr><td width="95%"><input type="" class="form-control" id="po_no" name="po_no[]" value=""></td>
-                                                      <td><button type="button" class="btn btn-success btn-xs" id="addPO"> + </button></td>
-                                                  </tr>
-                                                </tbody></table>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                    </span>
-                                  </div>
-                                  <div class="col">
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                                &nbsp;
-                                                <label for="" id="qty"></label>
-                                                <input style="display: none" type="text" name="qty_sim" id="qty_sim">
-                                            </div>
-                                        </div>
-                                      </span>
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                                &nbsp;
-                                                <label for="" id="price"></label>
-                                                <input style="display: none" type="text" name="price_sim" id="price_sim">
-                                            </div>
-                                        </div>
-                                      </span>
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                                &nbsp;
-                                            </div>
-                                        </div>
-                                      </span>
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                                &nbsp;
-                                            </div>
-                                        </div>
-                                      </span>
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                                &nbsp;
-                                            </div>
-                                        </div>
-                                      </span>
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                            </div>
-                                        </div>
-                                      </span>
-                                      <span>
-                                        <div class="pl-lg-4">
-                                            <div class="form-group">
-                                                &nbsp;
-                                            </div>
-                                        </div>
-                                      </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                          <div class="form-group{{ $errors->has('nama_barang') ? ' has-danger' : '' }}">
-                                              <label class="form-control-label" for="input-nama_barang">{{ __('Nama Barang') }}</label>
-                                              <select class="form-control" id="nama_barang" name="nama_barang[]">
-                                                  {{-- @foreach ($roles as $cb) --}}
-                                                  {{-- <option value="0">Nama barang</option> --}}
-                                                      {{-- @endforeach --}}
-                                                </select>
-                                          </div>
-                                      </div>
-                                    </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                          <div class="form-group{{ $errors->has('jumlah_barang') ? ' has-danger' : '' }}">
-                                              <label class="form-control-label" for="input-jumlah_barang">{{ __('Jumlah Barang') }}</label>
-                                              <input type="text" name="jumlah[]" id="jumlah" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Masukkan isi Qty sesuai dengan yang di SAI SIM.') }}" required autofocus>
-
-                                          </div>
-                                      </div>
-                                    </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                          <div class="form-group{{ $errors->has('code_material') ? ' has-danger' : '' }}">
-                                              <label class="form-control-label" for="input-code_material">{{ __('Code') }}</label>
-                                              <input type="text" name="code_material[]" id="code_material" readonly class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-
-                                          </div>
-                                      </div>
-                                    </span>
-                                    <span>
-                                        <div class="pl-lg-4">
-                                          <div class="form-group{{ $errors->has('unit') ? ' has-danger' : '' }}">
-                                              <label class="form-control-label" for="input-unit">{{ __('Unit') }}</label>
-                                              <input type="text" name="unit[]" id="unit" readonly class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-
-                                          </div>
-                                      </div>
-                                    </span>
-                                    <span>
-                                    <div class="col-md-12">
-                                        <div class="col-md-4">
-                                            <label>Harga :</label>
-                                        </div>
-                                        <div class="pl-lg-10">
-                                            <table width="100%">
-                                                <tbody><tr><td width="95%"><input type="text" class="form-control" id="harga" name="harga[]" placeholder="harga" value="0" min="0"></td>
-                                                    <td><button type="button" id="add" class="btn btn-success btn-xs">+</button></td>
-                                                </tr>
-                                                </tbody></table>
-                                        </div>
-                                    </div>
-                                    </span>
-                                    <span>
-                                        <div id="form"></div>
-                                    </span>
-                                  </div>
-                                  {{-- <div class="col">
-                                    <span>3 of 3</span>
-                                  </div> --}}
                                 </div>
                               </div>
 

@@ -149,34 +149,6 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-    <div class="wdt-loading-screen">
-
-        <div class="wdt-loading-phrases">
-
-            {{-- <div class="wdt-loading-phrase-category" data-category="default">
-                <div class="wdt-loading-phrase">Sedang mempersiapkan data...</div>
-                <div class="wdt-loading-phrase">Collection data...</div>
-                <div class="wdt-loading-phrase">Preparing...</div>
-                <div class="wdt-loading-phrase">done...</div>
-                <div class="wdt-loading-phrase">Calculating scores...</div>
-                <div class="wdt-loading-phrase">Finding best talented people...</div>
-                <div class="wdt-loading-phrase">Fixing responsive issues...</div>
-                <div class="wdt-loading-phrase">Painting office walls...</div>
-                <div class="wdt-loading-phrase">Coffee break...</div>
-                <div class="wdt-loading-phrase">Feeding cats...</div>
-                <div class="wdt-loading-phrase">Health check...</div>
-                <div class="wdt-loading-phrase">Storage check...</div>
-            </div> --}}
-
-            <div class="wdt-loading-phrase-category" data-category="profile">
-                <div class="wdt-loading-phrase">Checking system...</div>
-                <div class="wdt-loading-phrase">Preparing...</div>
-                <div class="wdt-loading-phrase">Async data SIM...</div>
-            </div>
-
-        </div>
-
-    </div>
     <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
         <div class="container-fluid">
             <!-- Toggler -->
@@ -254,7 +226,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">
-                            <i class="ni ni-tv-2 text-primary"></i> {{ __('FNC CONTROL') }}
+                            <i class="ni ni-tv-2 text-primary"></i> {{ __('SIMRS-MEDIK') }}
                         </a>
                     </li>
                 @role('administrator')
@@ -297,7 +269,7 @@
                             aria-expanded="true" aria-controls="navbar-examples">
                             <i class="fab fa-laravel" style="color: #f4645f;"></i>
                             <span class="nav-link-text"
-                                style="color: #f4645f;">{{ __('Transaksi') }}</span>
+                                style="color: #f4645f;">{{ __('MEDIC') }}</span>
                         </a>
 
                         <div class="collapse" id="navbar-saim">
@@ -360,7 +332,7 @@
             <div class="container-fluid">
                 <!-- Brand -->
                 <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
-                    href="{{ route('home') }}">FNC CONTROL</a>
+                    href="{{ route('home') }}">SIMRS-MEDIK</a>
                 <!-- User -->
                 <ul class="navbar-nav align-items-center d-none d-md-flex">
                     <li class="nav-item dropdown">
@@ -510,10 +482,10 @@
                         <div class="card-header border-0">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h3 class="mb-0">SAI Manual</h3>
+                                    <h3 class="mb-0">Monitoring SIMRS-MEDIK</h3>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <a href="#" class="btn btn-sm btn-success badge">SAI MANUAL</a>
+                                    {{-- <a href="#" class="btn btn-sm btn-success badge">SAI MANUAL</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -552,7 +524,7 @@
                             <div class="col-12">
                                 <div class="col-md-4"><br/><br/></div>
                                 @role('head finance|staff finance|manager finance')
-                                <a class="btn btn-sm btn-primary prevsprnt" style="color:white"> preview</a>
+                                {{-- <a class="btn btn-sm btn-primary prevsprnt" style="color:white"> preview</a> --}}
                                 @endrole
                                 @role('head finance|manager finance|staff finance')
                                     <button class="btn btn-success eventApproved dissaproveEvent" id="status_docs_att" data-sai=""> Approved</button>
@@ -562,1301 +534,8 @@
                             </div>
                         <br/>
 
-                        {{-- development wait css --}}
-                        <div class="card-footer py-4" id="wait-content">
-                            <nav class="d-flex justify-content-end" aria-label="...">
-                                <div class="col-lg-12">
-                                    <br>
-                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                        <tbody>
-                                            <tr>
-                                                <td width="70%"><b>
-                                                        <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                    </b></td>
-                                                <td width="30%" align="center" colspan="3"> <b>
-                                                    <font style="font-family: sans-serif;font-size: 22px;">INVOICE
-                                                    </font>
-                                            </b>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="70%"><b>
-                                                        <font style="font-family: sans-serif;font-size: 16px;">PT.
-                                                            Krisanthium Offset Printing</font>
-                                                    </b></td>
-                                                <td width="30%" align="center" colspan="3"><b>
-                                                        <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                    </b></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Jl. RUNGKUT
-                                                        INDUSTRI III NO. 19</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No Invoice
-                                                    </font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"> <div class="placeholder-item"></div></font>
-                                                    <input type="text" class="sai_target" style="display: none">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Rungkut
-                                                        Menanggal - Gunung Anyar, Surabaya</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Tanggal
-                                                    </font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"> <div class="placeholder-item"></div></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">NPWP :
-                                                        01.211.057.3-631.000</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">ID Pelanggan
-                                                    </font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"> <div class="placeholder-item"></div></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">+62 31
-                                                        8438182</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No Surat
-                                                        Jalan</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><div class="placeholder-item"></div></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="30%" valign="top">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No PO</font>
-                                                </td>
-                                                <td width="2%" valign="top" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" rowspan="2" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><div class="placeholder-item"></div></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;top:-7px">
-                                                        <b>Kepada<br></b></font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No SO</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><div class="placeholder-item"></div></font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" valign="bottom">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><div class="placeholder-item"></div>
-                                                        {{-- <br/> --}}
-                                                    <br>
-                                                    {{-- NPWP : --}}
-                                                    </font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><span id="Addressc"></span></font>
-                                                </td>
-                                                {{-- modify position alamat --}}
-                                                <font style="position: relative;top:232px;font-family: sans-serif;font-size: 14px;">
-                                                    {{-- City Sampora Cisauk, Tangerang --}}
-                                                    <p style="position: relative;top:-8px;font-family: sans-serif;font-size: 14px;">NPWP : &nbsp;&nbsp;<span id="npwp_customers"></p>
-                                                </font>
-                                                <td width="40%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">TAX No</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <div class="placeholder-item"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Jangka Waktu
-                                                        Pembayaran</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:                            </font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">
-                                                        &nbsp;&nbsp;<div class="placeholder-item"></div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hari
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Tanggal Jatuh
-                                                        Tempo</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <div class="placeholder-item"></div>
-                                                </td>
-                                            </tr>
-                                            <tr >
-                                                <td>
-                                                    <br>
-                                                    <font style="font-family: sans-serif;font-size: 14px;">UP</font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;left:5px">
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; AP HD
-                                                    </font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><b>Pengiriman Ke :</b></font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="25%" style="white-space: nowrap">
-                                                    <div style="position: relative;left:-223px">
-                                                    <font style="position: relative;top:35px;font-family: sans-serif;font-size: 14px;">
-                                                        <div class="placeholder-item"></div>
-                                                        </font>
-                                                        <br>
-                                                    <font style="position: relative;top:35px;font-family: sans-serif;font-size: 14px;">
-                                                        <div class="vbn">
-                                                            <div class="placeholder-item"></div>
-                                                        </div>
-                                                    </font>
-                                                </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table rules="rows" width="100%">
-                                        <tbody>
-                                            <tr>
-                                                <td width="1%" style="white-space:nowrap;padding-top: 0px;padding-left: 0px;border-bottom-width: 0px;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Telp</font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;left:7px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                        &nbsp;&nbsp; 001-803-442769 & 007-803-0114585</font>
-                                                        <br>
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Email</font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;left:1px">&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                            &nbsp;&nbsp; finance.ap.id@unilever.com</font>
-                                                </td>
-                                            </tr>
-                                                <td align="center" style="border-style:none">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- 25 baris -->
-                                    <table id="wait_saims" cellpadding="5" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr style="border: .05px solid #000;">
-                                            </tr>
-                                            <tr style="line-height:24px;">
-                                                <th align="left" style="font-family: sans-serif;font-size: 14px;" width="5%">No</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" style="font-family: sans-serif;font-size: 14px;" width="13%">PO Item</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" width="10%">Qty</th>
-                                                <th align="left" style="font-family: sans-serif;font-size: 14px;" width="7%">Satuan</th>
-                                                <th align="left" style="font-family: sans-serif;font-size: 14px;" width="31%">Nama Barang</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" width="19%">Harga Satuan</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" width="13%">Jumlah</th>
-                                            </tr>
-                                        </thead>
-                                        <tr style="border: .1px solid #000;border-style:solid">
-                                        </tr>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" width="100%" rules="rows">
-                                        <tbody>
-                                            <div id="placeholder-item"></div>
-                                           
-                                            <tr>
-                                                <font style="font-family: sans-serif;font-size: 3px;"><p style="border: 0.5px solid #000;margin-bottom:3px"></p></font>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="center" rowspan="7" valign="top">
-                                                    <font style="sans-serif;font-size: 13px;position:relative;left:-10px">Terbilang
-                                                        &nbsp; :</font>
-                                                </td>
-                                                <td align="left" width="44%" rowspan="7" valign="top">
-                                                    <font style="font-family: sans-serif;font-size: 13px"><div id="placeholder-item"></div></font>
-                                                </td>
-                                                <td align="left" rowspan="7" valign="top">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>JUMLAH</b>
-                                                    </font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><div class="placeholder-item"></div></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                        <b>DISCOUNT</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">.00</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>Down
-                                                            Payment</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">.00</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>PPh
-                                                            (IDR)</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">.00</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>PPN
-                                                            (IDR)</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><div class="placeholder-item"></div></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>TOTAL</b>
-                                                    </font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><div class="placeholder-item"></div>
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Pembayaran
-                                                        mohon ditransfer ke</font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Surabaya,
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">PT.
-                                                        Krisanthium Offset Printing</font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Hormat Kami,
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Bank</font>
-                                                </td>
-                                                <td align="left" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;:&nbsp;
-                                                    </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                        &nbsp;&nbsp;BCA</font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">No Rekening
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;:&nbsp;
-                                                    </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;&nbsp;
-                                                        8.220.981.038 </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Alamat</font>
-                                                </td>
-                                                <td align="left" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;:&nbsp;
-                                                    </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                        &nbsp;&nbsp;Kendangsari Industri No 2, Surabaya</font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">QF.
-                                                        KOP-FI-7.1.3-001 REV:00</font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">(Ratna Yani Astuty)</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"></font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Telp (031)
-                                                        8438182</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"></font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Email :
-                                                        ratna.astuty@krisanthium.com</font>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <br><br><br>
-
-                                </div>
-                            </nav>
-                        </div>
                         {{-- ended wait loading css --}}
-                        <div id="printableArea">
-                        <div class="card-footer py-4" id="result-exist">
-                            <nav class="d-flex justify-content-end" aria-label="...">
-                                <div class="col-lg-12">
-                                    <br>
-                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                        <tbody>
-                                            <tr>
-                                                <td width="70%"><b>
-                                                        <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                    </b></td>
-                                                <td width="30%" align="center" colspan="3"><b>
-                                                        <font style="font-family: sans-serif;font-size: 22px;">INVOICE
-                                                        </font>
-                                                    </b></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="70%"><b>
-                                                        <font style="font-family: sans-serif;font-size: 16px;">PT.
-                                                            Krisanthium Offset Printing</font>
-                                                    </b></td>
-                                                <td width="30%" align="center" colspan="3"><b>
-                                                        <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                    </b></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Jl. RUNGKUT
-                                                        INDUSTRI III NO. 19</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No Invoice
-                                                    </font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="no_sai"></span></font>
-                                                    <input type="text" class="sai_target" style="display: none">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Rungkut
-                                                        Menanggal - Gunung Anyar, Surabaya</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Tanggal
-                                                    </font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="tanggal"></span></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">NPWP :
-                                                        01.211.057.3-631.000</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">ID Pelanggan
-                                                    </font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="code_customers"></span></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">+62 31
-                                                        8438182</font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No Surat
-                                                        Jalan</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="no_surat_jln"></span></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="30%" valign="top">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No PO</font>
-                                                </td>
-                                                <td width="2%" valign="top" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" rowspan="2" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="no_po"></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;top:-7px">
-                                                        <b>Kepada<br></b></font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">No SO</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="no_sod"></font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2" valign="bottom">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><span id="customer_name"></span>
-                                                        {{-- <br/> --}}
-                                                    <br>
-                                                    {{-- NPWP : --}}
-                                                    </font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><span id="Addressc"></span></font>
-                                                </td>
-                                                {{-- modify position alamat --}}
-                                                <font style="position: relative;top:232px;font-family: sans-serif;font-size: 14px;">
-                                                    {{-- City Sampora Cisauk, Tangerang --}}
-                                                    <p style="position: relative;top:-8px;font-family: sans-serif;font-size: 14px;">NPWP : &nbsp;&nbsp;<span id="npwp_customers"></p>
-                                                </font>
-                                                <td width="40%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">TAX No</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="taxno"></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Jangka Waktu
-                                                        Pembayaran</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:                            </font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">
-                                                        &nbsp;&nbsp;<span id="jwp">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hari
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="50%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Tanggal Jatuh
-                                                        Tempo</font>
-                                                </td>
-                                                <td width="2%" align="center">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">:</font>
-                                                </td>
-                                                <td width="10%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;&nbsp;<span id="tjt"></font>
-                                                </td>
-                                            </tr>
-                                            <tr >
-                                                <td>
-                                                    <br>
-                                                    <font style="font-family: sans-serif;font-size: 14px;">UP</font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;left:5px">
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; AP HD
-                                                    </font>
-                                                </td>
-                                                <td width="30%">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"><b>Pengiriman Ke :</b></font>
-                                                </td>
-                                                <td width="10%" style="white-space:nowrap;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                </td>
-                                                <td width="25%" style="white-space: nowrap">
-                                                    <div style="position: relative;left:-223px">
-                                                    <font style="position: relative;top:35px;font-family: sans-serif;font-size: 14px;">
-                                                        <span id="customer_shipTo"></span>
-                                                        </font>
-                                                        <br>
-                                                    <font style="position: relative;top:35px;font-family: sans-serif;font-size: 14px;">
-                                                        <div class="vbn">
-                                                            <span id="Address_shipTo"></span>
-                                                        </div>
-                                                    </font>
-                                                </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table rules="rows" width="100%">
-                                        <tbody>
-                                            <tr>
-                                                <td width="1%" style="white-space:nowrap;padding-top: 0px;padding-left: 0px;border-bottom-width: 0px;">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"></font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Telp</font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;left:7px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                        &nbsp;&nbsp; 001-803-442769 & 007-803-0114585</font>
-                                                        <br>
-                                                    <font style="font-family: sans-serif;font-size: 14px;">Email</font>
-                                                    <font style="font-family: sans-serif;font-size: 14px;position: relative;left:1px">&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                            &nbsp;&nbsp; finance.ap.id@unilever.com</font>
-                                                </td>
-                                            </tr>
-                                                <td align="center" style="border-style:none">
-                                                    <font style="font-family: sans-serif;font-size: 14px;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- 25 baris -->
-                                    <table id="saim_manual_details" cellpadding="5" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr style="border: .05px solid #000;">
-                                            </tr>
-                                            <tr style="line-height:24px;">
-                                                <th align="left" style="font-family: sans-serif;font-size: 14px;" width="5%">No</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" style="font-family: sans-serif;font-size: 14px;" width="13%">PO Item</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" width="10%">Qty</th>
-                                                <th align="left" style="font-family: sans-serif;font-size: 14px;" width="7%">Satuan</th>
-                                                <th align="left" style="font-family: sans-serif;font-size: 14px;" width="31%">Nama Barang</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" width="19%">Harga Satuan</th>
-                                                <th align="center" style="font-family: sans-serif;font-size: 14px;" width="13%">Jumlah</th>
-                                            </tr>
-                                        </thead>
-                                        <tr style="border: .1px solid #000;border-style:solid">
-                                        </tr>
-                                        <tbody>
-
-                                            {{-- start mocks --}}
-                                            {{-- <tr>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>1</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>3242342342</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>6000</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>PCS</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>Bale Label
-                                                        Sampoerna A Volution 100g DHX 20 SSL (63.G068)</font>
-                                                </td>
-                                                <td align='right' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>2311</font>
-                                                </td>
-                                                <td align='right' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>43.58</font>
-                                                </td>
-                                                <tr style="border: .05px dotted #000;">
-                                                </tr>
-                                            </tr>
-                                            <tr>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>2</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>3242342342</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>6000</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>PCS</font>
-                                                </td>
-                                                <td align='left' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>Bale Label
-                                                        Sampoerna A Volution 100g DHX 20 SSL (63.G068)</font>
-                                                </td>
-                                                <td align='right' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>2311</font>
-                                                </td>
-                                                <td align='right' valign='top'>
-                                                    <font style='font-family: sans-serif;font-size: 13px;'>43.58</font>
-                                                </td>
-                                                <tr style="border: .05px dotted #000;">
-                                                </tr>
-                                            </tr> --}}
-
-                                            {{-- end mocks --}}
-                                            {{-- <table cellpadding="0" cellspacing="0" width="100%" rules="rows">
-                                                <tbody>
-                                                 
-                                                </tbody>
-                                            </table> --}}
-                                            
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" colspan="7">
-                                                    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            {{-- <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr> --}}
-                                            {{-- <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr> --}}
-                                            {{-- <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align='center' colspan='6'>
-                                                    <font style='font-family: sans-serif;font-size: 14px;'>&nbsp;</font>
-                                                </td>
-                                            </tr> --}}
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" width="100%" rules="rows">
-                                        <tbody>
-                                           
-                                            <tr>
-                                                <font style="font-family: sans-serif;font-size: 3px;"><p style="border: 0.5px solid #000;margin-bottom:3px"></p></font>
-                                            </tr>
-                                        
-                                              {{-- <td align='center' valign='top'>
-                                                <font style='font-family: sans-serif;font-size: 13px;'>1</font>
-                                            </td>
-                                            <td align='center' valign='top'>
-                                                <font style='font-family: sans-serif;font-size: 13px;'>83500.0</font>
-                                            </td>
-                                            <td align='center' valign='top'>
-                                                <font style='font-family: sans-serif;font-size: 13px;'>PCS</font>
-                                            </td>
-                                            <td align='left' valign='top'>
-                                                <font style='font-family: sans-serif;font-size: 13px;'>Bale Label
-                                                    Sampoerna A Volution 100g DHX 20 SSL (63.G068)</font>
-                                            </td>
-                                            <td align='right' valign='top'>
-                                                <font style='font-family: sans-serif;font-size: 13px;'>43.58</font>
-                                            </td>
-                                            <td align='right' valign='top'>
-                                                <font style='font-family: sans-serif;font-size: 13px;'>3,630,013.50
-                                                </font>
-                                            </td> --}}
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="center" rowspan="7" valign="top">
-                                                    <font style="sans-serif;font-size: 13px;position:relative;left:-10px">Terbilang
-                                                        &nbsp; :</font>
-                                                </td>
-                                                <td align="left" width="44%" rowspan="7" valign="top">
-                                                    <font style="font-family: sans-serif;font-size: 13px"><span id="terbilang"></span></font>
-                                                </td>
-                                                <td align="left" rowspan="7" valign="top">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>JUMLAH</b>
-                                                    </font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><span id="result_cost"></span></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                        <b>DISCOUNT</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">.00</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>Down
-                                                            Payment</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">.00</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>PPh
-                                                            (IDR)</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">.00</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>PPN
-                                                            (IDR)</b></font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><span id="PPN"></span></font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="5%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>&nbsp;</b>
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b>TOTAL</b>
-                                                    </font>
-                                                </td>
-                                                <td align="right" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">:</font>
-                                                </td>
-                                                <td align="right" width="25%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"><b><span id="total_akhir"></span></b>
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Pembayaran
-                                                        mohon ditransfer ke</font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Surabaya,
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">PT.
-                                                        Krisanthium Offset Printing</font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Hormat Kami,
-                                                    </font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Bank</font>
-                                                </td>
-                                                <td align="left" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;:&nbsp;
-                                                    </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                        &nbsp;&nbsp;BCA</font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">No Rekening
-                                                    </font>
-                                                </td>
-                                                <td align="left" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;:&nbsp;
-                                                    </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;&nbsp;
-                                                        8.220.981.038 </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" width="15%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Alamat</font>
-                                                </td>
-                                                <td align="left" width="1%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;:&nbsp;
-                                                    </font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">
-                                                        &nbsp;&nbsp;Kendangsari Industri No 2, Surabaya</font>
-                                                </td>
-                                                <td align="left" colspan="2">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">&nbsp;</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">QF.
-                                                        KOP-FI-7.1.3-001 REV:00</font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">(Ratna Yani Astuty)</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"></font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Telp (031)
-                                                        8438182</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" valign="top" colspan="4">
-                                                    <font style="font-family: sans-serif;font-size: 13px;"></font>
-                                                </td>
-                                                <td align="left" width="41%">
-                                                    <font style="font-family: sans-serif;font-size: 13px;">Email :
-                                                        ratna.astuty@krisanthium.com</font>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <br><br><br>
-
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                    </div>
+                </div>
                 </div>
             </div>
 
@@ -1864,29 +543,29 @@
                 <div class="row align-items-center justify-content-xl-between">
                     <div class="col-xl-6">
                         <div class="copyright text-center text-xl-left text-muted">
-                            © 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
-                                target="_blank">Creative Tim</a> &amp;
-                            <a href="https://www.updivision.com" class="font-weight-bold ml-1"
+                            © 2022 <a href="" class="font-weight-bold ml-1"
+                                target="_blank">DNX Developer</a> &amp;
+                            <a href="" class="font-weight-bold ml-1"
                                 target="_blank">Updivision</a>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                                <a href="" class="nav-link" target="_blank">Creative Tim</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.updivision.com" class="nav-link" target="_blank">Updivision</a>
+                                <a href="" class="nav-link" target="_blank">Updivision</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link"
+                                <a href="" class="nav-link"
                                     target="_blank">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                                <a href="" class="nav-link" target="_blank">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
+                                <a href=""
                                     class="nav-link" target="_blank">MIT License</a>
                             </li>
                         </ul>
@@ -2001,8 +680,6 @@
             searching: false,
             stateDuration: -1,
             serverSide: true,
-            scrollY: '189vh',
-            scrollX: '235vh',
             info: true,
             scrollCollapse: true,
             retrieve: true,
@@ -2055,12 +732,10 @@
             columns: [{
                     data: 'sai',
                     name: 'SAI',
-                    width: "155px"
                 },
                 {
                     data: 'NamaCus',
                     name: 'Customer',
-                    width: "315px"
                 },
                 {
                     data: 'ApprovedBy',
@@ -2246,8 +921,6 @@
             searching: false,
             stateDuration: -1,
             serverSide: true,
-            scrollY: '189vh',
-            scrollX: '235vh',
             info: true,
             scrollCollapse: true,
             retrieve: true,
@@ -2299,12 +972,10 @@
             columns: [{
                     data: 'sai',
                     name: 'SAI',
-                    width: "155px"
                 },
                 {
                     data: 'NamaCus',
                     name: 'Customer',
-                    width: "315px"
                 },
                 {
                     data: 'ApprovedBy',
@@ -2334,8 +1005,6 @@
                     searching: false,
                     stateDuration: -1,
                     serverSide: true,
-                    scrollY: '189vh',
-                    scrollX: '235vh',
                     info: true,
                     scrollCollapse: true,
                     retrieve: true,
@@ -2404,17 +1073,17 @@
 
                     // console.log("btn_app ", data)
                     if(data.response.status_docs == "approved"){
-                        $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
+                        $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Belum Selesai</button>");
                         // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
                     }  
 
                             if(data.response.status_docs == "open"){
-                                $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
+                                $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Selesai</button>");
                                 // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
                             }  
 
                             if(data.response.status_docs == "dissaproved"){
-                                $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
+                                $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Selesai</button>");
                                 // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
                             } 
                         }
@@ -2666,17 +1335,17 @@
 
                         // console.log("btn_app ", data)
                         if(data.response.status_docs == "approved"){
-                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
+                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Belum Selesai</button>");
                             // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
                         }  
 
                         if(data.response.status_docs == "open"){
-                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
+                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Selesai</button>");
                             // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
                         }  
                         
                         if(data.response.status_docs == "dissaproved"){
-                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
+                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Selesai</button>");
                             // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
                         } 
                     });
@@ -2729,17 +1398,17 @@
                         // console.log("btn_dis", data)
 
                         if(data.response.status_docs == "approved"){
-                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
+                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Belum selesai</button>");
                             // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
                         }  
 
                         if(data.response.status_docs == "open"){
-                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
+                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Selesai</button>");
                             // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
                         }  
                         
                         if(data.response.status_docs == "dissaproved"){
-                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
+                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Selesai</button>");
                             // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
                         } 
                     });

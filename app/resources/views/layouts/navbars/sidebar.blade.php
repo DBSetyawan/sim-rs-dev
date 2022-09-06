@@ -80,7 +80,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('FNC CONTROL') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('SIMRS-MEDIK') }}
                     </a>
                 </li>
                 @role('administrator')
@@ -118,10 +118,10 @@
                 <li class="nav-item">
                         <a class="nav-link" href="#navbar-saim" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                             <i class="ni ni-credit-card" style="color: #f4645f;"></i>
-                            <span class="nav-link-text" style="color: #f4645f;">{{ __('Transaksi') }}</span>
+                            <span class="nav-link-text" style="color: #f4645f;">{{ __('MEDIC') }}</span>
                     </a>
 
-                    <div class="collapse" id="navbar-saim">
+                    {{-- <div class="collapse" id="navbar-saim">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('saims.index') }}">
@@ -144,7 +144,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </li>
                 {{-- <li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">
                     <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
