@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'basis-grotesque-med';
+    font-style: normal;
+    src: url('https://vpn.krisanthium.com:7070/kop/public/css/KOP-css/190712124858Basis-Grotesque-Med.eot');
+    src: local('basis-grotesque-med'), url('https://vpn.krisanthium.com:7070/kop/public/css/KOP-css/190712124858Basis-Grotesque-Med.eot') format('embedded-opentype'), url('https://vpn.krisanthium.com:7070/kop/public/css/KOP-css/190712124858Basis-Grotesque-Med.woff') format('woff');
+}
+
+.basis-grotesque-med {
+    font-family: 'basis-grotesque-med' !important;
+}
+
+@font-face {
+    font-family: 'tiempos-black';
+    font-style: normal;
+    src: url('/blog/wp-content/uploads/useanyfont/191024105553Tiempos-Black.eot');
+    src: local('tiempos-black'), url('/blog/wp-content/uploads/useanyfont/191024105553Tiempos-Black.eot') format('embedded-opentype'), url('/blog/wp-content/uploads/useanyfont/191024105553Tiempos-Black.woff') format('woff');
+}
+
+.tiempos-black {
+    font-family: 'tiempos-black' !important;
+}
+
+@font-face {
+    font-family: 'tiempos-headline-med';
+    font-style: normal;
+    src: url('/blog/wp-content/uploads/useanyfont/191025122823Tiempos-Headline-Med.eot');
+    src: local('tiempos-headline-med'), url('/blog/wp-content/uploads/useanyfont/191025122823Tiempos-Headline-Med.eot') format('embedded-opentype'), url('/blog/wp-content/uploads/useanyfont/191025122823Tiempos-Headline-Med.woff') format('woff');
+}
+
+.tiempos-headline-med {
+    font-family: 'tiempos-headline-med' !important;
+}
+
+h3,
+h4,
+h5 {
+    font-family: 'basis-grotesque-med' !important;
+}
+
+h1 {
+    font-family: 'tiempos-black' !important;
+}
+
+h2 {
+    font-family: 'basis-grotesque-med' !important;
+}

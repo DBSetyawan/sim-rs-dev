@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="181px" height="151px" viewBox="0 0 181 151" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 21 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="i5-homepage-hovers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02-02-homepage-hovers" transform="translate(-182.000000, -308.000000)">
+            <g id="hover-mailer" transform="translate(42.000000, 249.000000)">
+                <g id="Group-21-Copy" transform="translate(141.000000, 60.000000)">
+                    <polygon id="Path-2" fill="#1BDFC7" points="104.298875 116.59663 179.395265 60.305834 179.395265 90.0674595 104.310874 146.096683"></polygon>
+                    <g id="Group" transform="translate(0.000000, 13.071672)" stroke="#233E98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline id="Stroke-1" points="172.786239 73.6260819 97.6371604 130.165126 0.431631399 86.8864915"></polyline>
+                        <polygon id="Stroke-3" points="172.661836 43.5860478 97.5127577 100.125092 0.307228669 56.8464573 75.4563072 0.307412969"></polygon>
+                        <path d="M97.6372218,130.165188 L97.5125119,100.124846" id="Stroke-5"></path>
+                        <path d="M0.431631399,86.88643 L0.306921502,56.8460887" id="Stroke-7"></path>
+                        <path d="M172.661836,43.5860478 L172.786546,73.6263891" id="Stroke-9"></path>
+                        <path d="M81.2320956,2.97061433 L6.08301706,59.5096587" id="Stroke-13"></path>
+                        <path d="M91.7952082,97.4629352 L166.944287,40.9238908" id="Stroke-15"></path>
+                    </g>
+                    <path d="M5,126.23315 L45.7436469,98 M15.1436465,137.2221 L55.8872935,108.98895 M25.4563538,148.21105 L66.2000008,119.80884" id="Stroke-9" stroke="#F9CF57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <polygon id="Stroke-9" stroke="#F17EA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(126.230308, 34.916973) rotate(-240.000000) translate(-126.230308, -34.916973) " points="112.230583 15.7282369 97.6253088 54.0854592 154.835308 54.1057096"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

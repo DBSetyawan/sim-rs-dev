@@ -1,0 +1,44 @@
+version: "3"
+services:
+  server:
+    container_name: sim-server
+    image: nginx:alpine
+    ports:
+      - '${FORWARD_APP_PORT:-827}:827'
+    volumes:
+      - ./app:/var/www/html/
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - web
+  
+  web:
+    build :
+      context: ./docker
+      dockerfile: php.dockerfile
+    container_name: sim-app
+    image: simdev-php
+    restart: always
+    working_dir: /var/www
+    volumes:
+      - './app:/var/www'
+  
+  mysql:
+    image: mysql:8.0.1
+    container_name: sim-db-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    volumes:
+      - ./database:/var/lib/mysql
+    ports:
+      - 8051:3306
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: sim-pmadb
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8052:80"
+    restart: always

@@ -1,0 +1,53 @@
+.et_pb_module.et_pb_dmb_breadcrumbs ol {
+    list-style:none !important;
+    overflow:hidden;
+	padding: 0 !important;
+}
+.et_pb_module.et_pb_dmb_breadcrumbs li {
+    display:inline-block !important;
+	list-style: none !important;
+	float: none !important;
+    vertical-align:baseline;
+	line-height: 1em;
+}
+.et_pb_module.et_pb_dmb_breadcrumbs li:before {
+	display: inline !important;
+}
+
+/* Font icons */
+.et_pb_module.et_pb_dmb_breadcrumbs li+li:before,
+.et_pb_module.et_pb_dmb_breadcrumbs li:first-child a:before {
+	font-family: 'ETModules';
+	position: relative;
+	bottom: -0.11em;
+	content: attr(data-icon);
+}
+
+/* Breadcrumb spacing */
+.et_pb_module.et_pb_dmb_breadcrumbs li span,
+.et_pb_module.et_pb_dmb_breadcrumbs li+li:before,
+.et_pb_module.et_pb_dmb_breadcrumbs li:first-child a:before {
+	margin: 0 6px 0 0;
+}
+.et_pb_dmb_breadcrumbs li a[data-icon='']:before { 
+	margin: 0 !important; 
+}
+.et_pb_module.et_pb_dmb_breadcrumbs li span:empty { 
+	display: none; 
+}
+
+/* Show the module now that the CSS has loaded */
+.et_pb_module.et_pb_dmb_breadcrumbs  { 
+	visibility: visible !important;
+}
+
+/* Fix styling of global breadcrumbs on Extra layouts */
+.et_extra_layout #db_breadcrumbs_header div.et_pb_row {
+	padding: 2% 0;
+	min-width: auto;
+	margin: auto !important;
+}
+.et_extra_layout #db_breadcrumbs_header div.et_pb_column {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}

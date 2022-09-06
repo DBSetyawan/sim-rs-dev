@@ -1,0 +1,26 @@
+{
+    "pk": "2798659626004463336",
+    "id": "2798659626004463336_2045525181",
+    "code": "CbW1hoXOT7o",
+    "taken_at": "2022-03-21T07:04:01+00:00",
+    "media_type": 1,
+    "product_type": "story",
+    "thumbnail_url": "https://scontent-iad3-2.cdninstagram.com/v/t51.2885-15/276962213_419040316698449_2029579791118163194_n.jpg?stp=dst-jpg_e35&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=105&_nc_ohc=ApHiWSVPUvkAX_U_Qe8&edm=AO5kzY0BAAAA&ccb=7-4&ig_cache_key=Mjc5ODY1OTYyNjAwNDQ2MzMzNg%3D%3D.2-ccb7-4&oh=00_AT-IAqItxkgbjk8jkZ9-Bjx2G09ULdBAkNpo8-eRd9Tm4Q&oe=623AB882&_nc_sid=560b88",
+    "user": {
+      "pk": "2045525181",
+      "username": "zamzam_techno",
+      "full_name": "Developers Website",
+      "profile_pic_url": "https://scontent-iad3-2.cdninstagram.com/v/t51.2885-19/15538938_1375720632460084_6465936022743023616_a.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=104&_nc_ohc=9EyJ8QNZGwoAX87mCrx&edm=AO5kzY0BAAAA&ccb=7-4&oh=00_AT9VxQTPFXQ7N5Wpeo3aJNZAhb59bjOEXi_Yyd5K4Hr8wA&oe=623E5305&_nc_sid=560b88",
+      "profile_pic_url_hd": null,
+      "is_private": false,
+      "stories": []
+    },
+    "video_url": null,
+    "video_duration": 0,
+    "mentions": [],
+    "links": [],
+    "hashtags": [],
+    "locations": [],
+    "stickers": [],
+    "medias": []
+  }
