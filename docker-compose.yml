@@ -1,44 +1,65 @@
 version: "3"
 services:
-  server:
-    container_name: sim-server
-    image: nginx:alpine
-    ports:
-      - '${FORWARD_APP_PORT:-827}:827'
-    volumes:
-      - ./app:/var/www/html/
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-    links:
-      - web
+    webserver:
+      build:
+          context: ./docker/nginx
+          dockerfile: nginx-ssl.dockerfile
+      image : simsrs-srvmedikv2
+      restart: unless-stopped
+      tty: true
+      ports:
+        - '${FORWARD_APP_PORT:-127}:127'
+        - '443:443'
+      volumes:
+        - './${APP_DOCROOT}:/var/www'
+        - './docker/nginx/conf.d:/etc/nginx/conf.d'
+      depends_on:
+        - app
+      networks:
+        - npnet
   
-  web:
-    build :
-      context: ./docker
-      dockerfile: php.dockerfile
-    container_name: sim-app
-    image: simdev-php
-    restart: always
-    working_dir: /var/www
-    volumes:
-      - './app:/var/www'
-  
-  mysql:
-    image: mysql:8.0.1
-    container_name: sim-db-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    restart: always
-    volumes:
-      - ./database:/var/lib/mysql
-    ports:
-      - 8051:3306
-  pma:
-    image: phpmyadmin/phpmyadmin
-    container_name: sim-pmadb
-    environment:
-      PMA_HOST: mysql
-      PMA_USER: root
-      PMA_PASSWORD: root
-    ports:
-      - "8052:80"
-    restart: always
+    app:
+      build:
+        args:
+          user: bms-del087
+          uid: 1000
+        context: ./docker
+        dockerfile: php.dockerfile
+      image: rs/php-fpm:production
+      restart: unless-stopped
+      ports:
+      - '${FORWARD_FPM_PORT:-9004}:9000'
+      tty: true
+      environment:
+        TZ: '${TZ:-Asia/Jakarta}'
+      volumes:
+        - './${APP_DOCROOT}:/var/www'
+      working_dir: /var/www
+      networks:
+        - npnet
+      
+    mysql:
+      image: mysql:8.0.1
+      container_name: sim-db-mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+      restart: always
+      volumes:
+        - ./database:/var/lib/mysql
+      ports:
+        - 8051:3306
+    pma:
+      image: phpmyadmin/phpmyadmin
+      container_name: sim-pmadb
+      environment:
+        PMA_HOST: mysql
+        PMA_USER: root
+        PMA_PASSWORD: root
+      ports:
+        - "8052:80"
+      restart: always
+
+networks:
+  npnet:
+    name: npnet
+    driver: bridge

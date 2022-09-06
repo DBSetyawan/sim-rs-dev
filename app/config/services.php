@@ -20,12 +20,6 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
-    'google' => [
-        'client_id' => '351486149612-s08pd37g9lddg826q0u9tdp1icdpsoer.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'https://vpn.krisanthium.com:7070/kop/public/auth/google/callback',
-    ],
-
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

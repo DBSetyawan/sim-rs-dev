@@ -12,8 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'public/*',
-        '/KOP-notification-handler',
-        'https://translate.google.com/*'
+        //
     ];
 }

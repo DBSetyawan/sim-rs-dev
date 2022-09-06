@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'PT. Krisanthium Offset Printing'),
+    'name' => env('APP_NAME', 'SAIM application'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,8 +51,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-
-    'url' => env('APP_URL', 'https://vpn.krisanthium.com:7070/kop/public'),
+    'url' => env('APP_URL', 'http://10.0.76.119:8988/public'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -80,7 +79,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +92,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'gb',
+    'fallback_locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +105,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en',
+    'faker_locale' => 'Asia/Bangkok',
 
     /*
     |--------------------------------------------------------------------------
@@ -171,10 +170,12 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        App\Providers\BroadcastServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Mews\Captcha\CaptchaServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Riskihajar\Terbilang\TerbilangServiceProvider::class,
 
     ],
 
@@ -188,14 +189,10 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-    'midtrans_client_key'=>env('MIDTRANS_CLIENT_KEY'),
-    'midtrans_server_key'=>env('MIDTRANS_SERVER_KEY'),
-    'midtrans_production'=>env('MIDTRANS_PRODUCTION'),
 
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
-        'OrderCustomers' => App\Helpers\ClassBuilder::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
@@ -233,8 +230,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Captcha' => Mews\Captcha\Facades\Captcha::class,
-        'Carbon' => Illuminate\Support\Carbon::class,
+        'Terbilang' => Riskihajar\Terbilang\Facades\Terbilang::class,
     ],
 
 ];

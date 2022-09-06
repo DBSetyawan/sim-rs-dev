@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Assetsuser;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
-Broadcast::channel('transaction-private.{dt}', function ($user, Assetsuser $component) {
-    return $user->id === $component->order_to;
+
+Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
 });

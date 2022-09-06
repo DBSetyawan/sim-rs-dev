@@ -52,8 +52,8 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => false,
@@ -62,13 +62,14 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        'KOP_backend' => array(
+
+        'KOP_sync' => array(
             'driver'    => 'mysql',
-            'host'      => '192.168.88.99',
-            'port'      => '3306',
-            'database'  => 'kop-backend',
-            'username'  => 'maria',
-            'password'  => 'maria123',
+            'host'      => '192.168.88.5',
+            'port' => '3306',
+            'database'  => 'kristest',
+            'username'  => 'root',
+            'password'  => '19K23O15P',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'unix_socket' => '',
@@ -76,10 +77,8 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            // 'options' => extension_loaded('pdo_mysql') ? array_filter([
-            //     PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            // ]) : [],
         ),
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

@@ -1,9 +1,9 @@
-# Dockerfile for creating baseline php-fpm 7.4 image with dev+net tools
-# Prepared by awicaksi@gmail.com
-
 FROM php:7.4.30-fpm-alpine3.15 AS stage0
 
 LABEL maintainer='daniel'
+
+ARG user
+ARG uid
 
 RUN apk update && apk add --no-cache \
     libpng-dev \
@@ -15,6 +15,8 @@ RUN apk update && apk add --no-cache \
     curl
 
 RUN apk add git vim busybox-extras procps net-tools iputils 
+
+RUN apk add --update nodejs npm
 
 RUN rm -rf /var/cache/apk/*
 
