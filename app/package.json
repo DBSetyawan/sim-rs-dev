@@ -21,5 +21,8 @@
         "sass": "^1.32.11",
         "sass-loader": "^12.1.0",
         "webpack": "^5.50.0"
+    },
+    "dependencies": {
+        "@creative-tim-official/argon-dashboard-free": "^1.2.0"
     }
 }

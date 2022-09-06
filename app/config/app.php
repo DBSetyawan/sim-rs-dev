@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'SAIM application'),
+    'name' => env('APP_NAME', 'SIM REKAM MEDIK'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'development'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,9 +51,10 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-    'url' => env('APP_URL', 'http://10.0.76.119:8988/public'),
+    'url' => env('APP_URL', 'http://10.0.76.119:8988'),
 
-    'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL', 'http://10.0.76.119:8988'),
+    'vpn' => env('VPN', 'http://10.0.76.119:8988'),
 
     /*
     |--------------------------------------------------------------------------

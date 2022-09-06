@@ -1,20 +1,16 @@
 version: "3"
 services:
     webserver:
-      build:
-          context: ./docker/nginx
-          dockerfile: nginx-ssl.dockerfile
-      image : simsrs-srvmedikv2
+      image:  nginx:alpine
+      container_name: server-nginx
       restart: unless-stopped
       tty: true
       ports:
         - '${FORWARD_APP_PORT:-127}:127'
-        - '443:443'
       volumes:
         - './${APP_DOCROOT}:/var/www'
         - './docker/nginx/conf.d:/etc/nginx/conf.d'
-      depends_on:
-        - app
+        - './docker/nginx/ssl/:/etc/nginx/ssl/'
       networks:
         - npnet
   
@@ -25,6 +21,7 @@ services:
           uid: 1000
         context: ./docker
         dockerfile: php.dockerfile
+      container_name: simrs-dev-app
       image: rs/php-fpm:production
       restart: unless-stopped
       ports:
