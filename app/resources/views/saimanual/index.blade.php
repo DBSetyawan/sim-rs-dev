@@ -2,7 +2,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,15 +11,15 @@
     <title>{{ config('app.name', 'Argon Dashboard') }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
     <!-- Favicon -->
-    <link href="{{ URL::asset('argon') }}/img/logoKOPfooter.PNG" rel="icon" type="image/png">
+    <link href="{{ asset('argon') }}/img/logoKOPfooter.jpeg" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
-    <link href="{{ URL::asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-    <link href="{{ URL::asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
         rel="stylesheet">
     <!-- Argon CSS -->
-    <link type="text/css" href="{{ URL::asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+    <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-laravel" />
@@ -50,8 +51,8 @@
     <meta property="og:site_name" content="Creative Tim" />
     <!-- Google Tag Manager -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
-    <link rel="stylesheet" href="{{ URL::asset('wdt/wdtLoading.css')}}"/>
-    <script type="text/javascript" src="{{ URL::asset('wdt/wdtLoading.js') }}"></script>
+    {{-- <link rel="stylesheet" href="{{ asset('wdt/wdtLoading.css')}}"/>
+    <script type="text/javascript" src="{{ asset('wdt/wdtLoading.js') }}"></script> --}}
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -185,7 +186,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="{{ route('home') }}">
-                <img src="{{ URL::asset('argon') }}/img/logoKOPfooter.PNG" class="navbar-brand-img" alt="...">
+                <img src="{{ asset('argon') }}/img/logoKOPfooter.jpeg" class="navbar-brand-img" alt="...">
             </a>
             <!-- User -->
             <ul class="nav align-items-center d-md-none">
@@ -195,7 +196,7 @@
                         <div class="media align-items-center">
                             <span class="avatar avatar-sm rounded-circle">
                                 <img alt="Image placeholder"
-                                    src="{{ URL::asset('argon') }}/img/logo34.png">
+                                    src="{{ asset('argon') }}/img/logo34.png">
                             </span>
                         </div>
                     </a>
@@ -235,7 +236,7 @@
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="{{ route('home') }}">
-                                <img src="{{ URL::asset('argon') }}/img/brand/blue.png">
+                                <img src="{{ asset('argon') }}/img/brand/blue.png">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
@@ -368,7 +369,7 @@
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
                                     <img alt="Image placeholder"
-                                        src="{{ URL::asset('argon') }}/img/logo34.png">
+                                        src="{{ asset('argon') }}/img/logo34.png">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
@@ -1894,8 +1895,8 @@
             </footer>
         </div>
     </div>
-    <script src="{{ URL::asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="{{ URL::asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -1913,8 +1914,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Argon JS -->
-    <script src="{{ URL::asset('argon') }}/js/argon.js?v=1.0.0"></script>
-    <script src="{{ URL::asset('js/shortlen.js') }}"></script>
+    <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+    <script src="{{ asset('js/shortlen.js') }}"></script>
 
     <script>
         $("#result-exist").show();
@@ -2082,9 +2083,9 @@
         //     speed: 1200
         // });
 
-        setTimeout(function() {
-            wdtLoading.done();
-        }, 6310);
+        // setTimeout(function() {
+        //     wdtLoading.done();
+        // }, 6310);
         
 
         async function getDetailSalesInvoice(dataform) {

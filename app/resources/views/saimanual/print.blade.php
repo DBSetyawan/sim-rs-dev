@@ -639,8 +639,8 @@
             </td>
         </tr>
     </table>
-    <script src="{{ URL::asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
     @stack('js')
-    <script src="{{ URL::asset('argon') }}/js/argon.js?v=1.0.0"></script>
+    <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
 </body>
 </html>

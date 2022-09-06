@@ -15,7 +15,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="#">
-                                    <img src="{{ URL::asset('argon') }}/img/logo34.png" class="rounded-circle">
+                                    <img src="{{ asset('argon') }}/img/logo34.png" class="rounded-circle">
                                 </a>
                             </div>
                         </div>

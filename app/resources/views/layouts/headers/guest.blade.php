@@ -17,14 +17,14 @@
                         <div class="col-lg-5 col-md-7">
                             <div class="card bg-gradient-yellow shadow border-0">
                                 <div class="card-header bg-transparent pb-5">
-                                    <div class="text-muted text-center mt-2 mb-3"><small><img src="{{ URL::asset('argon') }}/img/logoKOPfooter.PNG" width="11%" height="7%" rel="icon" type="image/png" alt=""> <b class="text-muted col-md-5">{{ __('KOP SAIM-v2.1') }}</b></small></div>
+                                    <div class="text-muted text-center mt-2 mb-3"><small><img src="{{ asset('argon') }}/img/logoKOPfooter.jpeg" width="11%" height="7%" rel="icon" type="image/png" alt=""> <b class="text-muted col-md-5">{{ __('KOP SAIM-v2.1') }}</b></small></div>
                                     <div class="btn-wrapper text-center">
                                         {{-- <a href="#" class="btn btn-neutral btn-icon">
-                                            <span class="btn-inner--icon"><img src="{{ URL::asset('argon') }}/img/icons/common/github.svg"></span>
+                                            <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/github.svg"></span>
                                             <span class="btn-inner--text">{{ __('Github') }}</span>
                                         </a>
                                         <a href="#" class="btn btn-neutral btn-icon">
-                                            <span class="btn-inner--icon"><img src="{{ URL::asset('argon') }}/img/icons/common/google.svg"></span>
+                                            <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
                                             <span class="btn-inner--text">{{ __('Google') }}</span>
                                         </a> --}}
                                         <small>
