@@ -386,47 +386,19 @@
                         })
 
                     var formData = {  
-                        'saim_no'     : $('input[name=saim_no]').val(),
-                        'no_sod'     : $('input[name=no_sod]').val(),
-                        'customer_name'       : $('input[name=customer_name]').val(),
-                        'tax_no'           : $('input[name=tax_no]').val(),
-                        'gid'       : $('input[name=gid]').val(),
-                        'Code'       : $('input[name=code_customer]').val(),
-                        'printed'       : $('input[name=printed]').val(),
-                        'changedby'       : $('input[name=changedby]').val(),
-                        'changeddate'       : $('input[name=changeddate]').val(),
-                        'createdby'       : $('input[name=createdby]').val(),
-                        'createddate'       : $('input[name=createddate]').val(),
-                        'approvedby'       : $('input[name=approvedby]').val(),
-                        'jumlah_waktu'    : $('input[name=jumlah_waktu]').val(),
-                        'qtyafkir'           : $('input[name=jatuh_tempo]').val(),
-                        'toleransiqt'       : $('input[name=nama_barang]').val(),
-                        'sim_check_qty'       : $('input[name=qty_sim]').val(),
-                        'price_sim'       : $('input[name=price_sim]').val(),
-                        };
+                        'no_rekamedik'     : $('input[name=no_rekamedik]').val(),
+                        'no_bpjs'     : $('input[name=no_bpjs]').val(),
+                        'nama_pasien'       : $('input[name=nama_pasien]').val(),
+                        'no_ktp'           : $('input[name=no_ktp]').val(),
+                        'jenis_kelamin'       : $('input[name=jenis_kelamin]').val(),
+                    };
 
-                        var PO_no = $("input[id='po_no']").map(function(){return $(this).val();}).get();
-                        var nama_barang = $("select[id='nama_barang']").map(function(){return $(this).val();}).get();
-                        var jumlah = $("input[id='jumlah']").map(function(){return $(this).val();}).get();
-                        var harga = $("input[id='harga']").map(function(){return $(this).val();}).get();
-                        var unit = $("input[id='unit']").map(function(){return $(this).val();}).get();
-                        var code_material = $("input[id='code_material']").map(function(){return $(this).val();}).get();
-
-                        let dataSAIM = {    
-                            'po_no' : JSON.stringify(Object.assign({},  PO_no)),
-                            'nama_barang' : JSON.stringify(Object.assign({},  nama_barang)),
-                            'jumlah' : JSON.stringify(Object.assign({},  jumlah)),
-                            'harga' : JSON.stringify(Object.assign({},  harga)),
-                            'code' : JSON.stringify(Object.assign({},  code_material)),
-                            'unit' : JSON.stringify(Object.assign({},  unit)),
-                        };
-
-                            AsyncDatadetailsaim(formData, dataSAIM).then(function(data){
+                        AsyncDatadetailsaim(formData).then(function(data){
 
                                 if(data.r == "false"){
                                     pesanStore.fire({
                                         icon: 'error',
-                                        title: 'Maaf Harga / Qty harus sesuai dengan SAI disim.'
+                                        title: 'Maaf data tidak berhasil disimpan.'
                                     })
                                         } else {
 
@@ -453,8 +425,7 @@
           async function AsyncDatadetailsaim(dataID, po_number) {
                 
                 let data = {
-                            dsaim:dataID,
-                            dpo_no:po_number,
+                            dpo_no:dataID,
                           }
 
                   const dataSalesInvoice = "{{ route('saims.savemanuallysaim') }}";

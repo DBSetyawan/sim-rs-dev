@@ -420,70 +420,25 @@ class SaimsControllers extends Controller
     {
 
         /**
-         * proses menyimpan PO & dinamis nama barang/ jumlah/ harga.
+         * proses menyimpan pasien baru.
          */
         $normal = $request->dsaim;
-        $po_no = json_decode($request->dpo_no['po_no'], true);
-        $nama_barang = json_decode($request->dpo_no['nama_barang'], true);
-        $jumlah = json_decode($request->dpo_no['jumlah'], true);
-        $harga = json_decode($request->dpo_no['harga'], true);
-        $code = json_decode($request->dpo_no['code'], true);
-        $unit = json_decode($request->dpo_no['unit'], true);
-        $total = $this->sumQty($jumlah);
-        $harga_i = $this->sumQty($harga);
-        $check_sim_qty = floatval($normal['sim_check_qty']);
-        $price_sim = floatval($normal['price_sim']);
 
-        if ($total > $check_sim_qty || $total < $check_sim_qty && $harga_i > $price_sim || $harga_i < $price_sim) {
+        /**
+         * menyimpan form normal sai
+         */
+        $normals = [
+            'no_rekamedik' => $normal['no_rekamedik'],
+            'no_bpjs' => $normal['no_bpjs'],
+            'no_ktp' => $normal['no_ktp'],
+            'nama_pasien' => $normal['nama_pasien'],
+            'jenis_kelamin' => $normal['jenis_kelamin'],
+            'status_docs' => 'dissaproved'
+        ];
 
-            return response()->json(['r' => 'false']);
-        } else {
+        $data = tbsaims::insert($normals);
 
-            /**
-             * menyimpan form normal sai
-             */
-            $normals = [
-                'sai' => $normal['saim_no'],
-                'kodeCus' => $normal['Code'],
-                'namaCus' => $normal['customer_name'],
-                'printed' => $normal['printed'],
-                'ApprovedBy' => $normal['approvedby'],
-                'CreatedBy' => $normal['createdby'],
-                'ChangedDate' => $normal['changeddate'],
-                'ChangedBy' => $normal['changedby'],
-                'arc' => NULL,
-                'ard' => NULL,
-                'status_docs' => 'open'
-            ];
-
-            tbsaims::insert($normals);
-
-            foreach ($po_no as $indexs => $fx) {
-
-                $tb_po[] = [
-                    'id_sai' => $normal['saim_no'],
-                    'po_no' => $fx,
-                ];
-            }
-
-            tbPO::insert($tb_po);
-
-            foreach ($nama_barang as $indexs => $fx) {
-
-                $tb_barang[] = [
-                    'sai' => $normal['saim_no'],
-                    'kode' => $code[$indexs],
-                    'nama' => $fx,
-                    'unit' => $unit[$indexs],
-                    'harga' => $harga[$indexs],
-                    'jumlah' => $jumlah[$indexs],
-                ];
-            }
-
-            tbbrg::insert($tb_barang);
-
-            return response()->json(['manually' => $total]);
-        }
+        return response()->json(['manually' => $data]);
     }
 
     public function SalesInvoiceRVK(Request $request)

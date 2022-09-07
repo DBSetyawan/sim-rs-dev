@@ -3,7 +3,7 @@
 @section('content')
     @include('users.partials.header', [
         'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('Halaman penambahan sales invoice manual, sesuai kebutuhan.'),
+        'description' => __('Pasien baru.'),
         'class' => 'col-lg-7'
     ])   
 
@@ -16,16 +16,16 @@
             <div class="modal-body p-12">
             <div class="card bg-secondary shadow border-0">
           <div class="card-header bg-transparent pb-5">
-              <div class="text-muted text-center"><small>List Sales Invoice</small></div>
+              <div class="text-muted text-center"><small></small></div>
               <div class="btn-wrapper text-center">
                 <div class="form-group">
                     <div class="form-group row">
                         {{-- <label class="col-md-9 col-form-label">Document Work Order</label> --}}
-                          <p class="form-control-static">
+                          {{-- <p class="form-control-static">
                               Cari nomor sales invoice manual : 
                               <hr>
                               <code> Jika pencarian kosong, list sales invoice akan menarik semua data tanpa filter.</code>
-                          </p>
+                          </p> --}}
                         </div>
                         <p class="form-control-static">
                             <input type="text" class="form-control" name="docnox" id="docnox" placeholder="Code Sales Invoice"><br/>
@@ -155,13 +155,13 @@
                                      <div class="col">
                                     <span>
                                         <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('saim_no') ? ' has-danger' : '' }}">
+                                            <div class="form-group{{ $errors->has('no_rekamedik') ? ' has-danger' : '' }}">
                                                 <label class="form-control-label" for="input-name">{{ __('No. REKAM MEDIK') }}</label>
-                                                <input type="text" name="saim_no" id="saim_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+                                                <input type="text" name="no_rekamedik" id="no_rekamedik" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('NORM') }}" required autofocus>
             
                                                 @if ($errors->has('saim_no'))
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('saim_no') }}</strong>
+                                                        <strong>{{ $errors->first('no_rekamedik') }}</strong>
                                                     </span>
                                                 @endif
             
@@ -170,13 +170,13 @@
                                     </span>
                                      <span>
                                         <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('saim_no') ? ' has-danger' : '' }}">
+                                            <div class="form-group{{ $errors->has('jenis_kelamin') ? ' has-danger' : '' }}">
                                                 <label class="form-control-label" for="input-name">{{ __('Jenis Kelamin') }}</label>
-                                                <input type="text" name="saim_no" id="saim_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+                                                <input type="text" name="jenis_kelamin" id="jenis_kelamin" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
             
-                                                @if ($errors->has('saim_no'))
+                                                @if ($errors->has('jenis_kelamin'))
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('saim_no') }}</strong>
+                                                        <strong>{{ $errors->first('jenis_kelamin') }}</strong>
                                                     </span>
                                                 @endif
             
@@ -187,26 +187,26 @@
                                   <div class="col">
                                     <span>
                                         <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('saim_no') ? ' has-danger' : '' }}">
+                                            <div class="form-group{{ $errors->has('no_ktp') ? ' has-danger' : '' }}">
                                                 <label class="form-control-label" for="input-name">{{ __('No. KTP') }}</label>
-                                                <input type="text" name="saim_no" id="saim_no" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+                                                <input type="text" name="no_ktp" id="no_ktp" class="form-control form-control-alternative{{ $errors->has('no_ktp') ? ' is-invalid' : '' }}" placeholder="{{ __('No KTP') }}" required autofocus>
             
                                                 @if ($errors->has('saim_no'))
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('saim_no') }}</strong>
+                                                        <strong>{{ $errors->first('no_ktp') }}</strong>
                                                     </span>
                                                 @endif
             
                                             </div>
                                         </div>
                                          <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('no_sod') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-no_sod">{{ __('Alamat') }}</label>
-                                                <input type="text" name="no_sod" id="no_sod" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+                                            <div class="form-group{{ $errors->has('nama_pasien') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-no_sod">{{ __('Nama Pasien') }}</label>
+                                                <input type="text" name="nama_pasien" id="nama_pasien" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
             
-                                                @if ($errors->has('no_sod'))
+                                                @if ($errors->has('nama_pasien'))
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('no_sod') }}</strong>
+                                                        <strong>{{ $errors->first('nama_pasien') }}</strong>
                                                     </span>
                                                 @endif
             
@@ -218,26 +218,13 @@
                                   <div class="col">
                                     <span>
                                         <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('no_sod') ? ' has-danger' : '' }}">
+                                            <div class="form-group{{ $errors->has('no_bpjs') ? ' has-danger' : '' }}">
                                                 <label class="form-control-label" for="input-no_sod">{{ __('No. BPJS') }}</label>
-                                                <input type="text" name="no_sod" id="no_sod" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
+                                                <input type="text" name="no_bpjs" id="no_bpjs" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('No. BPJS') }}" required autofocus>
             
-                                                @if ($errors->has('no_sod'))
+                                                @if ($errors->has('no_bpjs'))
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('no_sod') }}</strong>
-                                                    </span>
-                                                @endif
-            
-                                            </div>
-                                        </div>
-                                         <div class="pl-lg-4">
-                                            <div class="form-group{{ $errors->has('no_sod') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-no_sod">{{ __('Nama Pasien') }}</label>
-                                                <input type="text" name="no_sod" id="no_sod" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" required autofocus>
-            
-                                                @if ($errors->has('no_sod'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('no_sod') }}</strong>
+                                                        <strong>{{ $errors->first('no_bpjs') }}</strong>
                                                     </span>
                                                 @endif
             

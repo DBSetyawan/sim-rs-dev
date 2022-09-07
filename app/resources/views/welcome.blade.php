@@ -32,13 +32,13 @@
                         {{-- @extends('layouts.headers.guest') --}}
                             <img src="{{ asset('argon') }}/img/logoKOPfooter.jpeg" width="35%" height="32%" rel="icon" type="image/png" alt="">
                             <div class="card-body">
-                            <h4 class="card-title">PT. KRISANTHIUM OFFSET PRINTING</h4>
-                            <p class="card-text text-black">Developed by @Team EDP, SAIM manual.</p>
+                            <h4 class="card-title">SIMRS-MEDIK</h4>
+                            <p class="card-text text-black">Developed by @Team SIMRSMEDIC.</p>
                             @auth
                                     <a href="#logged" class="btn btn-success stretched-link">anda sudah login</a>
                             @endauth
                             @guest
-                                <a href="http://10.219.16.195:8988/login" class="btn btn-warning stretched-link"><label class="">Authenticated required</label></a>
+                                <a href="http://10.0.76.119:8988/login" class="btn btn-warning stretched-link"><label class="">Masuk</label></a>
                             @endguest
                         </div>
                     </div>
