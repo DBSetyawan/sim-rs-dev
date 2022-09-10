@@ -491,15 +491,16 @@
                         </div>
 
                         <div class="col-12">
-                            <div class="row input-daterange">
+                            <div class="row">
                                 <div class="col-md-4">
-                                    <input type="text" name="from_date" id="from_date" class="form-control" placeholder="Tanggal awal" readonly/>
+                                    <input type="text" name="no_ktp" id="no_ktp" class="form-control" placeholder="No KTP/BPJS"/>
+                                    {{-- <input type="text" name="from_date" id="from_date" class="form-control" placeholder="Tanggal awal" readonly/> --}}
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <input type="text" name="to_date" id="to_date" class="form-control" placeholder="Tanggal Akhir" readonly/>
-                                </div>
+                                </div> --}}
                                 <span class="material-icons text md-18">
-                                  </span><button type="button" name="filter" id="filter" class="btn btn-sm btn-primary"> Cari berdasarkan tanggal</button>
+                                  </span><button type="button" name="filter" id="filter" class="btn btn-sm btn-primary"> Cari</button>
                                     &nbsp;
                                   {{-- <button type="button" name="refresh" id="refresh" class="btn btn-warning">Refresh (Membuka semua dokumen)</button> --}}
                             </div>
@@ -508,11 +509,13 @@
                                 <table id="smanuals" class="table align-items-center">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">SAI</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">Approved By</th>
+                                            <th scope="col">No. RM</th>
+                                            <th scope="col">NAMA PASIEN</th>
+                                            <th scope="col">BPJS</th>
+                                            <th scope="col">KTP</th>
                                             <th scope="col">Status Document</th>
-                                            <th scope="col">Aksi</th>
+                                            <th scope="col">KLINIK</th>
+                                            {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -730,27 +733,35 @@
             //     }
             // },
             columns: [{
-                    data: 'sai',
-                    name: 'SAI',
+                    data: 'no_rekamedik',
+                    name: 'No. RM',
                 },
                 {
-                    data: 'NamaCus',
-                    name: 'Customer',
+                    data: 'nama_pasien',
+                    name: 'PASIEN',
                 },
                 {
-                    data: 'ApprovedBy',
-                    name: 'Approved By'
+                    data: 'no_bpjs',
+                    name: 'BPJS',
+                },
+                {
+                    data: 'no_ktp',
+                    name: 'KTP'
                 },
                 {
                     data: 'status_docs',
                     name: 'Status Document'
                 },
                 {
-                    data: 'btn',
-                    name: 'Aksi',
-                    orderable: false,
-                    searchable: false
+                    data: 'klinik',
+                    name: 'KLINIK'
                 },
+                // {
+                //     data: 'btn',
+                //     name: 'Aksi',
+                //     orderable: false,
+                //     searchable: false
+                // },
             ]
         });
         // wdtLoading.start({
@@ -881,12 +892,12 @@
         }); 
 
         $('#filter').click(function(){
-          var from_date = $('#from_date').val();
+          var from_date = $('#no_ktp').val(); //no_ktp
           var to_date = $('#to_date').val();
-          if(from_date != '' &&  to_date != '')
+          if(from_date != '')
           {
             $('#smanuals').DataTable().destroy();
-            load_data(from_date, to_date);
+            load_data(from_date);
           }
             else
                 {
@@ -908,7 +919,7 @@
                 }
       });
 
-      function load_data(from_date = '', to_date = '') {
+      function load_data(from_date = '') {
         
         @if(isset(Auth::user()->roles[0]->id))
          
@@ -942,7 +953,7 @@
             },
             ajax: {
                 url: " {{ route('saims.dtableSAIMANUAL') }}",
-                data:{fd:from_date, td:to_date}
+                data:{fd:from_date}
             },
             fixedHeader: {
                 header: true,
@@ -970,26 +981,24 @@
                 }
             },
             columns: [{
-                    data: 'sai',
-                    name: 'SAI',
+                data: 'no_rekamedik',
+                    name: 'No. RM',
                 },
                 {
-                    data: 'NamaCus',
-                    name: 'Customer',
+                    data: 'nama_pasien',
+                    name: 'NAMA PASIEN'
                 },
                 {
-                    data: 'ApprovedBy',
-                    name: 'Approved By'
+                    data: 'no_bpjs',
+                    name: 'BPJS',
+                },
+                {
+                    data: 'no_ktp',
+                    name: 'KTP'
                 },
                 {
                     data: 'status_docs',
                     name: 'Status Document'
-                },
-                {
-                    data: 'btn',
-                    name: 'Aksi',
-                    orderable: false,
-                    searchable: false
                 },
             ]
         });

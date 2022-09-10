@@ -153,7 +153,7 @@
                                    <p class="mt-3 mb-0 text-muted text-sm">
                                         <div class="col text-left">
                                             <span class="text-success mr-2">
-                                                <a href="{{ route('saims.create') }}" target="_blank"
+                                                <a href="{{ route('saims.mnt') }}" target="_blank"
                                                     class="btn btn-sm btn-danger">LIHAT</a>
                                                 <i class="fa fa-arrow-up"></i> Monitoring data RM </span>
                                         </div>

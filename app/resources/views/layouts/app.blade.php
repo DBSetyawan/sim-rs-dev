@@ -395,7 +395,7 @@
 
                         AsyncDatadetailsaim(formData).then(function(data){
 
-                                if(data.r == "false"){
+                                if(data.data_rx == "false"){
                                     pesanStore.fire({
                                         icon: 'error',
                                         title: 'Maaf data tidak berhasil disimpan.'
@@ -407,7 +407,7 @@
                                                 title: 'Data berhasil disimpan..'
                                             })
                                         
-                                            let link = "{{ route('saims.index') }}";
+                                            let link = "{{ route('saims.create') }}";
                                             let redirect = link;
                                                 setTimeout(function(){ 
                                                         window.location.href = redirect;
@@ -422,10 +422,10 @@
                 )
           });
 
-          async function AsyncDatadetailsaim(dataID, po_number) {
+          async function AsyncDatadetailsaim(dataID) {
                 
                 let data = {
-                            dpo_no:dataID,
+                            mdata:dataID,
                           }
 
                   const dataSalesInvoice = "{{ route('saims.savemanuallysaim') }}";

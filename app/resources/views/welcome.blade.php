@@ -38,7 +38,7 @@
                                     <a href="#logged" class="btn btn-success stretched-link">anda sudah login</a>
                             @endauth
                             @guest
-                                <a href="http://10.0.76.119:8988/login" class="btn btn-warning stretched-link"><label class="">Masuk</label></a>
+                                <a href="{{env('APP_URL')}}/login" class="btn btn-warning stretched-link"><label class="">Masuk</label></a>
                             @endguest
                         </div>
                     </div>

@@ -27,6 +27,12 @@ class SaimsControllers extends Controller
         return view('saims.index', compact('sm'));
     }
 
+    public function monitoring(User $model)
+    {
+        $sm = tbsaims::all();
+        return view('saimanual.monitoring', compact('sm'));
+    }
+
     public function indexPUI()
     {
 
@@ -422,7 +428,7 @@ class SaimsControllers extends Controller
         /**
          * proses menyimpan pasien baru.
          */
-        $normal = $request->dsaim;
+        $normal = $request->mdata;
 
         /**
          * menyimpan form normal sai
@@ -438,7 +444,7 @@ class SaimsControllers extends Controller
 
         $data = tbsaims::insert($normals);
 
-        return response()->json(['manually' => $data]);
+        return response()->json(['data_rx' => $data]);
     }
 
     public function SalesInvoiceRVK(Request $request)
@@ -579,9 +585,11 @@ class SaimsControllers extends Controller
     public function dtableSAIMANUAL(Request $request)
     {
 
-        if (!empty($request->td)) {
+        if (!empty($request->fd)) {
+
             $prk = DB::table('tb_saim')
-                ->whereBetween('ChangedDate', array($request->fd, $request->td))->get();
+                ->where('no_ktp', '=', $request->fd)->orWhere('no_bpjs', '=', $request->fd)->get();
+            // ->whereBetween('no_ktp', array($request->fd, $request->td))->get();
         } else {
             $prk = tbsaims::get();
         }
@@ -589,26 +597,23 @@ class SaimsControllers extends Controller
         if ($request->ajax()) {
 
             return DataTables::of($prk)
-                ->editColumn('sai', function ($dt) {
-                    $btns = "<span class='badge badge-primary' style='font-size:13px'>" . strtoupper($dt->sai) . "</span>";
-                    return $btns;
-                })->editColumn('NamaCus', function ($dt) {
-                    return strtoupper($dt->NamaCus);
-                })->editColumn('ApprovedBy', function ($dt) {
-                    return $dt->ApprovedBy;
+                ->editColumn('no_rekamedik', function ($dt) {
+                    return strtoupper($dt->no_rekamedik);
+                })->editColumn('no_ktp', function ($dt) {
+                    return strtoupper($dt->no_ktp);
+                })->editColumn('nama_pasien', function ($dt) {
+                    return strtoupper($dt->nama_pasien);
+                })->editColumn('no_bpjs', function ($dt) {
+                    return $dt->no_bpjs;
                 })->editColumn('status_docs', function ($dt) {
 
                     $btn = '';
-                    if ($dt->status_docs == "open") {
 
-                        $btn .= "<span class='badge badge-primary justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->status_docs) . "</center></span>";
-                    }
-
-                    if ($dt->status_docs == "approved") {
+                    if ($dt->status_docs == "Selesai") {
                         $btn .= "<span class='badge badge-success justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->status_docs) . "</center></span>";
                     }
 
-                    if ($dt->status_docs == "dissaproved") {
+                    if ($dt->status_docs == "Belum Selesai") {
                         $btn .= "<span class='badge badge-danger justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->status_docs) . "</center></span>";
                     }
 
@@ -616,7 +621,14 @@ class SaimsControllers extends Controller
                 })->addColumn('btn', function ($row) {
                     $btn = '';
 
-                    $btn .= "<button class='btn btn-sm btn-success' id='sai_mPREVIEW' data-id='" . $row->sai . "'>Preview</button></div>";
+                    $btn .= "<button class='btn btn-sm btn-success' id='sai_mPREVIEW'>Preview</button></div>";
+                    // $btn = "<button class='btn btn-success' id='saim_result' data-id='".$row->DocNo."'>Preview</button></div>";
+
+                    return $btn;
+                })->addColumn('klinik', function ($row) {
+                    $btn = '';
+
+                    $btn .= '<div class="dropdown"><a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"><a class="dropdown-item" href="">Poli gigi</a><a class="dropdown-item" href="">Poli umum</a></div></div>';
                     // $btn = "<button class='btn btn-success' id='saim_result' data-id='".$row->DocNo."'>Preview</button></div>";
 
                     return $btn;
@@ -636,7 +648,7 @@ class SaimsControllers extends Controller
 
                 // })
                 ->rawColumns([
-                    'sai', 'NamaCus', 'ApprovedBy', 'status_docs', 'btn',
+                    'no_ktp', 'no_bpjs', 'status_docs', 'btn', 'nama_pasien', 'klinik'
                 ])
                 ->escapeColumns()->make(true);
         }

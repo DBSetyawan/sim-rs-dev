@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -40,10 +40,18 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('create/destroy/{id}', ['as' => 'users.destroy', 'uses' => 'App\Http\Controllers\UserController@destroy']);
 	Route::post('store/users', ['as' => 'store.user', 'uses' => 'App\Http\Controllers\UserController@store']);
 	Route::put('update/users', ['as' => 'users.update', 'uses' => 'App\Http\Controllers\UserController@update']);
-	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
-	 Route::get('map', function () {return view('pages.maps');})->name('map');
-	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
-	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
+	Route::get('upgrade', function () {
+		return view('pages.upgrade');
+	})->name('upgrade');
+	Route::get('map', function () {
+		return view('pages.maps');
+	})->name('map');
+	Route::get('icons', function () {
+		return view('pages.icons');
+	})->name('icons');
+	Route::get('table-list', function () {
+		return view('pages.tables');
+	})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
@@ -60,6 +68,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('saims/index', ['as' => 'saims.index', 'uses' => 'App\Http\Controllers\SaimsControllers@index']);
+	Route::get('saims/monitoring', ['as' => 'saims.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@monitoring']);
 	Route::get('saims/index/pui', ['as' => 'saims.indexPUI', 'uses' => 'App\Http\Controllers\SaimsControllers@indexPUI']);
 	Route::get('saims/index/history-pui', ['as' => 'saims.historyPUI', 'uses' => 'App\Http\Controllers\SaimsControllers@historyPUI']);
 	Route::get('saims/index/sai-manual', ['as' => 'saims.smanual', 'uses' => 'App\Http\Controllers\SaimsControllers@smanual']);
@@ -92,10 +101,17 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
-	 Route::get('map', function () {return view('pages.maps');})->name('map');
-	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
-	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
+	Route::get('upgrade', function () {
+		return view('pages.upgrade');
+	})->name('upgrade');
+	Route::get('map', function () {
+		return view('pages.maps');
+	})->name('map');
+	Route::get('icons', function () {
+		return view('pages.icons');
+	})->name('icons');
+	Route::get('table-list', function () {
+		return view('pages.tables');
+	})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
-
