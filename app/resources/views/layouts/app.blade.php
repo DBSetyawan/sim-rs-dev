@@ -414,6 +414,24 @@
                                             }, 
                                         
                                         1000);
+
+                                        /*
+                                        * In the popup's scripts, running on http://example.com:
+                                        */
+                                         if ( param != "http://10.0.76.119:8988/saims/monitoring" ){
+                                                window.location.href = window.location.href.replace( /[\?#].*|$/, `${param}` );
+                                            }
+
+                                            else
+                                            { 
+                                                if ( window.location.href.split('?').length > 1 ){
+                                                    window.location.href = window.location.href.split('?')[0];
+                                                }
+
+                                                else 
+                                                    window.location.reload();
+                                            }
+
                                     }
                                 }
                             );

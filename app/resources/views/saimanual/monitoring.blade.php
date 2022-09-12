@@ -126,6 +126,8 @@
             }
         }
 
+        $( document ).ready(function() {
+
             SyncDataPasienAntrian().then(function (data) {
                     
                     let datapasien = new Array();
@@ -136,6 +138,7 @@
 
                     let listenDataFormat = function(arr){
                         let str = '';
+
                         for(let i = 0; i < arr.length; i++){
                             
                             str += '<div class="wdt-loading-phrase">'+ arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
@@ -159,7 +162,13 @@
 
                 });
 
-        setInterval(SyncDataPasienAntrian, 15000);
+           $(function() {
+                var intervalID = setInterval(function() {
+                    SyncDataPasienAntrian();
+                }, 3000);
+            });
+        });
+            
     
     </script>
 </body>

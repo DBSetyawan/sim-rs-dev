@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Sep 06, 2022 at 06:31 PM
+-- Generation Time: Sep 12, 2022 at 10:09 AM
 -- Server version: 8.0.1-dmr
 -- PHP Version: 8.0.19
 
@@ -113,9 +113,8 @@ CREATE TABLE `model_has_roles` (
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (3, 'App\\Models\\User', 5),
 (3, 'App\\Models\\User', 6),
-(4, 'App\\Models\\User', 7),
 (6, 'App\\Models\\User', 8),
-(5, 'App\\Models\\User', 9);
+(3, 'App\\Models\\User', 10);
 
 -- --------------------------------------------------------
 
@@ -290,11 +289,13 @@ INSERT INTO `tb_po` (`id`, `id_sai`, `po_no`, `created_at`) VALUES
 
 CREATE TABLE `tb_saim` (
   `id` int(10) UNSIGNED NOT NULL,
-  `sai` varchar(150) DEFAULT NULL,
-  `KodeCus` varchar(150) NOT NULL,
-  `NamaCus` varchar(200) NOT NULL,
-  `printed` varchar(150) DEFAULT NULL,
-  `CreatedDate` varchar(100) NOT NULL,
+  `no_rekamedik` varchar(150) DEFAULT NULL,
+  `no_ktp` varchar(150) NOT NULL,
+  `no_bpjs` varchar(200) NOT NULL,
+  `nama_pasien` varchar(150) DEFAULT NULL,
+  `jenis_kelamin` varchar(100) NOT NULL,
+  `poli` varchar(150) NOT NULL,
+  `status_docs` varchar(45) DEFAULT NULL,
   `ApprovedBy` varchar(100) NOT NULL,
   `CreatedBy` varchar(100) DEFAULT NULL,
   `ChangedDate` varchar(100) DEFAULT NULL,
@@ -302,20 +303,29 @@ CREATE TABLE `tb_saim` (
   `arc` varchar(100) DEFAULT NULL,
   `ard` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `status_docs` varchar(45) DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_saim`
 --
 
-INSERT INTO `tb_saim` (`id`, `sai`, `KodeCus`, `NamaCus`, `printed`, `CreatedDate`, `ApprovedBy`, `CreatedBy`, `ChangedDate`, `ChangedBy`, `arc`, `ard`, `created_at`, `updated_at`, `status_docs`) VALUES
-(8, 'SAA-191030-0001', '', 'PT. Imperial Nusantara', 'DELETED', '', 'ffitrotul', 'mwaluyo', '2021-08-20', 'Arrix Pradana Frima', NULL, NULL, NULL, '2021-08-24 10:10:58', 'dissaproved'),
-(9, 'SAI-190513-0011', 'SUB.0189', 'PT. Hanjaya Mandala Sampoerna Tbk', 'PAID', '', 'unknown', 'sutami', '2019-06-26 15:25:04', 'Arrix Pradana Frima', NULL, NULL, NULL, '2021-08-24 05:02:32', 'approved'),
-(12, 'SAB-200203-0001', 'BKA.0028', 'PT. Serunigraf Jaya Sentosa', 'PAID', '', 'ffitrotul', 'mwaluyo', '2020-02-04 11:09:15', 'Arrix Pradana Frima', NULL, NULL, NULL, '2021-08-24 07:24:04', 'approved'),
-(13, 'SAB-200218-0002', 'SUB.0213', 'CV. Gemilang Multi Kreasi', 'PAID', '', 'ffitrotul', 'sutami', '2020-02-19 16:13:41', 'Arrix Pradana Frima', NULL, NULL, NULL, '2021-08-24 02:24:51', 'approved'),
-(15, 'SAB-200218-0004', 'SUB.0213', 'CV. Gemilang Multi Kreasi', 'PAID', '', 'ffitrotul', 'sutami', '2020-02-19 16:20:20', 'Arrix Pradana Frima', NULL, NULL, NULL, '2021-08-25 04:51:22', 'approved');
+INSERT INTO `tb_saim` (`id`, `no_rekamedik`, `no_ktp`, `no_bpjs`, `nama_pasien`, `jenis_kelamin`, `poli`, `status_docs`, `ApprovedBy`, `CreatedBy`, `ChangedDate`, `ChangedBy`, `arc`, `ard`, `created_at`, `updated_at`) VALUES
+(16, '01092', '93829293929932', '01823192899121', 'TATIK', 'P', 'Poli umum', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 03:22:44'),
+(17, '0989', '676875876786768', '9798789866968978', 'bms', 'L', 'Poli Gigi', 'Selesai', '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 03:33:29'),
+(18, '1301', '983092830929', '2019210001', 'BUCKL', 'P', 'Tidak ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 03:33:29'),
+(19, '2901', '9389200001001', '0932930230000', 'JACKSON', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 04:25:03', '2022-09-12 04:25:03'),
+(20, '34232', '912891000010', '98239293002', 'JERRY', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 04:27:43', '2022-09-12 04:27:43'),
+(21, '1320', '938239230000', '93923002001', 'KOALSE', 'P', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 04:29:50', '2022-09-12 04:29:50'),
+(22, '2002', '983989839203', '28398293232323', 'KUPOR', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 08:31:44', '2022-09-12 08:31:44'),
+(23, '93923', '3293209302223', '23192001012', 'MERRY', 'P', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 08:32:13', '2022-09-12 08:32:13'),
+(24, '39200', '939923000010', '932938293000', 'JEMMI', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 08:38:22', '2022-09-12 08:38:22'),
+(25, '939203', '939230020300', '928382392999', 'KUORS', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 08:47:12', '2022-09-12 08:47:12'),
+(26, '93290', '9239920203', '99218910201', 'KAMMY', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 08:52:26', '2022-09-12 08:52:26'),
+(27, '99320', '93928293020', '9328920302', 'DUOP', 'P', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 08:57:21', '2022-09-12 08:57:21'),
+(28, '939020', '392388239000', '9283923002032', 'BERYR', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 09:07:15', '2022-09-12 09:07:15'),
+(29, '2939923', '2399239232', '3239929323', 'PESND', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 09:09:02', '2022-09-12 09:09:02'),
+(30, '93020', '983923892300', '93920389290932', 'LSOD', 'L', 'Tidak Ada', 'Belum Selesai', '', NULL, NULL, NULL, NULL, NULL, '2022-09-12 09:12:18', '2022-09-12 09:12:18');
 
 -- --------------------------------------------------------
 
@@ -342,9 +352,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `user_sim`) VALUES
 (5, 'Daniel', 'daniel@staff.co.id', NULL, '$2y$10$azkVoiyQeLNpQtAOrYeWm.3GjgJxs3C4v17/MuFmvKn3qj.jPaeQq', NULL, '2021-08-03 06:10:02', '2021-08-03 06:10:02', 'dsetyawan'),
 (6, 'EDP', 'edp@krisanthium.com', NULL, '$2y$10$azkVoiyQeLNpQtAOrYeWm.3GjgJxs3C4v17/MuFmvKn3qj.jPaeQq', NULL, '2021-08-03 07:09:38', '2021-08-03 07:09:38', 'EDP'),
-(7, 'Bimo Prasetya', 'head@finance.tech', NULL, '$2y$10$azkVoiyQeLNpQtAOrYeWm.3GjgJxs3C4v17/MuFmvKn3qj.jPaeQq', NULL, '2021-08-20 01:53:24', '2021-08-20 01:53:24', 'afrima'),
 (8, 'Ratna Yani Astuty', 'manager@finance.tech', NULL, '$2y$10$azkVoiyQeLNpQtAOrYeWm.3GjgJxs3C4v17/MuFmvKn3qj.jPaeQq', NULL, '2021-08-20 01:54:23', '2021-08-20 01:54:23', 'rastuty'),
-(9, 'Mita Wahyu Waluyo', 'staff@finance.tech', NULL, '$2y$10$azkVoiyQeLNpQtAOrYeWm.3GjgJxs3C4v17/MuFmvKn3qj.jPaeQq', NULL, '2021-08-20 01:55:23', '2021-08-20 01:55:23', 'mwaluyo');
+(10, 'BImo prasetyo', 'bm@gmail.com', NULL, '$2y$10$Ru3HHxRQD8yGOfaIQbtYWe2EhngVNhpFBCKZul7598927pqv3qt56', NULL, '2022-09-10 18:54:14', '2022-09-12 01:48:46', 'bms');
 
 --
 -- Indexes for dumped tables
@@ -483,13 +492,13 @@ ALTER TABLE `tb_po`
 -- AUTO_INCREMENT for table `tb_saim`
 --
 ALTER TABLE `tb_saim`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
