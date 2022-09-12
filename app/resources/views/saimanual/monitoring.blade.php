@@ -41,47 +41,39 @@
     <meta name="twitter:creator" content="@creativetim">
     <meta name="twitter:image"
         content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg">
-    <!-- Open Graph data -->
-    {{-- <link rel="stylesheet" href="{{ asset('wdt/wdtLoading.css')}}"/>
-    <script type="text/javascript" src="{{ asset('wdt/wdtLoading.js') }}"></script> --}}
 </head>
 
 <body class="clickup-chrome-ext_installed">
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
     <div class="main-content">   
-        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-        </div>
         <div class="container-fluid mt--7">
             <div class="row">
                 <div class="col">
+                     <div class="table-responsive">
+                                <table id="smanuals" class="table align-items-center">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">No. RM</th>
+                                            <th scope="col">NAMA PASIEN</th>
+                                            <th scope="col">BPJS</th>
+                                            <th scope="col">KTP</th>
+                                            <th scope="col">Status Document</th>
+                                            <th scope="col">KLINIK</th>
+                                            <th scope="col">Aksi</th>
+                                            {{-- <th scope="col">Aksi</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                     <div class="card shadow">
                         <div class="wdt-loading-screen">
                             <div class="wdt-loading-phrases">
                                 <div class="wdt-loading-phrase-category" data-category="default">
-                                    <div class="wdt-loading-phrase">Doing great things...</div>
-                                    <div class="wdt-loading-phrase">Writing project descriptions...</div>
-                                    <div class="wdt-loading-phrase">Feeding the unicorns...</div>
-                                    <div class="wdt-loading-phrase">Collecting jobs for you...</div>
-                                    <div class="wdt-loading-phrase">Calculating scores...</div>
-                                    <div class="wdt-loading-phrase">Finding best talented people...</div>
-                                    <div class="wdt-loading-phrase">Fixing responsive issues...</div>
-                                    <div class="wdt-loading-phrase">Painting office walls...</div>
-                                    <div class="wdt-loading-phrase">Coffee break...</div>
-                                    <div class="wdt-loading-phrase">Feeding cats...</div>
-                                    <div class="wdt-loading-phrase">Health check...</div>
-                                    <div class="wdt-loading-phrase">Storage check...</div>
                                 </div>
                                 <div class="wdt-loading-phrase-category" data-category="profile">
-                                    <div class="cxmod"></div>
-                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
-                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
-                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
-                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO DASD SADASDASD| POLI GIGI</div> --}}
-                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
-                                    {{-- <div class="wdt-loading-phrase">Antrian :2 | 029010 | 2982919100101 | PRISAK APRILI | POLI UMUM</div> --}}
-                                    {{-- <div class="wdt-loading-phrase">Antrian :3 | 029010 | 9383892392939 | JARVIS DKLLA  | POLI UMUM</div> --}}
+                                 
+                            <div class="cxmod"></div>
                                 </div>
                             </div>
                         </div>
@@ -134,39 +126,41 @@
             }
         }
 
-        SyncDataPasienAntrian().then(function (data) {
-            
-            let datapasien = new Array();
-
-            for (i = 0; i < data.data.length; i++) {
-                datapasien[i] = data.data[i];
-            }
-
-            let listenDataFormat = function(arr){
-                let str = '';
-                for(let i = 0; i < arr.length; i++){
+            SyncDataPasienAntrian().then(function (data) {
                     
-                    str += '<div class="wdt-loading-phrase">'+ arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
-                }
+                    let datapasien = new Array();
 
-                return str;
-            }
-            
-            let nama_pasien = [];
+                    for (i = 0; i < data.data.length; i++) {
+                        datapasien[i] = data.data[i];
+                    }
 
-            for (i = 0; i < datapasien.length; i++) {
-                nama_pasien.push(datapasien[i]);
-            }
+                    let listenDataFormat = function(arr){
+                        let str = '';
+                        for(let i = 0; i < arr.length; i++){
+                            
+                            str += '<div class="wdt-loading-phrase">'+ arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
+                        }
 
-             $('.cxmod').html(listenDataFormat(datapasien));
+                        return str;
+                    }
+                    
+                    let nama_pasien = [];
 
-            wdtLoading.start({
-                category: 'profile',
-                speed: 2500
-            });
+                    for (i = 0; i < datapasien.length; i++) {
+                        nama_pasien.push(datapasien[i]);
+                    }
 
-        });
+                    $('.cxmod').html(listenDataFormat(datapasien.sort()));
 
+                    wdtLoading.start({
+                        category: 'profile',
+                        speed: 2500
+                    });
+
+                });
+
+        setInterval(SyncDataPasienAntrian, 15000);
+    
     </script>
 </body>
 

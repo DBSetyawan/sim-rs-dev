@@ -465,7 +465,10 @@ class SaimsControllers extends Controller
             'no_ktp' => $normal['no_ktp'],
             'nama_pasien' => $normal['nama_pasien'],
             'jenis_kelamin' => $normal['jenis_kelamin'],
-            'status_docs' => 'dissaproved'
+            'status_docs' => 'Belum Selesai',
+            'poli' => 'Tidak Ada',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ];
 
         $data = tbsaims::insert($normals);
