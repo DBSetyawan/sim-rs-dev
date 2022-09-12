@@ -77,7 +77,7 @@
                                         <tr>
                                             <th style="padding: 30px 136px;border: 2px solid #529432;" scope="col">Antrian</th>
                                             <th style="padding: 30px 158px;border: 2px solid #529432;" scope="col">PASIEN</th>
-                                            <th style="padding: 30px 216px;border: 2px solid #529432;" scope="col">KTP</th>
+                                            <th style="padding: 30px 212px;border: 2px solid #529432;" scope="col">KTP</th>
                                             <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli</th>
                                             <th scope="col">Status</th>
                                             {{-- <th scope="col">Aksi</th> --}}
