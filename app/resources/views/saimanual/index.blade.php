@@ -9,15 +9,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Argon Dashboard') }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/logoKOPfooter.jpeg" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
     <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-    <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-        rel="stylesheet">
+    <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     <!-- Extra details for Live View on GitHub Pages -->
@@ -50,7 +49,8 @@
     <meta property="og:description" content="Start your development with a Dashboard for Bootstrap 4." />
     <meta property="og:site_name" content="Creative Tim" />
     <!-- Google Tag Manager -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
     {{-- <link rel="stylesheet" href="{{ asset('wdt/wdtLoading.css')}}"/>
     <script type="text/javascript" src="{{ asset('wdt/wdtLoading.js') }}"></script> --}}
     <script>
@@ -72,75 +72,86 @@
     </script>
     <!-- End Google Tag Manager -->
     <style>
-
-.placeholder-item {
-    box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
-    border-radius: 4px;
-    height: 13px;
-    position: relative;
-    overflow: hidden;
-}
-.placeholder-item::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -150px;
-    top: 0;
-    height: 100%;
-    width: 150px;
-    background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
-    animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-}
-
-
-#placeholder-item {
-    box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
-    border-radius: 4px;
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-}
-#placeholder-item::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -150px;
-    top: 0;
-    height: 100%;
-    width: 150px;
-    background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
-    animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-}
-
-@keyframes load {
-    from {
-        left: -150px;
-    }
-    to   {
-        left: 100%;
-    }
-}
-    @media print{
-        body{
-            font-size:15px;
-            font-family:"Times New Roman";
-            margin: 0px;  /* the margin on the content before printing */
+        .placeholder-item {
+            box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+            border-radius: 4px;
+            height: 13px;
+            position: relative;
+            overflow: hidden;
         }
-    }
-        @media print {tr.vendorListHeading {
-                        background-color: #1a4567 !important;
-                        -webkit-print-color-adjust: exact; 
-            }}
-        @media print {.vendorListHeading th {
-            color: white !important;
-    }}
 
-    .morecontent span {
-    display: none;
-}
-.morelink {
-    display: block;
-}
+        .placeholder-item::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -150px;
+            top: 0;
+            height: 100%;
+            width: 150px;
+            background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+            animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+        }
+
+
+        #placeholder-item {
+            box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+            border-radius: 4px;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #placeholder-item::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -150px;
+            top: 0;
+            height: 100%;
+            width: 150px;
+            background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+            animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+        }
+
+        @keyframes load {
+            from {
+                left: -150px;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        @media print {
+            body {
+                font-size: 15px;
+                font-family: "Times New Roman";
+                margin: 0px;
+                /* the margin on the content before printing */
+            }
+        }
+
+        @media print {
+            tr.vendorListHeading {
+                background-color: #1a4567 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        @media print {
+            .vendorListHeading th {
+                color: white !important;
+            }
+        }
+
+        .morecontent span {
+            display: none;
+        }
+
+        .morelink {
+            display: block;
+        }
 
     </style>
 </head>
@@ -167,8 +178,7 @@
                         aria-expanded="false">
                         <div class="media align-items-center">
                             <span class="avatar avatar-sm rounded-circle">
-                                <img alt="Image placeholder"
-                                    src="{{ asset('argon') }}/img/logo34.png">
+                                <img alt="Image placeholder" src="{{ asset('argon') }}/img/logo34.png">
                             </span>
                         </div>
                     </a>
@@ -229,14 +239,13 @@
                             <i class="ni ni-tv-2 text-primary"></i> {{ __('SIMRS-MEDIK') }}
                         </a>
                     </li>
-                @role('administrator')
+                    @role('administrator')
                     <li class="nav-item">
                         <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button"
                             aria-expanded="true" aria-controls="navbar-examples">
                             {{-- <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples"> --}}
                             <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                            <span class="nav-link-text"
-                                style="color: #f4645f;">{{ __('Role management') }}</span>
+                            <span class="nav-link-text" style="color: #f4645f;">{{ __('Role management') }}</span>
                         </a>
 
                         <div class="collapse show" id="navbar-examples">
@@ -268,8 +277,7 @@
                         <a class="nav-link" href="#navbar-saim" data-toggle="collapse" role="button"
                             aria-expanded="true" aria-controls="navbar-examples">
                             <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                            <span class="nav-link-text"
-                                style="color: #f4645f;">{{ __('MEDIC') }}</span>
+                            <span class="nav-link-text" style="color: #f4645f;">{{ __('MEDIC') }}</span>
                         </a>
 
                         <div class="collapse" id="navbar-saim">
@@ -340,8 +348,7 @@
                             aria-expanded="false">
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder"
-                                        src="{{ asset('argon') }}/img/logo34.png">
+                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/logo34.png">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
@@ -493,16 +500,18 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input type="text" name="no_ktp" id="no_ktp" class="form-control" placeholder="No KTP/BPJS"/>
+                                    <input type="text" name="no_ktp" id="no_ktp" class="form-control"
+                                        placeholder="No KTP/BPJS" />
                                     {{-- <input type="text" name="from_date" id="from_date" class="form-control" placeholder="Tanggal awal" readonly/> --}}
                                 </div>
                                 {{-- <div class="col-md-4">
                                     <input type="text" name="to_date" id="to_date" class="form-control" placeholder="Tanggal Akhir" readonly/>
                                 </div> --}}
                                 <span class="material-icons text md-18">
-                                  </span><button type="button" name="filter" id="filter" class="btn btn-sm btn-primary"> Cari</button>
-                                    &nbsp;
-                                  {{-- <button type="button" name="refresh" id="refresh" class="btn btn-warning">Refresh (Membuka semua dokumen)</button> --}}
+                                </span><button type="button" name="filter" id="filter" class="btn btn-sm btn-primary">
+                                    Cari</button>
+                                &nbsp;
+                                {{-- <button type="button" name="refresh" id="refresh" class="btn btn-warning">Refresh (Membuka semua dokumen)</button> --}}
                             </div>
                             <br>
                             <div class="table-responsive">
@@ -515,6 +524,7 @@
                                             <th scope="col">KTP</th>
                                             <th scope="col">Status Document</th>
                                             <th scope="col">KLINIK</th>
+                                            <th scope="col">Aksi</th>
                                             {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
                                     </thead>
@@ -524,21 +534,66 @@
                             </div>
 
                         </div>
-                            <div class="col-12">
-                                <div class="col-md-4"><br/><br/></div>
-                                @role('head finance|staff finance|manager finance')
-                                {{-- <a class="btn btn-sm btn-primary prevsprnt" style="color:white"> preview</a> --}}
-                                @endrole
-                                @role('head finance|manager finance|staff finance')
-                                    <button class="btn btn-success eventApproved dissaproveEvent" id="status_docs_att" data-sai=""> Approved</button>
-                                    @else 
-                                    <code>anda tidak punya akses untuk memberikan status dokumen.</code>
-                                @endrole
-                            </div>
-                        <br/>
+                        <div class="col-12">
+                            <div class="col-md-4"><br /><br /></div>
+                            @role('head finance|staff finance|manager finance')
+                            {{-- <a class="btn btn-sm btn-primary prevsprnt" style="color:white"> preview</a> --}}
+                            @endrole
+                            @role('head finance|manager finance|staff finance')
+                            <button class="btn btn-success eventApproved dissaproveEvent" id="status_docs_att"
+                                data-sai=""> Approved</button>
+                            @else
+                            <code>anda tidak punya akses untuk memberikan status dokumen.</code>
+                            @endrole
+                        </div>
+                        <br />
 
                         {{-- ended wait loading css --}}
+                    </div>
                 </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="PoliGigi" tabindex="-1" role="dialog" aria-labelledby="PoliGigiLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Poli Gigi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" readonly class="form-control" id="poligigi_input" placeholder="wajib diisi sebagai primary">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="poligigi_input_status" placeholder="Isikan lokasi poli">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="custom-control custom-radio mb-3">
+                                        <input name="status_docs[]"  id="customRadio5" class="custom-control-input" value="Belum Selesai" type="radio">
+                                        <label class="custom-control-label sd" for="customRadio5">Belum Selesai</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="custom-control custom-radio mb-3">
+                                        <input name="status_docs[]"  id="customRadio6" class="custom-control-input" value="Selesai" type="radio">
+                                        <label class="custom-control-label sd" for="customRadio6">Selesai</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="savechanges btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -546,10 +601,8 @@
                 <div class="row align-items-center justify-content-xl-between">
                     <div class="col-xl-6">
                         <div class="copyright text-center text-xl-left text-muted">
-                            © 2022 <a href="" class="font-weight-bold ml-1"
-                                target="_blank">DNX Developer</a> &amp;
-                            <a href="" class="font-weight-bold ml-1"
-                                target="_blank">Updivision</a>
+                            © 2022 <a href="" class="font-weight-bold ml-1" target="_blank">DNX Developer</a> &amp;
+                            <a href="" class="font-weight-bold ml-1" target="_blank">Updivision</a>
                         </div>
                     </div>
                     <div class="col-xl-6">
@@ -561,15 +614,13 @@
                                 <a href="" class="nav-link" target="_blank">Updivision</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link"
-                                    target="_blank">About Us</a>
+                                <a href="" class="nav-link" target="_blank">About Us</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link" target="_blank">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a href=""
-                                    class="nav-link" target="_blank">MIT License</a>
+                                <a href="" class="nav-link" target="_blank">MIT License</a>
                             </li>
                         </ul>
                     </div>
@@ -603,6 +654,13 @@
         $("#result-exist").show();
         $("#wait-content").hide();
         $("#status_docs_att").hide();
+
+        $('#PoliGigi').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            $('#poligigi_input').val(id)
+        })
+
         function printDiv(elem) {
             // var mywindow = window.open('', 'PRINT', 'height=400,width=600');
             //     mywindow.document.write('<html><head><title>' + document.title  + '</title>');
@@ -633,40 +691,40 @@
 
             //     return true;
 
-            if(elem == null || elem == '') {
+            if (elem == null || elem == '') {
 
                 const ProdEvents = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3500,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-                            
-                    ProdEvents.fire({
-                        icon: 'error',
-                        title: 'Maaf kode SAI tidak bisa diproses, karena datanya kosong..'
-                    })
-                    setTimeout(function(){ 
-                        $(".prevsprnt").text("preview");
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                ProdEvents.fire({
+                    icon: 'error',
+                    title: 'Maaf kode SAI tidak bisa diproses, karena datanya kosong..'
+                })
+                setTimeout(function () {
+                    $(".prevsprnt").text("preview");
 
                 }, 8000);
 
             } else {
 
-                    let rpt = elem;
-                    let link = '{!! route("saims.rpt_preview", ":rpt")  !!}';
-                    let redirect = link.replace(":rpt",rpt)
-                    setTimeout(function(){ 
-                            window.open(redirect, '_blank');
+                let rpt = elem;
+                let link = '{!! route("saims.rpt_preview", ":rpt")  !!}';
+                let redirect = link.replace(":rpt", rpt)
+                setTimeout(function () {
+                    window.open(redirect, '_blank');
                 }, 8000);
 
-                setTimeout(function(){ 
-                        $(".prevsprnt").text("preview");
+                setTimeout(function () {
+                    $(".prevsprnt").text("preview");
 
                 }, 8000);
 
@@ -687,11 +745,22 @@
             scrollCollapse: true,
             retrieve: true,
             dom: 'Bfrtip',
-            buttons: [
-                        {extend: 'print', className:' btn btn-sm btn-warning'},
-                        {extend: 'excel', className:' btn btn-sm btn-success'},
-                        {extend: 'csv', className:' btn btn-sm btn-success'},
-                        {extend: 'pdf', className:' btn btn-sm btn-danger'},
+            buttons: [{
+                    extend: 'print',
+                    className: ' btn btn-sm btn-warning'
+                },
+                {
+                    extend: 'excel',
+                    className: ' btn btn-sm btn-success'
+                },
+                {
+                    extend: 'csv',
+                    className: ' btn btn-sm btn-success'
+                },
+                {
+                    extend: 'pdf',
+                    className: ' btn btn-sm btn-danger'
+                },
             ],
             language: {
                 processing: '<span class="text-info">Sedang diproses..</span>',
@@ -753,6 +822,10 @@
                     name: 'Status Document'
                 },
                 {
+                    data: 'poli',
+                    name: 'KLINIK'
+                },
+                {
                     data: 'klinik',
                     name: 'KLINIK'
                 },
@@ -772,662 +845,777 @@
         // setTimeout(function() {
         //     wdtLoading.done();
         // }, 6310);
-        
+
 
         async function getDetailSalesInvoice(dataform) {
-                
-                let data = {
-                              dataform:dataform
-                          }
 
-                  const Workoders = "{{ route('getDetailSalesInvoice.so') }}";
-                          
-                      const settings = {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                                'Content-Type': 'application/json;charset=utf-8'
-                                },
-                            body: JSON.stringify(data)
-                          }
-                  try {
-                          
-                          const fetchResponse = await fetch(`${Workoders}`, settings);
-                          const data = await fetchResponse.json();
-                          return data;
-                      } catch (error) {
+            let data = {
+                dataform: dataform
+            }
+
+            const Workoders = "{{ route('getDetailSalesInvoice.so') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
 
                 return error
-            }    
+            }
+        }
+
+          async function updateDocuments(dataform, status_docs) {
+
+            let data = {
+                dataform: dataform,
+                sts: status_docs
+            }
+
+            const Workoders = "{{ route('update.master.inc') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
+
+                return error
+            }
         }
 
         async function CheckDataSAIM(sai) {
             let data = {
-                              req_sai:sai
-                          }
+                req_sai: sai
+            }
 
-                const Workoders = "{{ route('e.CheckDataSAIM') }}";
-                          
-                      const settings = {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                                'Content-Type': 'application/json;charset=utf-8'
-                                },
-                            body: JSON.stringify(data)
-                          }
-                  try {
-                          
-                          const fetchResponse = await fetch(`${Workoders}`, settings);
-                          const data = await fetchResponse.json();
-                          return data;
-                      } catch (error) {
+            const Workoders = "{{ route('e.CheckDataSAIM') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
 
                 return error
-            }    
+            }
         }
-        
+
 
         async function EventDiss(sai) {
 
             let data = {
-                            req_sai:sai
-                        }
+                req_sai: sai
+            }
 
-                const Workoders = "{{ route('e.EventDiss') }}";
-                          
-                      const settings = {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                                'Content-Type': 'application/json;charset=utf-8'
-                                },
-                            body: JSON.stringify(data)
-                          }
-                  try {
-                          
-                          const fetchResponse = await fetch(`${Workoders}`, settings);
-                          const data = await fetchResponse.json();
-                          return data;
-                      } catch (error) {
+            const Workoders = "{{ route('e.EventDiss') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
 
                 return error
-            }    
+            }
         }
 
         async function EventDisssaproveApproved(sai) {
-                
-                let data = {
-                              req_sai:sai
-                          }
 
-                const Workoders = "{{ route('e.EventApproved') }}";
-                          
-                      const settings = {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                                'Content-Type': 'application/json;charset=utf-8'
-                                },
-                            body: JSON.stringify(data)
-                          }
-                  try {
-                          
-                          const fetchResponse = await fetch(`${Workoders}`, settings);
-                          const data = await fetchResponse.json();
-                          return data;
-                      } catch (error) {
+            let data = {
+                req_sai: sai
+            }
+
+            const Workoders = "{{ route('e.EventApproved') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
 
                 return error
-            }    
+            }
         }
 
-        $('.prevsprnt').click(function(e){
+        $('.prevsprnt').click(function (e) {
             e.preventDefault();
             $(".prevsprnt").text("tunggu sebentar");
-                // var contents = $("#printableArea").html();
+            // var contents = $("#printableArea").html();
             let contents = $(".sai_target").val();
 
             return printDiv(contents);
-        }); 
-
-        $('#filter').click(function(){
-          var from_date = $('#no_ktp').val(); //no_ktp
-          var to_date = $('#to_date').val();
-          if(from_date != '')
-          {
-            $('#smanuals').DataTable().destroy();
-            load_data(from_date);
-          }
-            else
-                {
-                  const ProdEvents = Swal.mixin({
-                          toast: true,
-                          position: 'top-end',
-                          showConfirmButton: false,
-                          timer: 3500,
-                          timerProgressBar: true,
-                          didOpen: (toast) => {
-                              toast.addEventListener('mouseenter', Swal.stopTimer)
-                              toast.addEventListener('mouseleave', Swal.resumeTimer)
-                          }
-                      })
-                      ProdEvents.fire({
-                          icon: 'error',
-                          title: 'Awal dan akhir harus diisi, jika ingin menggunakan fitur filter tanggal'
-                      })
-                }
-      });
-
-      function load_data(from_date = '') {
-        
-        @if(isset(Auth::user()->roles[0]->id))
-         
-        var dataTables_smanual = $('#smanuals').DataTable({
-            paging: true,
-            deferRender: true,
-            responsive: true,
-            processing: true,
-            stateSave: false,
-            searching: false,
-            stateDuration: -1,
-            serverSide: true,
-            info: true,
-            scrollCollapse: true,
-            retrieve: true,
-            dom: 'Bfrtip',
-            buttons: [
-                // 'copy', 'csv', 'excel', 'pdf', 'print'
-                {extend: 'pdf', className:' btn btn-sm btn-primary' },
-            ],
-            language: {
-                processing: '<span class="text-info">Sedang diproses..</span>',
-                search: "Cari",
-                infoEmpty: "Tidak ada data apapun disini..",
-                info: "",
-                zeroRecords: "Pencarian dalam keyword inputan anda tidak dapat kami temukan..",
-                paginate: {
-                    'previous': '<<',
-                    'next': '>>'
-                },
-            },
-            ajax: {
-                url: " {{ route('saims.dtableSAIMANUAL') }}",
-                data:{fd:from_date}
-            },
-            fixedHeader: {
-                header: true,
-                footer: true
-            },
-            colReorder: {
-                allowReorder: true
-            },
-            order: [
-                [0, 'desc']
-            ],
-            stateSaveCallback: function (settings, data) {
-
-                localStorage.setItem('Resultmachineaverage.data', JSON.stringify(data));
-
-            },
-            stateLoadCallback: function () {
-                try {
-
-                    return JSON.parse(localStorage.getItem('Resultmachineaverage.data'));
-
-                } catch (e) {
-
-                    console.log(e)
-                }
-            },
-            columns: [{
-                data: 'no_rekamedik',
-                    name: 'No. RM',
-                },
-                {
-                    data: 'nama_pasien',
-                    name: 'NAMA PASIEN'
-                },
-                {
-                    data: 'no_bpjs',
-                    name: 'BPJS',
-                },
-                {
-                    data: 'no_ktp',
-                    name: 'KTP'
-                },
-                {
-                    data: 'status_docs',
-                    name: 'Status Document'
-                },
-            ]
         });
 
-                @else
-                
-                var dataTables_smanual = $('#smanuals').DataTable({
-                    paging: true,
-                    deferRender: true,
-                    responsive: true,
-                    processing: true,
-                    stateSave: false,
-                    searching: false,
-                    stateDuration: -1,
-                    serverSide: true,
-                    info: true,
-                    scrollCollapse: true,
-                    retrieve: true,
-                    dom: 'Bfrtip',
-                    buttons: [
-                        {extend: 'print', className:' btn btn-sm btn-warning'},
-                        {extend: 'excel', className:' btn btn-sm btn-success'},
-                        {extend: 'csv', className:' btn btn-sm btn-success'},
-                        {extend: 'pdf', className:' btn btn-sm btn-danger'},
-                    ],
-                    language: {
-                        processing: '<span class="text-info">Sedang diproses..</span>',
-                        search: "Cari",
-                        infoEmpty: "Tidak ada data apapun disini..",
-                        info: "",
-                        zeroRecords: "Pencarian dalam keyword inputan anda tidak dapat kami temukan..",
-                        paginate: {
-                            'previous': '<<',
-                            'next': '>>'
-                        },
+        $('#filter').click(function () {
+            var from_date = $('#no_ktp').val(); //no_ktp
+            var to_date = $('#to_date').val();
+            if (from_date != '') {
+                $('#smanuals').DataTable().destroy();
+                load_data(from_date);
+            } else {
+                const ProdEvents = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                });
+                })
+                ProdEvents.fire({
+                    icon: 'error',
+                    title: 'Awal dan akhir harus diisi, jika ingin menggunakan fitur filter tanggal'
+                })
+            }
+        });
+
+        function load_data(from_date = '') {
+
+            @if(isset(Auth::user()->roles[0]->id))
+
+            var dataTables_smanual = $('#smanuals').DataTable({
+                paging: true,
+                deferRender: true,
+                responsive: true,
+                processing: true,
+                stateSave: false,
+                searching: false,
+                stateDuration: -1,
+                serverSide: true,
+                info: true,
+                scrollCollapse: true,
+                retrieve: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    // 'copy', 'csv', 'excel', 'pdf', 'print'
+                    {
+                        extend: 'pdf',
+                        className: ' btn btn-sm btn-primary'
+                    },
+                ],
+                language: {
+                    processing: '<span class="text-info">Sedang diproses..</span>',
+                    search: "Cari",
+                    infoEmpty: "Tidak ada data apapun disini..",
+                    info: "",
+                    zeroRecords: "Pencarian dalam keyword inputan anda tidak dapat kami temukan..",
+                    paginate: {
+                        'previous': '<<',
+                        'next': '>>'
+                    },
+                },
+                ajax: {
+                    url: " {{ route('saims.dtableSAIMANUAL') }}",
+                    data: {
+                        fd: from_date
+                    }
+                },
+                fixedHeader: {
+                    header: true,
+                    footer: true
+                },
+                colReorder: {
+                    allowReorder: true
+                },
+                order: [
+                    [0, 'desc']
+                ],
+                stateSaveCallback: function (settings, data) {
+
+                    localStorage.setItem('Resultmachineaverage.data', JSON.stringify(data));
+
+                },
+                stateLoadCallback: function () {
+                    try {
+
+                        return JSON.parse(localStorage.getItem('Resultmachineaverage.data'));
+
+                    } catch (e) {
+
+                        console.log(e)
+                    }
+                },
+                columns: [{
+                        data: 'no_rekamedik',
+                        name: 'No. RM',
+                    },
+                    {
+                        data: 'nama_pasien',
+                        name: 'NAMA PASIEN'
+                    },
+                    {
+                        data: 'no_bpjs',
+                        name: 'BPJS',
+                    },
+                    {
+                        data: 'no_ktp',
+                        name: 'KTP'
+                    },
+                    {
+                        data: 'status_docs',
+                        name: 'Status Document'
+                    },
+                ]
+            });
+
+            @else
+
+            var dataTables_smanual = $('#smanuals').DataTable({
+                paging: true,
+                deferRender: true,
+                responsive: true,
+                processing: true,
+                stateSave: false,
+                searching: false,
+                stateDuration: -1,
+                serverSide: true,
+                info: true,
+                scrollCollapse: true,
+                retrieve: true,
+                dom: 'Bfrtip',
+                buttons: [{
+                        extend: 'print',
+                        className: ' btn btn-sm btn-warning'
+                    },
+                    {
+                        extend: 'excel',
+                        className: ' btn btn-sm btn-success'
+                    },
+                    {
+                        extend: 'csv',
+                        className: ' btn btn-sm btn-success'
+                    },
+                    {
+                        extend: 'pdf',
+                        className: ' btn btn-sm btn-danger'
+                    },
+                ],
+                language: {
+                    processing: '<span class="text-info">Sedang diproses..</span>',
+                    search: "Cari",
+                    infoEmpty: "Tidak ada data apapun disini..",
+                    info: "",
+                    zeroRecords: "Pencarian dalam keyword inputan anda tidak dapat kami temukan..",
+                    paginate: {
+                        'previous': '<<',
+                        'next': '>>'
+                    },
+                }
+            });
 
             @endif
         }
 
-        function formatRupiah(angka, prefix)
-        {
+        function formatRupiah(angka, prefix) {
             var number_string = angka.toString().replace(/[^,\d]/g, ''),
-                split    = number_string.split(','),
-                sisa     = split[0].length % 3,
-                rupiah     = split[0].substr(0, sisa),
-                ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
-                
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
             if (ribuan) {
                 separator = sisa ? '.' : '';
                 rupiah += separator + ribuan.join('.');
             }
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] :  rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? rupiah.replace("/\,/g", '') +',00' : '');
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? rupiah.replace("/\,/g", '') + ',00' : '');
         }
 
-        $(document).on('click', '#sai_mPREVIEW', function(e){  
+        $(document).on('click', '#sai_mPREVIEW', function (e) {
             e.preventDefault();
             $("#wait-content").show();
             var sai = $(this).attr('data-id');
-            
+
             $('#saim_manual_details').find("tr:gt(2)").remove();
-            
+
             const msg = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3500,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
 
             var index = 1;
-              getDetailSalesInvoice(sai).then(function(data){
+            getDetailSalesInvoice(sai).then(function (data) {
 
-                CheckDataSAIM(sai).then(function(data){
+                CheckDataSAIM(sai).then(function (data) {
 
                     // console.log("btn_app ", data)
-                    if(data.response.status_docs == "approved"){
-                        $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Belum Selesai</button>");
+                    if (data.response.status_docs == "approved") {
+                        $(".eventApproved").replaceWith(
+                            "<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai=" +
+                            data.sai + ">Belum Selesai</button>");
                         // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
-                    }  
+                    }
 
-                            if(data.response.status_docs == "open"){
-                                $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Selesai</button>");
-                                // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
-                            }  
+                    if (data.response.status_docs == "open") {
+                        $(".eventApproved").replaceWith(
+                            "<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai=" +
+                            data.sai + ">Selesai</button>");
+                        // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
+                    }
 
-                            if(data.response.status_docs == "dissaproved"){
-                                $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Selesai</button>");
-                                // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
-                            } 
-                        }
-                    );
-                    $("#result-exist").show();
-                    $("#wait-content").hide();
+                    if (data.response.status_docs == "dissaproved") {
+                        $(".eventApproved").replaceWith(
+                            "<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai=" +
+                            data.sai + ">Selesai</button>");
+                        // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
+                    }
+                });
+                $("#result-exist").show();
+                $("#wait-content").hide();
 
-                    msg.fire({
-                        icon: 'success',
-                        title: 'Data berhasil ditampilkan dipreview invoice..'
-                    })
-                    $("#no_sai").html(data.invoiceh[0].DocNo);
-                    $(".sai_target").val(data.invoiceh[0].DocNo);
-                    $("#tanggal").html(data.Tanggal);
-                    // $("#tanggal").html(data.invoiceh[0].DocDate);
-                    $("#code_customers").html(data.invoiceh[0].sales_order.master_customers.Code);
-                    $("#no_surat_jln").html(data.invoiceh[0].GIDocNo);
-                    $("#no_po").html(data.invoiceh[0].PONo);
-                    $("#customer_name").html(data.invoiceh[0].sales_order.master_customers.Name);
-                    $("#no_sod").html(data.invoiceh[0].SODocNo);
-                    $("#taxno").html(data.invoiceh[0].TaxNo);
-                    $("#Addressc").html(data.invoiceh[0].sales_order.master_customers.Address);
-                    $("#result_cost").html(formatRupiah(data.result_cost)+',00');
-                    $("#PPN").html(formatRupiah(data.ppn)+',00');
-                    $("#total_akhir").html(formatRupiah(data.total_akhir)+',00');
-                    $("#terbilang").html(data.terbilang);
-                    $("#jwp").html(data.invoiceh[0].TOP+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hari");
-                    $("#tjt").html(data.Tanggal_jatuh_tempo);
-                    $("#customer_shipTo").html(data.invoiceh[0].sales_order.master_customers.Name);
-                    $("#Address_shipTo").html(data.invoiceh[0].sales_order.master_customers.Address);
+                msg.fire({
+                    icon: 'success',
+                    title: 'Data berhasil ditampilkan dipreview invoice..'
+                })
+                $("#no_sai").html(data.invoiceh[0].DocNo);
+                $(".sai_target").val(data.invoiceh[0].DocNo);
+                $("#tanggal").html(data.Tanggal);
+                // $("#tanggal").html(data.invoiceh[0].DocDate);
+                $("#code_customers").html(data.invoiceh[0].sales_order.master_customers.Code);
+                $("#no_surat_jln").html(data.invoiceh[0].GIDocNo);
+                $("#no_po").html(data.invoiceh[0].PONo);
+                $("#customer_name").html(data.invoiceh[0].sales_order.master_customers.Name);
+                $("#no_sod").html(data.invoiceh[0].SODocNo);
+                $("#taxno").html(data.invoiceh[0].TaxNo);
+                $("#Addressc").html(data.invoiceh[0].sales_order.master_customers.Address);
+                $("#result_cost").html(formatRupiah(data.result_cost) + ',00');
+                $("#PPN").html(formatRupiah(data.ppn) + ',00');
+                $("#total_akhir").html(formatRupiah(data.total_akhir) + ',00');
+                $("#terbilang").html(data.terbilang);
+                $("#jwp").html(data.invoiceh[0].TOP +
+                    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hari");
+                $("#tjt").html(data.Tanggal_jatuh_tempo);
+                $("#customer_shipTo").html(data.invoiceh[0].sales_order.master_customers.Name);
+                $("#Address_shipTo").html(data.invoiceh[0].sales_order.master_customers.Address);
 
-                        // Configure/customize these variables.
-                        var showChar = 10;  // How many characters are shown by default
-                        var ellipsestext = "...";
-                        var moretext = "Show more >";
-                        var lesstext = "Show less";
-                        $('.vbn').each(function() {
-                            var content = $(this).html(data.invoiceh[0].sales_order.master_customers.Address);
-                    
-                            if(content.length > showChar) {
-                    
-                                var c = content.substr(0, showChar);
-                                var h = content.substr(showChar, content.length - showChar);
-                    
-                                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-                    
-                                $(this).html(html);
-                            }
-                            $('#Address_shipTo').shorten('collapse'); 
-                    
-                        });
-                    
-                        $(".morelink").click(function(){
-                            if($(this).hasClass("less")) {
-                                $(this).removeClass("less");
-                                $(this).html(moretext);
-                            } else {
-                                $(this).addClass("less");
-                                $(this).html(lesstext);
-                            }
-                            $(this).parent().prev().toggle();
-                            $(this).prev().toggle();
-                            return false;
-                        });
+                // Configure/customize these variables.
+                var showChar = 10; // How many characters are shown by default
+                var ellipsestext = "...";
+                var moretext = "Show more >";
+                var lesstext = "Show less";
+                $('.vbn').each(function () {
+                    var content = $(this).html(data.invoiceh[0].sales_order.master_customers
+                        .Address);
+
+                    if (content.length > showChar) {
+
+                        var c = content.substr(0, showChar);
+                        var h = content.substr(showChar, content.length - showChar);
+
+                        var html = c + '<span class="moreellipses">' + ellipsestext +
+                            '&nbsp;</span><span class="morecontent"><span>' + h +
+                            '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext +
+                            '</a></span>';
+
+                        $(this).html(html);
+                    }
+                    $('#Address_shipTo').shorten('collapse');
+
+                });
+
+                $(".morelink").click(function () {
+                    if ($(this).hasClass("less")) {
+                        $(this).removeClass("less");
+                        $(this).html(moretext);
+                    } else {
+                        $(this).addClass("less");
+                        $(this).html(lesstext);
+                    }
+                    $(this).parent().prev().toggle();
+                    $(this).prev().toggle();
+                    return false;
+                });
 
                 data.isaims_tbbrg.forEach(element => {
-                        $('#saim_manual_details').append('<tr style="line-height:27px">'
-                                +'<td align="left" valign="top">'
-                                    +'<font style="font-family: sans-serif;font-size: 13px;">'+index+'</font>'
-                                +'</td>'
-                                +'<td align="left" valign="top">'
-                                    +'<font style="font-family: sans-serif;font-size: 13px;">'+element.kode+'</font>'
-                                +'</td>'
-                                +'<td align="right" valign="top">'
-                                    +'<font style="font-family: sans-serif;font-size: 13px;">'+element.jumlah+'&nbsp;&nbsp;</font>'
-                                +'</td>'
-                                +'<td align="left" valign="top">'
-                                    +'<font style="font-family: sans-serif;font-size: 13px;">'+element.unit+'</font>'
-                                +'</td>'
-                                +'<td align="left" valign="top">'
-                                    +'<font style="font-family: sans-serif;font-size: 13px;">'+element.nama+'</font>'
-                                        +'</td>'
-                                    +'<td align="right" valign="top">'
-                                    +' <font style="font-family: sans-serif;font-size: 13px;">'+formatRupiah(element.harga,1)+'</font>'
-                                +'</td>'
-                                +'<td align="right" valign="top">'
-                                    +'<font style="font-family: sans-serif;font-size: 13px;">'+formatRupiah(parseInt(element.jumlah*element.harga),1)+'</font>'
-                                    +'</td>'
-                                    +'<tr style="border: .05px dotted #000;">'
-                                +'</tr>'
-                            +'</tr>'+''); 
-                        index++
-                    });
+                    $('#saim_manual_details').append('<tr style="line-height:27px">' +
+                        '<td align="left" valign="top">' +
+                        '<font style="font-family: sans-serif;font-size: 13px;">' + index +
+                        '</font>' +
+                        '</td>' +
+                        '<td align="left" valign="top">' +
+                        '<font style="font-family: sans-serif;font-size: 13px;">' + element
+                        .kode + '</font>' +
+                        '</td>' +
+                        '<td align="right" valign="top">' +
+                        '<font style="font-family: sans-serif;font-size: 13px;">' + element
+                        .jumlah + '&nbsp;&nbsp;</font>' +
+                        '</td>' +
+                        '<td align="left" valign="top">' +
+                        '<font style="font-family: sans-serif;font-size: 13px;">' + element
+                        .unit + '</font>' +
+                        '</td>' +
+                        '<td align="left" valign="top">' +
+                        '<font style="font-family: sans-serif;font-size: 13px;">' + element
+                        .nama + '</font>' +
+                        '</td>' +
+                        '<td align="right" valign="top">' +
+                        ' <font style="font-family: sans-serif;font-size: 13px;">' +
+                        formatRupiah(element.harga, 1) + '</font>' +
+                        '</td>' +
+                        '<td align="right" valign="top">' +
+                        '<font style="font-family: sans-serif;font-size: 13px;">' +
+                        formatRupiah(parseInt(element.jumlah * element.harga), 1) +
+                        '</font>' +
+                        '</td>' +
+                        '<tr style="border: .05px dotted #000;">' +
+                        '</tr>' +
+                        '</tr>' + '');
+                    index++
+                });
 
-                        // next after cleared rows
+                // next after cleared rows
 
-                        $('#saim_manual_details').append('<tr>'
-                            +'<td align="center" colspan="7">'
-                                +'  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                                    +'</font>'
-                                +'</td>'
-                                +'</tr>'
-                                +'<tr>'
-                           +' <td align="center" colspan="7">'
-                              +'  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                          +'  </td>'
-                      +'  </tr>'
-                        +'<tr>'
-                           +' <td align="center" colspan="7">'
-                            +'    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                       +' </tr>'
-                        +'<tr>'
-                          +'  <td align="center" colspan="7">'
-                              +'  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                      +'  </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                          +'  </td>'
-                       +' </tr>'
-                       +' <tr>'
-                          +'  <td align="center" colspan="7">'
-                              +'  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                         +'   </td>'
-                     +'   </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                            +'<td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                      +'  </tr>'
-                       +' <tr>'
-                          +'  <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                         +'   </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                            +'</td>'
-                      +'  </tr>'
-                        +'<tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="7">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>'
-                            +'</td>'
-                       +' </tr>'
-                        +'<tr>'
-                           +' <td align="center" colspan="6">'
-                              +'  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                               +' </font>'
-                           +' </td>'
-                        +'</tr>'
-                        +'<tr>'
-                           +' <td align="center" colspan="6">'
-                               +' <font style="font-family: sans-serif;font-size: 14px">&nbsp;'
-                                +'</font>'
-                           +' </td>'
-                        +'</tr>'
-                        +'<tr>'
-                           +' <td align="center" colspan="6">'
-                              +'  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                               +' </font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                          +'  <td align="center" colspan="6">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                               +' </font>'
-                          +'  </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="6">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                                +'</font>'
-                           +' </td>'
-                       +' </tr>'
-                       +' <tr>'
-                           +' <td align="center" colspan="6">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                               +' </font>'
-                           +' </td>'
-                       +' </tr>'
-                      +'  <tr>'
-                           +' <td align="center" colspan="6">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                               +' </font>'
-                           +' </td>'
-                       +' </tr>'
-                      +'  <tr>'
-                           +' <td align="center" colspan="6">'
-                               +' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;'
-                                +'</font>'
-                           +' </td>'
-                       +' </tr>'+''); 
+                $('#saim_manual_details').append('<tr>' +
+                    '<td align="center" colspan="7">' +
+                    '  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    '</font>' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    ' <td align="center" colspan="7">' +
+                    '  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    '  </td>' +
+                    '  </tr>' +
+                    '<tr>' +
+                    ' <td align="center" colspan="7">' +
+                    '    <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    '<tr>' +
+                    '  <td align="center" colspan="7">' +
+                    '  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    '  </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    '  </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    '  <td align="center" colspan="7">' +
+                    '  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    '   </td>' +
+                    '   </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    '<td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    '  </tr>' +
+                    ' <tr>' +
+                    '  <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    '   </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    '</td>' +
+                    '  </tr>' +
+                    '<tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="7">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;</font>' +
+                    '</td>' +
+                    ' </tr>' +
+                    '<tr>' +
+                    ' <td align="center" colspan="6">' +
+                    '  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    ' </font>' +
+                    ' </td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    ' <td align="center" colspan="6">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px">&nbsp;' +
+                    '</font>' +
+                    ' </td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    ' <td align="center" colspan="6">' +
+                    '  <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    ' </font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    '  <td align="center" colspan="6">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    ' </font>' +
+                    '  </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="6">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    '</font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    ' <tr>' +
+                    ' <td align="center" colspan="6">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    ' </font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    '  <tr>' +
+                    ' <td align="center" colspan="6">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    ' </font>' +
+                    ' </td>' +
+                    ' </tr>' +
+                    '  <tr>' +
+                    ' <td align="center" colspan="6">' +
+                    ' <font style="font-family: sans-serif;font-size: 14px;">&nbsp;' +
+                    '</font>' +
+                    ' </td>' +
+                    ' </tr>' + '');
 
                 $("#status_docs_att").show();
 
             });
         });
 
-        $(document).on('click', '.eventApproved', function(){  
-            let sai_eventApproved = $(".sai_target").val();
-                    EventDisssaproveApproved(sai_eventApproved).then(function(data){
-                            const ProdEvents = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3500,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
+         $(document).on('click', '.savechanges', function (e) {
+            e.preventDefault();
+            
+             var formData = {  
+                'id'     : $("#poligigi_input").val(),
+                'klinik'     : $("#poligigi_input_status").val(),
+                'status'       : $('input[name=poligigi_input_status]').val(),
+            };
 
-                        var dataTables = $('#smanuals').DataTable();
-                        dataTables.ajax.reload(null, false);
-                        dataTables.columns.adjust().draw();
-                    
-                    });
+            var status_docs = $("input[name='status_docs[]']:checked").val();
 
-                    CheckDataSAIM(sai_eventApproved).then(function(data){
-
-                        // console.log("btn_app ", data)
-                        if(data.response.status_docs == "approved"){
-                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Belum Selesai</button>");
-                            // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
-                        }  
-
-                        if(data.response.status_docs == "open"){
-                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Selesai</button>");
-                            // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
-                        }  
-                        
-                        if(data.response.status_docs == "dissaproved"){
-                            $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Selesai</button>");
-                            // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
-                        } 
-                    });
-
-                    const ProdEvents = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3500,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-                            
-                    ProdEvents.fire({
-                        icon: 'warning',
-                        title: 'Dokumen berhasil Diapprove.'
+            updateDocuments(formData, status_docs).then(function (data) {
+                 const ProdEvents = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
                     })
-                });
 
-                $(document).on('click', '.dissaproveEvent', function(){  
-                    let sai_eventDissaproved = $(".sai_target").val();
+                if(data.response_data == true){
+                    ProdEvents.fire({
+                        icon: 'success',
+                        title: 'Dokumen status berhasil diupdate.'
+                    })
+                
+                    var dataTables = $('#smanuals').DataTable();
+                    dataTables.ajax.reload(null, false);
+                    dataTables.columns.adjust().draw();
 
-                    EventDiss(sai_eventDissaproved).then(function(data){
-                            const ProdEvents = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3500,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-                            ProdEvents.fire({
-                                icon: 'warning',
-                                title: 'Dokumen berhasil Didissaprove.'
-                        })
+                } else {
+                    ProdEvents.fire({
+                        icon: 'error',
+                        title: 'Dokumen status gagal diupdate.'
+                    })
+                }
+            });
 
-                        var dataTables = $('#smanuals').DataTable();
-                        dataTables.ajax.reload(null, false);
-                        dataTables.columns.adjust().draw();
+        });
 
-                    });
+        $(document).on('click', '.eventApproved', function () {
+            let sai_eventApproved = $(".sai_target").val();
+            EventDisssaproveApproved(sai_eventApproved).then(function (data) {
+                const ProdEvents = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
 
-                    CheckDataSAIM(sai_eventDissaproved).then(function(data){
-                        // console.log("btn_dis", data)
+                var dataTables = $('#smanuals').DataTable();
+                dataTables.ajax.reload(null, false);
+                dataTables.columns.adjust().draw();
 
-                        if(data.response.status_docs == "approved"){
-                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Belum selesai</button>");
-                            // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
-                        }  
+            });
 
-                        if(data.response.status_docs == "open"){
-                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Selesai</button>");
-                            // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
-                        }  
-                        
-                        if(data.response.status_docs == "dissaproved"){
-                            $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Selesai</button>");
-                            // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
-                        } 
-                    });
-                });
+            CheckDataSAIM(sai_eventApproved).then(function (data) {
+
+                // console.log("btn_app ", data)
+                if (data.response.status_docs == "approved") {
+                    $(".eventApproved").replaceWith(
+                        "<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai=" +
+                        data.sai + ">Belum Selesai</button>");
+                    // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
+                }
+
+                if (data.response.status_docs == "open") {
+                    $(".eventApproved").replaceWith(
+                        "<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai=" +
+                        data.sai + ">Selesai</button>");
+                    // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
+                }
+
+                if (data.response.status_docs == "dissaproved") {
+                    $(".eventApproved").replaceWith(
+                        "<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai=" +
+                        data.sai + ">Selesai</button>");
+                    // $(".dissaproveEvent").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
+                }
+            });
+
+            const ProdEvents = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            ProdEvents.fire({
+                icon: 'warning',
+                title: 'Dokumen berhasil Diapprove.'
+            })
+        });
+
+        $(document).on('click', '.dissaproveEvent', function () {
+            let sai_eventDissaproved = $(".sai_target").val();
+
+            EventDiss(sai_eventDissaproved).then(function (data) {
+                const ProdEvents = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                ProdEvents.fire({
+                    icon: 'warning',
+                    title: 'Dokumen berhasil Didissaprove.'
+                })
+
+                var dataTables = $('#smanuals').DataTable();
+                dataTables.ajax.reload(null, false);
+                dataTables.columns.adjust().draw();
+
+            });
+
+            CheckDataSAIM(sai_eventDissaproved).then(function (data) {
+                // console.log("btn_dis", data)
+
+                if (data.response.status_docs == "approved") {
+                    $(".dissaproveEvent").replaceWith(
+                        "<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai=" +
+                        data.sai + ">Belum selesai</button>");
+                    // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger dissaproveEvent' data-sai="+data.sai+">Dissaproved</button>");
+                }
+
+                if (data.response.status_docs == "open") {
+                    $(".dissaproveEvent").replaceWith(
+                        "<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai=" +
+                        data.sai + ">Selesai</button>");
+                    // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-danger eventApproved' data-sai="+data.sai+">Approved</button>");
+                }
+
+                if (data.response.status_docs == "dissaproved") {
+                    $(".dissaproveEvent").replaceWith(
+                        "<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai=" +
+                        data.sai + ">Selesai</button>");
+                    // $(".eventApproved").replaceWith("<button id='status_docs_att' class='btn btn-sm btn-success eventApproved' data-sai="+data.sai+">Approved</button>");
+                }
+            });
+        });
 
         $('.input-daterange').datepicker({
-              todayBtn:'linked',
-              format:'yyyy-mm-dd',
-              autoclose:true
+            todayBtn: 'linked',
+            format: 'yyyy-mm-dd',
+            autoclose: true
         });
+
     </script>
 </body>
 

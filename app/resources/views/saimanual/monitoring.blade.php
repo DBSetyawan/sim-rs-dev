@@ -42,16 +42,6 @@
     <meta name="twitter:image"
         content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg">
     <!-- Open Graph data -->
-    <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Argon - Free Dashboard for Bootstrap 4 by Creative Tim" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://demos.creative-tim.com/argon-dashboard/index.html" />
-    <meta property="og:image"
-        content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg" />
-    <meta property="og:description" content="Start your development with a Dashboard for Bootstrap 4." />
-    <meta property="og:site_name" content="Creative Tim" />
-    <!-- Google Tag Manager -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
     {{-- <link rel="stylesheet" href="{{ asset('wdt/wdtLoading.css')}}"/>
     <script type="text/javascript" src="{{ asset('wdt/wdtLoading.js') }}"></script> --}}
 </head>
@@ -84,9 +74,14 @@
                                     <div class="wdt-loading-phrase">Storage check...</div>
                                 </div>
                                 <div class="wdt-loading-phrase-category" data-category="profile">
-                                    <div class="wdt-loading-phrase">029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div>
-                                    <div class="wdt-loading-phrase">029010 | 2982919100101 | PRISAK APRILI | POLI UMUM</div>
-                                    <div class="wdt-loading-phrase">029010 | 9383892392939 | JARVIS JEN    | POLI UMUM</div>
+                                    <div class="cxmod"></div>
+                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
+                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
+                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
+                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO DASD SADASDASD| POLI GIGI</div> --}}
+                                    {{-- <div class="wdt-loading-phrase">Antrian :1 | 029010 | 9829920100000 | BIMO PRASETYO | POLI GIGI</div> --}}
+                                    {{-- <div class="wdt-loading-phrase">Antrian :2 | 029010 | 2982919100101 | PRISAK APRILI | POLI UMUM</div> --}}
+                                    {{-- <div class="wdt-loading-phrase">Antrian :3 | 029010 | 9383892392939 | JARVIS DKLLA  | POLI UMUM</div> --}}
                                 </div>
                             </div>
                         </div>
@@ -106,25 +101,72 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/datetime/1.0.3/js/dataTables.dateTime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
     <script src="{{ asset('js/shortlen.js') }}"></script>
 
     <script>
-        wdtLoading.start({
-            category: 'profile',
-            speed: 2500
+          async function SyncDataPasienAntrian() {
+
+            let data = {
+                dataform: null,
+            }
+
+            const Workoders = "{{ route('sync.data.mnt') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
+
+                return error
+            }
+        }
+
+        SyncDataPasienAntrian().then(function (data) {
+            
+            let datapasien = new Array();
+
+            for (i = 0; i < data.data.length; i++) {
+                datapasien[i] = data.data[i];
+            }
+
+            let listenDataFormat = function(arr){
+                let str = '';
+                for(let i = 0; i < arr.length; i++){
+                    
+                    str += '<div class="wdt-loading-phrase">'+ arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
+                }
+
+                return str;
+            }
+            
+            let nama_pasien = [];
+
+            for (i = 0; i < datapasien.length; i++) {
+                nama_pasien.push(datapasien[i]);
+            }
+
+             $('.cxmod').html(listenDataFormat(datapasien));
+
+            wdtLoading.start({
+                category: 'profile',
+                speed: 2500
+            });
+
         });
+
     </script>
 </body>
 

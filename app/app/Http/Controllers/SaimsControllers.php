@@ -91,6 +91,32 @@ class SaimsControllers extends Controller
         return response()->json(['sh' => $slinvh[0]]);
     }
 
+    public function updateDocuments(Request $request)
+    {
+
+        $id = $request->dataform['id'];
+        $status = $request->sts;
+        $klinik = $request->dataform['klinik'];
+
+        tbsaims::where('id', $id)
+            ->update(
+                [
+                    'status_docs' => $status,
+                    'poli' => $klinik
+                ]
+            );
+
+        return response()->json(['response_data' => true, 'data' => $request->all()]);
+    }
+
+    public function dataMonitoringPasien()
+    {
+
+        $data = tbsaims::whereDate('updated_at', Carbon::today())->get();
+
+        return response()->json(['response_data' => true, 'data' => $data]);
+    }
+
     public function updatemanuallysaims(Request $request)
     {
 
@@ -625,10 +651,16 @@ class SaimsControllers extends Controller
                     // $btn = "<button class='btn btn-success' id='saim_result' data-id='".$row->DocNo."'>Preview</button></div>";
 
                     return $btn;
+                })->addColumn('poli', function ($row) {
+                    return strtoupper($row->poli);
                 })->addColumn('klinik', function ($row) {
                     $btn = '';
 
-                    $btn .= '<div class="dropdown"><a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"><a class="dropdown-item" href="">Poli gigi</a><a class="dropdown-item" href="">Poli umum</a></div></div>';
+                    $btn .= '<div class="dropdown"><a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                    <a class="dropdown-item" data-id=' . " $row->id" . ' data-toggle="modal" data-target="#PoliGigi">Update data</a>
+                                    </div>
+                                </div>';
                     // $btn = "<button class='btn btn-success' id='saim_result' data-id='".$row->DocNo."'>Preview</button></div>";
 
                     return $btn;
@@ -648,7 +680,7 @@ class SaimsControllers extends Controller
 
                 // })
                 ->rawColumns([
-                    'no_ktp', 'no_bpjs', 'status_docs', 'btn', 'nama_pasien', 'klinik'
+                    'no_ktp', 'no_bpjs', 'status_docs', 'btn', 'nama_pasien', 'klinik', 'poli'
                 ])
                 ->escapeColumns()->make(true);
         }
