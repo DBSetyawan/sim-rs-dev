@@ -5,13 +5,12 @@
     position: fixed;
     left: 0;
     overflow: hidden;
-    display: none;
 }
 
 .wdt-loading-phrases {
-    width: 3100px;
+    width: 3560px;
     margin: 0 auto;
-    height: 370px;
+    height: 720px;
     overflow: hidden;
     position: relative;
     padding: 10px 0;
@@ -65,7 +64,7 @@
     }
 
     100% {
-        height: 90px;
+        height: 210px;
         width: 7px;
         opacity: 1;
     }
@@ -91,7 +90,7 @@
     }
 
     100% {
-        height: 90px;
+        height: 210px;
         width: 7px;
         opacity: 1;
     }
@@ -117,7 +116,7 @@
     }
 
     100% {
-        height: 90px;
+        height: 210px;
         width: 7px;
         opacity: 1;
     }

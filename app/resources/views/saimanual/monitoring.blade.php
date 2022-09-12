@@ -57,7 +57,7 @@
     }
     th,
     td {
-      padding: 30px 149px;
+      padding: 30px 151px;
       border: 2px solid #529432;
     }
     th {
@@ -71,11 +71,26 @@
                 <div class="col">
                     <div class="card shadow">
                         <div class="wdt-loading-screen">
+                             <div>
+                                <table style=" position: relative; top : 100px">
+                                    <thead class="">
+                                        <tr>
+                                            <th scope="col">No. RM</th>
+                                            <th scope="col">NAMA PASIEN</th>
+                                            <th style=" padding: 30px 197px;border: 2px solid #529432;" scope="col">KTP</th>
+                                            <th style="padding: 30px 190px;border: 2px solid #529432;" scope="col">Poli</th>
+                                            <th scope="col">Status Document</th>
+                                            {{-- <th scope="col">Aksi</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="wdt-loading-phrases">
                                 <div class="wdt-loading-phrase-category" data-category="default">
                                 </div>
                                
-                                
                                 <tbody>
 
                                     <div class="wdt-loading-phrase-category" data-category="profile">
@@ -150,15 +165,6 @@
                             
                             str += '<div class="fixTableHead">'
                                 +'<table>'
-                                +'<thead>'
-                                    +'<tr>'
-                                    +' <th>No. Antrian</th>'
-                                    +' <th>Nama Pasien</th>'
-                                    +' <th>No. KTP</th>'
-                                        +'<th>Poli</th>'
-                                        +'<th>Status</th>'
-                                    +'</tr>'
-                                +'</thead>'
                                     +'<tbody>'
                                                  +'<tr class="wdt-loading-phrase">'
                                                     +'<div>'
@@ -200,6 +206,32 @@
                 }, 3000);
             });
         });
+
+        // <div class="fixTableHead">'
+        //                         +'<table>'
+        //                         +'<thead>'
+        //                             +'<tr>'
+        //                             +' <th>No. Antrian</th>'
+        //                             +' <th>Nama Pasien</th>'
+        //                             +' <th>No. KTP</th>'
+        //                                 +'<th>Poli</th>'
+        //                                 +'<th>Status</th>'
+        //                             +'</tr>'
+        //                         +'</thead>'
+        //                             +'<tbody>'
+        //                                          +'<tr class="wdt-loading-phrase">'
+        //                                             +'<div>'
+        //                                                 +'<td>'+arr[i]['id'] +'</td>'
+        //                                                 +'<td>'+arr[i]['nama_pasien'] +'</td>'
+        //                                                 +'<td>'+arr[i]['no_ktp'] +'</td>'
+        //                                                 +'<td>'+arr[i]['poli'] +'</td>'
+        //                                                 +'<td>'+arr[i]['status_docs'] +'</td>'
+        //                                             +'</div>'
+        //                                         +'</tr>'
+        //                                     +'</tbody>'
+        //                                 +'</table>'
+        //                             +'</table>'
+        //                         +'</div>
             
     
     </script>
