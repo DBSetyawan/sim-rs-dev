@@ -42,42 +42,49 @@
     <meta name="twitter:image"
         content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg">
 </head>
-
+ <style>
+    .fixTableHead {
+      overflow-y: auto;
+      height: 110px;
+    }
+    .fixTableHead thead th {
+      position: sticky;
+      top: 0;
+    }
+    table {
+      border-collapse: collapse;        
+      width: 500px;
+    }
+    th,
+    td {
+      padding: 30px 149px;
+      border: 2px solid #529432;
+    }
+    th {
+      background: #ABDD93;
+    }
+  </style>
 <body class="clickup-chrome-ext_installed">
     <div class="main-content">   
         <div class="container-fluid mt--7">
             <div class="row">
                 <div class="col">
-                     <div class="table-responsive">
-                                <table id="smanuals" class="table align-items-center">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">No. RM</th>
-                                            <th scope="col">NAMA PASIEN</th>
-                                            <th scope="col">BPJS</th>
-                                            <th scope="col">KTP</th>
-                                            <th scope="col">Status Document</th>
-                                            <th scope="col">KLINIK</th>
-                                            <th scope="col">Aksi</th>
-                                            {{-- <th scope="col">Aksi</th> --}}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
                     <div class="card shadow">
                         <div class="wdt-loading-screen">
                             <div class="wdt-loading-phrases">
                                 <div class="wdt-loading-phrase-category" data-category="default">
                                 </div>
-                                <div class="wdt-loading-phrase-category" data-category="profile">
-                                 
-                            <div class="cxmod"></div>
-                                </div>
+                               
+                                
+                                <tbody>
+
+                                    <div class="wdt-loading-phrase-category" data-category="profile">
+                                        <div class="cxmod"></div>
+                                    </div>
+                                </tbody>
+                            </div>
                             </div>
                         </div>
-                </div>
                 </div>
             </div>
 
@@ -141,7 +148,32 @@
 
                         for(let i = 0; i < arr.length; i++){
                             
-                            str += '<div class="wdt-loading-phrase">'+ arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
+                            str += '<div class="fixTableHead">'
+                                +'<table>'
+                                +'<thead>'
+                                    +'<tr>'
+                                    +' <th>No. Antrian</th>'
+                                    +' <th>Nama Pasien</th>'
+                                    +' <th>No. KTP</th>'
+                                        +'<th>Poli</th>'
+                                        +'<th>Status</th>'
+                                    +'</tr>'
+                                +'</thead>'
+                                    +'<tbody>'
+                                                 +'<tr class="wdt-loading-phrase">'
+                                                    +'<div>'
+                                                        +'<td>'+arr[i]['id'] +'</td>'
+                                                        +'<td>'+arr[i]['nama_pasien'] +'</td>'
+                                                        +'<td>'+arr[i]['no_ktp'] +'</td>'
+                                                        +'<td>'+arr[i]['poli'] +'</td>'
+                                                        +'<td>'+arr[i]['status_docs'] +'</td>'
+                                                    +'</div>'
+                                                +'</tr>'
+                                            +'</tbody>'
+                                        +'</table>'
+                                    +'</table>'
+                                +'</div>';
+                                // + arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
                         }
 
                         return str;
