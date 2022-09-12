@@ -75,11 +75,11 @@
                                 <table style=" position: relative; top : 100px">
                                     <thead class="">
                                         <tr>
-                                            <th scope="col">No. RM</th>
-                                            <th style="padding: 30px 150px;border: 2px solid #529432;" scope="col">NAMA PASIEN</th>
+                                            <th style="padding: 30px 136px;border: 2px solid #529432;" scope="col">Antrian</th>
+                                            <th style="padding: 30px 158px;border: 2px solid #529432;" scope="col">PASIEN</th>
                                             <th style="padding: 30px 216px;border: 2px solid #529432;" scope="col">KTP</th>
                                             <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli</th>
-                                            <th scope="col">Status Document</th>
+                                            <th scope="col">Status</th>
                                             {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
                                     </thead>
@@ -163,6 +163,16 @@
 
                         for(let i = 0; i < arr.length; i++){
                             
+                            var status = arr[i]['status_docs'];
+                            var data = '';
+
+                            if(status == 'Selesai'){
+                                data = '<td><span class="badge badge-success justify-content-center" style="font-size:13.5px;text-align:center"><center>'+arr[i]['status_docs'] +'</center></span></td>';
+                            } else {
+                                data = '<td><span class="badge badge-danger justify-content-center" style="font-size:13.5px;text-align:center"><center>'+arr[i]['status_docs'] +'</center></span></td>';
+
+                            }
+
                             str += '<div class="fixTableHead">'
                                 +'<table>'
                                     +'<tbody>'
@@ -172,7 +182,7 @@
                                                         +'<td>'+arr[i]['nama_pasien'] +'</td>'
                                                         +'<td>'+arr[i]['no_ktp'] +'</td>'
                                                         +'<td>'+arr[i]['poli'] +'</td>'
-                                                        +'<td>'+arr[i]['status_docs'] +'</td>'
+                                                        + data  
                                                     +'</div>'
                                                 +'</tr>'
                                             +'</tbody>'
