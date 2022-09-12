@@ -57,7 +57,7 @@
     }
     th,
     td {
-      padding: 30px 151px;
+      padding: 30px 158px;
       border: 2px solid #529432;
     }
     th {
@@ -76,9 +76,9 @@
                                     <thead class="">
                                         <tr>
                                             <th scope="col">No. RM</th>
-                                            <th scope="col">NAMA PASIEN</th>
-                                            <th style=" padding: 30px 197px;border: 2px solid #529432;" scope="col">KTP</th>
-                                            <th style="padding: 30px 190px;border: 2px solid #529432;" scope="col">Poli</th>
+                                            <th style="padding: 30px 150px;border: 2px solid #529432;" scope="col">NAMA PASIEN</th>
+                                            <th style="padding: 30px 216px;border: 2px solid #529432;" scope="col">KTP</th>
+                                            <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli</th>
                                             <th scope="col">Status Document</th>
                                             {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
