@@ -52,7 +52,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'url' => env('APP_URL', 'http://10.0.76.119:8988/public'),
+=======
+    'url' => env('APP_URL', 'http://172.22.0.1:8988/public'),
+>>>>>>> 107dcc437640e9c8bc6894b9e9906dce5537eb89
 
     'asset_url' => env('ASSET_URL', null),
 

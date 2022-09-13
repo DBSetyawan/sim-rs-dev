@@ -122,7 +122,7 @@ class SaimsControllers extends Controller
     public function dataMonitoringPasien()
     {
 
-        $data = tbsaims::whereDate('updated_at', Carbon::today())->get();
+        $data = tbsaims::whereNotIn('poli' , ['Tidak Ada'])->whereDate('created_at', Carbon::today())->get();
 
         return response()->json(['response_data' => true, 'data' => $data]);
     }
@@ -624,13 +624,27 @@ class SaimsControllers extends Controller
     public function dtableSAIMANUAL(Request $request)
     {
 
-        if (!empty($request->fd)) {
-
+        if (!empty($request->datein)) {
             $prk = DB::table('tb_saim')
+<<<<<<< HEAD
                 ->where('no_ktp', '=', $request->fd)->orWhere('no_bpjs', '=', $request->fd)
                 ->whereDate('updated_at', Carbon::today())->get();
         } else {
             $prk = tbsaims::whereDate('updated_at', Carbon::today())->get();
+=======
+                ->whereBetween('created_at', array($request->datein, $request->dateout))->get();
+        }
+
+        if (!empty($request->fd)) {
+            $prk = DB::table('tb_saim')
+                ->whereIn('no_ktp', [$request->fd])
+                ->orWhere('nama_pasien','like', '%' .$request->fd. '%')
+                ->orWhereIn('no_bpjs', [$request->fd])
+                ->whereDate('created_at', Carbon::today())->get();
+        } else {
+
+            $prk = DB::table('tb_saim')->whereDate('created_at', Carbon::today())->get();
+>>>>>>> 107dcc437640e9c8bc6894b9e9906dce5537eb89
         }
 
         if ($request->ajax()) {

@@ -501,7 +501,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" name="no_ktp" id="no_ktp" class="form-control"
-                                        placeholder="No KTP/BPJS" />
+                                        placeholder="No KTP/BPJS/Nama pasien" />
                                     {{-- <input type="text" name="from_date" id="from_date" class="form-control" placeholder="Tanggal awal" readonly/> --}}
                                 </div>
                                 {{-- <div class="col-md-4">
@@ -512,6 +512,18 @@
                                     Cari</button>
                                 &nbsp;
                                 {{-- <button type="button" name="refresh" id="refresh" class="btn btn-warning">Refresh (Membuka semua dokumen)</button> --}}
+                             <div class="row input-daterange">
+                                <div class="col-md-4">
+                                    <input type="text" name="datein" id="datein" class="form-control" placeholder="Tanggal awal" readonly/>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="dateout" id="dateout" class="form-control" placeholder="Tanggal Akhir" readonly/>
+                                </div>
+                                <span class="material-icons text md-18">
+                                  </span><button type="button" name="filtertgl" id="filtertgl" class="btn btn-sm btn-primary"> Cari berdasarkan tanggal</button>
+                                    &nbsp;
+                                  {{-- <button type="button" name="refresh" id="refresh" class="btn btn-warning">Refresh (Membuka semua dokumen)</button> --}}
+                            </div>
                             </div>
                             <br>
                             <div class="table-responsive">
@@ -543,7 +555,7 @@
                             <button class="btn btn-success eventApproved dissaproveEvent" id="status_docs_att"
                                 data-sai=""> Approved</button>
                             @else
-                            <code>anda tidak punya akses untuk memberikan status dokumen.</code>
+                            {{-- <code>anda tidak punya akses untuk memberikan status dokumen.</code> --}}
                             @endrole
                         </div>
                         <br />
@@ -1053,12 +1065,39 @@
             return printDiv(contents);
         });
 
-        $('#filter').click(function () {
-            var from_date = $('#no_ktp').val(); //no_ktp
-            var to_date = $('#to_date').val();
-            if (from_date != '') {
+        $('#filtertgl').click(function () {
+            var datein = $('#datein').val();
+            var dateout = $('#dateout').val();
+            if (datein != '' && dateout != '') {
                 $('#smanuals').DataTable().destroy();
-                load_data(from_date);
+                load_data(null, datein, dateout);
+
+            } else {
+                 const ProdEvents = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                ProdEvents.fire({
+                    icon: 'error',
+                    title: 'Awal dan akhir harus diisi, jika ingin menggunakan fitur filter tanggal'
+                })
+            }
+
+        });
+
+        $('#filter').click(function () {
+            var ktp = $('#no_ktp').val(); //no_ktp
+            if (ktp != '') {
+                $('#smanuals').DataTable().destroy();
+                load_data(ktp,'','');
             } else {
                 const ProdEvents = Swal.mixin({
                     toast: true,
@@ -1071,14 +1110,16 @@
                         toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
                 })
+                $('#smanuals').DataTable().destroy();
+                load_data(ktp,'','');
                 ProdEvents.fire({
-                    icon: 'error',
-                    title: 'Awal dan akhir harus diisi, jika ingin menggunakan fitur filter tanggal'
+                    icon: 'success',
+                    title: 'Data berhasil ditampilkan secara keseluruhan.'
                 })
             }
         });
 
-        function load_data(from_date = '') {
+        function load_data(from_date = '', datein = '', dateout = '') {
 
             @if(isset(Auth::user()->roles[0]->id))
 
@@ -1116,7 +1157,9 @@
                 ajax: {
                     url: " {{ route('saims.dtableSAIMANUAL') }}",
                     data: {
-                        fd: from_date
+                        fd: from_date,
+                        datein: datein,
+                        dateout: dateout
                     }
                 },
                 fixedHeader: {
@@ -1144,13 +1187,13 @@
                         console.log(e)
                     }
                 },
-                columns: [{
+                    columns: [{
                         data: 'no_rekamedik',
                         name: 'No. RM',
                     },
                     {
                         data: 'nama_pasien',
-                        name: 'NAMA PASIEN'
+                        name: 'PASIEN',
                     },
                     {
                         data: 'no_bpjs',
@@ -1163,6 +1206,14 @@
                     {
                         data: 'status_docs',
                         name: 'Status Document'
+                    },
+                    {
+                        data: 'poli',
+                        name: 'KLINIK'
+                    },
+                    {
+                        data: 'klinik',
+                        name: 'KLINIK'
                     },
                 ]
             });

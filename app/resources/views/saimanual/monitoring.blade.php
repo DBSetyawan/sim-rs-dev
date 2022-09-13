@@ -59,7 +59,7 @@
 
     th,
     td {
-        padding: 30px 158px;
+        padding: 30px 114px;
         border: 2px solid #529432;
     }
 
@@ -80,15 +80,17 @@
                                 <table style=" position: relative; top : 100px">
                                     <thead class="">
                                         <tr>
-                                            <th style="padding: 30px 136px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 84px;border: 2px solid #529432;" scope="col">
                                                 Antrian</th>
-                                            <th style="padding: 30px 158px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 120px;border: 2px solid #529432;" scope="col">
+                                                NO. RM</th>
+                                            <th style="padding: 30px 163px;border: 2px solid #529432;" scope="col">
                                                 PASIEN</th>
-                                            <th style="padding: 30px 212px;border: 2px solid #529432;" scope="col">REKAM MEDIS
+                                            <th style="padding: 30px 157px;border: 2px solid #529432;" scope="col">NO. BPJS
                                             </th>
-                                            <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli
+                                            <th style="padding: 30px 147px;border: 2px solid #529432;" scope="col">Poli
                                             </th>
-                                            <th scope="col">Status</th>
+                                            <th style="padding: 30px 149.5px;border: 2px solid #529432;" scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -189,8 +191,14 @@
                             '<tr class="wdt-loading-phrase">' +
                             '<div>' +
                             '<td>' + arr[i]['id'] + '</td>' +
+<<<<<<< HEAD
                             '<td>' + arr[i]['nama_pasien'] + '</td>' +
                             '<td>' + arr[i]['no_ktp'] + '</td>' +
+=======
+                            '<td>' + arr[i]['no_rekamedik'] + '</td>' +
+                            '<td>' + arr[i]['nama_pasien'] + '</td>' +
+                            '<td>' + arr[i]['no_bpjs'] + '</td>' +
+>>>>>>> 107dcc437640e9c8bc6894b9e9906dce5537eb89
                             '<td>' + arr[i]['poli'] + '</td>' +
                             data +
                             '</div>' +
