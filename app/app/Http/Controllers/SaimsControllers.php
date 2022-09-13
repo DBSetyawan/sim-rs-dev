@@ -967,17 +967,17 @@ class SaimsControllers extends Controller
         if (!empty($request->datein)) {
             $prk = DB::table('tb_saim')
                 ->whereBetween('created_at', array($request->datein, $request->dateout))->get();
-        }
-
-        if (!empty($request->fd)) {
-            $prk = DB::table('tb_saim')
-                ->whereIn('no_ktp', [$request->fd])
-                ->orWhere('nama_pasien', 'like', '%' . $request->fd . '%')
-                ->orWhereIn('no_bpjs', [$request->fd])
-                ->whereDate('created_at', Carbon::today())->get();
         } else {
+            if (!empty($request->fd)) {
+                $prk = DB::table('tb_saim')
+                    ->whereIn('no_ktp', [$request->fd])
+                    ->orWhere('nama_pasien', 'like', '%' . $request->fd . '%')
+                    ->orWhereIn('no_bpjs', [$request->fd])
+                    ->whereDate('created_at', Carbon::today())->get();
+            } else {
 
-            $prk = DB::table('tb_saim')->whereDate('created_at', Carbon::today())->get();
+                $prk = DB::table('tb_saim')->whereDate('created_at', Carbon::today())->get();
+            }
         }
 
         if ($request->ajax()) {
