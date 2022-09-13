@@ -81,10 +81,10 @@
                                     <thead class="">
                                         <tr>
                                             <th style="padding: 30px 136px;border: 2px solid #529432;" scope="col">
-                                                REKAM MEDIS</th>
+                                                Antrian</th>
                                             <th style="padding: 30px 158px;border: 2px solid #529432;" scope="col">
                                                 PASIEN</th>
-                                            <th style="padding: 30px 212px;border: 2px solid #529432;" scope="col">KTP
+                                            <th style="padding: 30px 212px;border: 2px solid #529432;" scope="col">REKAM MEDIS
                                             </th>
                                             <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli
                                             </th>

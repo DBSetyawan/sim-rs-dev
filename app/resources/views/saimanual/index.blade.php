@@ -552,6 +552,33 @@
                     </div>
                 </div>
             </div>
+            
+             <!-- Modal -->
+            <div class="modal fade" id="hapusData" tabindex="-1" role="dialog" aria-labelledby="HapusDataLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" readonly class="form-control" id="hapuspasien" placeholder="wajib diisi sebagai primary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="deletedata btn btn-primary">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Modal -->
             <div class="modal fade" id="PoliGigi" tabindex="-1" role="dialog" aria-labelledby="PoliGigiLabel"
                 aria-hidden="true">
@@ -659,6 +686,12 @@
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id = button.data('id') // Extract info from data-* attributes
             $('#poligigi_input').val(id)
+        })
+
+         $('#hapusData').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            $('#hapuspasien').val(id)
         })
 
         function printDiv(elem) {
@@ -901,6 +934,34 @@
                 return error
             }
         }
+
+        async function deleteDocuments(dataform) {
+
+            let data = {
+                dataform: dataform
+            }
+
+            const Workoders = "{{ route('delete.master.inc') }}";
+
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+
+                const fetchResponse = await fetch(`${Workoders}`, settings);
+                const data = await fetchResponse.json();
+                return data;
+            } catch (error) {
+
+                return error
+            }
+        }
+
 
         async function CheckDataSAIM(sai) {
             let data = {
@@ -1448,6 +1509,47 @@
                 $("#status_docs_att").show();
 
             });
+        });
+
+        
+           $(document).on('click', '.deletedata', function (e) {
+            e.preventDefault();
+            
+             var formData = {  
+                'id'     : $("#hapuspasien").val(),
+            };
+
+            deleteDocuments(formData).then(function (data) {
+                 const ProdEvents = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                if(data.response_data == true){
+                    ProdEvents.fire({
+                        icon: 'success',
+                        title: 'Dokumen status berhasil dihapus.'
+                    })
+                
+                    var dataTables = $('#smanuals').DataTable();
+                    dataTables.ajax.reload(null, false);
+                    dataTables.columns.adjust().draw();
+
+                } else {
+                    ProdEvents.fire({
+                        icon: 'error',
+                        title: 'Dokumen status gagal dihapus.'
+                    })
+                }
+            });
+
         });
 
          $(document).on('click', '.savechanges', function (e) {

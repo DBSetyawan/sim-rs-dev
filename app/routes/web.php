@@ -102,6 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::post('document/update', ['as' => 'update.master.inc', 'uses' => 'App\Http\Controllers\SaimsControllers@updateDocuments']);
+	Route::post('document/delete', ['as' => 'delete.master.inc', 'uses' => 'App\Http\Controllers\SaimsControllers@deleteDocuments']);
 	Route::post('sync-document/monitoring', ['as' => 'sync.data.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@dataMonitoringPasien']);
 
 	Route::get('upgrade', function () {
