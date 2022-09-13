@@ -536,7 +536,8 @@
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                      <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin menghapus data ini ?</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -544,7 +545,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none">
                                         <input type="text" readonly class="form-control" id="hapuspasien" placeholder="wajib diisi sebagai primary">
                                     </div>
                                 </div>
