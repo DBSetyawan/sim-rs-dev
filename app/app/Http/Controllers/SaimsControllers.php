@@ -109,10 +109,20 @@ class SaimsControllers extends Controller
         return response()->json(['response_data' => true, 'data' => $request->all()]);
     }
 
+    public function deleteDocuments(Request $request)
+    {
+
+        $id = $request->dataform['id'];
+
+        tbsaims::where('id', $id)->delete();
+
+        return response()->json(['response_data' => true, 'data' => $request->all()]);
+    }
+
     public function dataMonitoringPasien()
     {
 
-        $data = tbsaims::whereDate('updated_at', Carbon::today())->get();
+        $data = tbsaims::whereNotIn('poli' , ['Tidak Ada'])->whereDate('created_at', Carbon::today())->get();
 
         return response()->json(['response_data' => true, 'data' => $data]);
     }
@@ -614,13 +624,20 @@ class SaimsControllers extends Controller
     public function dtableSAIMANUAL(Request $request)
     {
 
-        if (!empty($request->fd)) {
-
+        if (!empty($request->datein)) {
             $prk = DB::table('tb_saim')
-                ->where('no_ktp', '=', $request->fd)->orWhere('no_bpjs', '=', $request->fd)->get();
-            // ->whereBetween('no_ktp', array($request->fd, $request->td))->get();
+                ->whereBetween('created_at', array($request->datein, $request->dateout))->get();
+        }
+
+        if (!empty($request->fd)) {
+            $prk = DB::table('tb_saim')
+                ->whereIn('no_ktp', [$request->fd])
+                ->orWhere('nama_pasien','like', '%' .$request->fd. '%')
+                ->orWhereIn('no_bpjs', [$request->fd])
+                ->whereDate('created_at', Carbon::today())->get();
         } else {
-            $prk = tbsaims::get();
+
+            $prk = DB::table('tb_saim')->whereDate('created_at', Carbon::today())->get();
         }
 
         if ($request->ajax()) {
@@ -662,6 +679,7 @@ class SaimsControllers extends Controller
                     $btn .= '<div class="dropdown"><a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                     <a class="dropdown-item" data-id=' . " $row->id" . ' data-toggle="modal" data-target="#PoliGigi">Update data</a>
+                                    <a class="dropdown-item" data-id=' . " $row->id" . ' data-toggle="modal" data-target="#hapusData">Hapus Data</a>
                                     </div>
                                 </div>';
                     // $btn = "<button class='btn btn-success' id='saim_result' data-id='".$row->DocNo."'>Preview</button></div>";

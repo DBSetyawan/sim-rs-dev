@@ -68,7 +68,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('saims/index', ['as' => 'saims.index', 'uses' => 'App\Http\Controllers\SaimsControllers@index']);
-	Route::get('saims/monitoring', ['as' => 'saims.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@monitoring']);
+	Route::get('husada-jalatama/monitoring', ['as' => 'saims.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@monitoring']);
 	Route::get('saims/index/pui', ['as' => 'saims.indexPUI', 'uses' => 'App\Http\Controllers\SaimsControllers@indexPUI']);
 	Route::get('saims/index/history-pui', ['as' => 'saims.historyPUI', 'uses' => 'App\Http\Controllers\SaimsControllers@historyPUI']);
 	Route::get('saims/index/sai-manual', ['as' => 'saims.smanual', 'uses' => 'App\Http\Controllers\SaimsControllers@smanual']);
@@ -102,6 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::post('document/update', ['as' => 'update.master.inc', 'uses' => 'App\Http\Controllers\SaimsControllers@updateDocuments']);
+	Route::post('document/delete', ['as' => 'delete.master.inc', 'uses' => 'App\Http\Controllers\SaimsControllers@deleteDocuments']);
 	Route::post('sync-document/monitoring', ['as' => 'sync.data.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@dataMonitoringPasien']);
 
 	Route::get('upgrade', function () {
