@@ -122,7 +122,6 @@ class SaimsControllers extends Controller
                 );
         }
 
-
         return response()->json(['response_data' => true, 'data' => $request->all()]);
     }
 
@@ -640,7 +639,7 @@ class SaimsControllers extends Controller
     public static function generateWorksIDUM()
     {
 
-        $named = tbsaims::where('poli', '=', 'POLI UMUM')->last();
+        $named = tbsaims::where('poli', '=', 'POLI UMUM')->orderBy('created_at', 'desc')->first();
         $YM = Carbon::Now()->format('ymd');
 
         if ($YM > substr(isset($named['no_rekamedik']) ? $named['no_rekamedik'] : "NPM-" . $YM, 4, 6)) {
@@ -667,7 +666,7 @@ class SaimsControllers extends Controller
     public static function generateWorksIDGG()
     {
 
-        $named = tbsaims::where('poli', '=', 'POLI GIGI')->last();
+        $named = tbsaims::where('poli', '=', 'POLI GIGI')->orderBy('created_at', 'desc')->first();
         $YM = Carbon::Now()->format('ymd');
 
         if ($YM > substr(isset($named['no_rekamedik']) ? $named['no_rekamedik'] : "PGG-" . $YM, 4, 6)) {
@@ -691,7 +690,7 @@ class SaimsControllers extends Controller
     {
 
         // return $resultID;
-        $named = tbsaims::where('poli', '=', 'POLI GIGI')->last();
+        $named = tbsaims::where('poli', '=', 'POLI GIGI')->orderBy('created_at', 'desc')->first();
         $YM = Carbon::Now()->format('ymd');
 
         // LPO - 210628 - 0002
@@ -826,7 +825,7 @@ class SaimsControllers extends Controller
     {
 
         // return $resultID;
-        $named = tbsaims::where('poli', '=', 'POLI UMUM')->last();
+        $named = tbsaims::where('poli', '=', 'POLI UMUM')->orderBy('created_at', 'desc')->first();
         $YM = Carbon::Now()->format('ymd');
 
         // LPO - 210628 - 0002
@@ -1135,8 +1134,7 @@ class SaimsControllers extends Controller
     public function create(User $model)
     {
         $user = User::all();
-        $generateRM = $this->generateRM();
-        return view('saims.create', compact('user', 'generateRM'));
+        return view('saims.create', compact('user'));
     }
 
     public function edit($id, $sai)
