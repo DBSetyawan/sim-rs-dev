@@ -988,12 +988,14 @@ class SaimsControllers extends Controller
 
                     if ($dt->poli == "POLI GIGI") {
                         $btn .= "<span class='badge badge-primary justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->no_rekamedik) . "</center></span>";
-                    }
+                    } else {
 
-                    if ($dt->poli == "POLI UMUM") {
-                        $btn .= "<span class='badge badge-info justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->no_rekamedik) . "</center></span>";
+                        if ($dt->poli == "POLI UMUM") {
+                            $btn .= "<span class='badge badge-info justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->no_rekamedik) . "</center></span>";
+                        } else {
+                            $btn .= "<span class='badge badge-danger justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->no_rekamedik) . "</center></span>";
+                        }
                     }
-
                     return $btn;
                 })->editColumn('no_ktp', function ($dt) {
                     return strtoupper($dt->no_ktp);
@@ -1026,10 +1028,13 @@ class SaimsControllers extends Controller
 
                     if ($dt->poli == "POLI GIGI") {
                         $btn .= "<span class='badge badge-primary justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->poli) . "</center></span>";
-                    }
+                    } else {
 
-                    if ($dt->poli == "POLI UMUM") {
-                        $btn .= "<span class='badge badge-info justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->poli) . "</center></span>";
+                        if ($dt->poli == "POLI UMUM") {
+                            $btn .= "<span class='badge badge-info justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->poli) . "</center></span>";
+                        } else {
+                            $btn .= "<span class='badge badge-danger justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->poli) . "</center></span>";
+                        }
                     }
 
                     return $btn;
