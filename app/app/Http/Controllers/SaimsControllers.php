@@ -757,8 +757,8 @@ class SaimsControllers extends Controller
             /**
              * ard as poli gigi
              */
-            $id = isset(tbsaims::where('poli', '=', 'POLI UMUM')->latest()->first()->ard)
-                ? tbsaims::where('poli', '=', 'POLI UMUM')->latest()->first()->ard : 0;
+            $id = isset(tbsaims::where('poli', '=', 'POLI GIGI')->latest()->first()->ard)
+                ? tbsaims::where('poli', '=', 'POLI GIGI')->latest()->first()->ard : 0;
 
             $jobs = $id + 1;
             $IDnextgenerate = $jobs;
