@@ -497,11 +497,11 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">No. RM</th>
-                                            <th scope="col">NAMA PASIEN</th>
-                                            <th scope="col">BPJS</th>
-                                            <th scope="col">KTP</th>
-                                            <th scope="col">Status Document</th>
                                             <th scope="col">KLINIK</th>
+                                            <th scope="col">NAMA PASIEN</th>
+                                            <th scope="col">NO. BPJS</th>
+                                            <th scope="col">NO. KTP</th>
+                                            <th scope="col">PROSES</th>
                                             <th scope="col">Aksi</th>
                                             {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
@@ -818,6 +818,10 @@
                     name: 'No. RM',
                 },
                 {
+                    data: 'poli',
+                    name: 'KLINIK'
+                },
+                {
                     data: 'nama_pasien',
                     name: 'PASIEN',
                 },
@@ -832,10 +836,6 @@
                 {
                     data: 'status_docs',
                     name: 'Status Document'
-                },
-                {
-                    data: 'poli',
-                    name: 'KLINIK'
                 },
                 {
                     data: 'klinik',
@@ -1154,34 +1154,40 @@
                         console.log(e)
                     }
                 },
-                    columns: [{
-                        data: 'no_rekamedik',
-                        name: 'No. RM',
-                    },
-                    {
-                        data: 'nama_pasien',
-                        name: 'PASIEN',
-                    },
-                    {
-                        data: 'no_bpjs',
-                        name: 'BPJS',
-                    },
-                    {
-                        data: 'no_ktp',
-                        name: 'KTP'
-                    },
-                    {
-                        data: 'status_docs',
-                        name: 'Status Document'
-                    },
-                    {
-                        data: 'poli',
-                        name: 'KLINIK'
-                    },
-                    {
-                        data: 'klinik',
-                        name: 'KLINIK'
-                    },
+                columns: [{
+                    data: 'no_rekamedik',
+                    name: 'No. RM',
+                },
+                {
+                    data: 'poli',
+                    name: 'KLINIK'
+                },
+                {
+                    data: 'nama_pasien',
+                    name: 'PASIEN',
+                },
+                {
+                    data: 'no_bpjs',
+                    name: 'BPJS',
+                },
+                {
+                    data: 'no_ktp',
+                    name: 'KTP'
+                },
+                {
+                    data: 'status_docs',
+                    name: 'Status Document'
+                },
+                {
+                    data: 'klinik',
+                    name: 'KLINIK'
+                },
+                // {
+                //     data: 'btn',
+                //     name: 'Aksi',
+                //     orderable: false,
+                //     searchable: false
+                // },
                 ]
             });
 

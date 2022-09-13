@@ -984,7 +984,17 @@ class SaimsControllers extends Controller
 
             return DataTables::of($prk)
                 ->editColumn('no_rekamedik', function ($dt) {
-                    return strtoupper($dt->no_rekamedik);
+                    $btn = '';
+
+                    if ($dt->poli == "POLI GIGI") {
+                        $btn .= "<span class='badge badge-primary justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->no_rekamedik) . "</center></span>";
+                    }
+
+                    if ($dt->poli == "POLI UMUM") {
+                        $btn .= "<span class='badge badge-info justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->no_rekamedik) . "</center></span>";
+                    }
+
+                    return $btn;
                 })->editColumn('no_ktp', function ($dt) {
                     return strtoupper($dt->no_ktp);
                 })->editColumn('nama_pasien', function ($dt) {
@@ -1011,8 +1021,18 @@ class SaimsControllers extends Controller
                     // $btn = "<button class='btn btn-success' id='saim_result' data-id='".$row->DocNo."'>Preview</button></div>";
 
                     return $btn;
-                })->addColumn('poli', function ($row) {
-                    return strtoupper($row->poli);
+                })->addColumn('poli', function ($dt) {
+                    $btn = '';
+
+                    if ($dt->poli == "POLI GIGI") {
+                        $btn .= "<span class='badge badge-primary justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->poli) . "</center></span>";
+                    }
+
+                    if ($dt->poli == "POLI UMUM") {
+                        $btn .= "<span class='badge badge-info justify-content-center' style='font-size:13.5px;text-align:center'><center>" . strtoupper($dt->poli) . "</center></span>";
+                    }
+
+                    return $btn;
                 })->addColumn('klinik', function ($row) {
                     $btn = '';
 
@@ -1041,7 +1061,7 @@ class SaimsControllers extends Controller
 
                 // })
                 ->rawColumns([
-                    'no_ktp', 'no_bpjs', 'status_docs', 'btn', 'nama_pasien', 'klinik', 'poli'
+                    'no_ktp', 'no_rekamedik', 'no_bpjs', 'status_docs', 'btn', 'nama_pasien', 'klinik', 'poli'
                 ])
                 ->escapeColumns()->make(true);
         }
