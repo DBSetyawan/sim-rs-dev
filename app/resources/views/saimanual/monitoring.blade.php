@@ -191,14 +191,9 @@
                             '<tr class="wdt-loading-phrase">' +
                             '<div>' +
                             '<td>' + arr[i]['id'] + '</td>' +
-<<<<<<< HEAD
-                            '<td>' + arr[i]['nama_pasien'] + '</td>' +
-                            '<td>' + arr[i]['no_ktp'] + '</td>' +
-=======
                             '<td>' + arr[i]['no_rekamedik'] + '</td>' +
                             '<td>' + arr[i]['nama_pasien'] + '</td>' +
                             '<td>' + arr[i]['no_bpjs'] + '</td>' +
->>>>>>> 107dcc437640e9c8bc6894b9e9906dce5537eb89
                             '<td>' + arr[i]['poli'] + '</td>' +
                             data +
                             '</div>' +
