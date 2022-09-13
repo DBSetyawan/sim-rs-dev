@@ -68,7 +68,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('saims/index', ['as' => 'saims.index', 'uses' => 'App\Http\Controllers\SaimsControllers@index']);
-	Route::get('saims/monitoring', ['as' => 'saims.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@monitoring']);
+	Route::get('husada-jalatama/monitoring', ['as' => 'saims.mnt', 'uses' => 'App\Http\Controllers\SaimsControllers@monitoring']);
 	Route::get('saims/index/pui', ['as' => 'saims.indexPUI', 'uses' => 'App\Http\Controllers\SaimsControllers@indexPUI']);
 	Route::get('saims/index/history-pui', ['as' => 'saims.historyPUI', 'uses' => 'App\Http\Controllers\SaimsControllers@historyPUI']);
 	Route::get('saims/index/sai-manual', ['as' => 'saims.smanual', 'uses' => 'App\Http\Controllers\SaimsControllers@smanual']);

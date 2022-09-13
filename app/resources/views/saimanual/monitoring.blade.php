@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Argon Dashboard') }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/logoKOPfooter.jpeg" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -17,8 +17,7 @@
     <!-- Icons -->
     <link href="{{ asset('wdt/wdt.css') }}" rel="stylesheet">
     <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-    <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-        rel="stylesheet">
+    <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     <!-- Extra details for Live View on GitHub Pages -->
@@ -42,45 +41,54 @@
     <meta name="twitter:image"
         content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg">
 </head>
- <style>
+<style>
     .fixTableHead {
-      overflow-y: auto;
-      height: 110px;
+        overflow-y: auto;
+        height: 110px;
     }
+
     .fixTableHead thead th {
-      position: sticky;
-      top: 0;
+        position: sticky;
+        top: 0;
     }
+
     table {
-      border-collapse: collapse;        
-      width: 500px;
+        border-collapse: collapse;
+        width: 500px;
     }
+
     th,
     td {
-      padding: 30px 158px;
-      border: 2px solid #529432;
+        padding: 30px 158px;
+        border: 2px solid #529432;
     }
+
     th {
-      background: #ABDD93;
+        background: #ABDD93;
     }
-  </style>
+
+</style>
+
 <body class="clickup-chrome-ext_installed">
-    <div class="main-content">   
+    <div class="main-content">
         <div class="container-fluid mt--7">
             <div class="row">
                 <div class="col">
                     <div class="card shadow">
                         <div class="wdt-loading-screen">
-                             <div>
+                            <div>
                                 <table style=" position: relative; top : 100px">
                                     <thead class="">
                                         <tr>
-                                            <th style="padding: 30px 136px;border: 2px solid #529432;" scope="col">Antrian</th>
-                                            <th style="padding: 30px 158px;border: 2px solid #529432;" scope="col">PASIEN</th>
-                                            <th style="padding: 30px 212px;border: 2px solid #529432;" scope="col">KTP</th>
-                                            <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli</th>
+                                            <th style="padding: 30px 136px;border: 2px solid #529432;" scope="col">
+                                                REKAM MEDIS</th>
+                                            <th style="padding: 30px 158px;border: 2px solid #529432;" scope="col">
+                                                PASIEN</th>
+                                            <th style="padding: 30px 212px;border: 2px solid #529432;" scope="col">KTP
+                                            </th>
+                                            <th style="padding: 30px 185px;border: 2px solid #529432;" scope="col">Poli
+                                            </th>
                                             <th scope="col">Status</th>
-                                            {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,16 +98,14 @@
                             <div class="wdt-loading-phrases">
                                 <div class="wdt-loading-phrase-category" data-category="default">
                                 </div>
-                               
                                 <tbody>
-
                                     <div class="wdt-loading-phrase-category" data-category="profile">
                                         <div class="cxmod"></div>
                                     </div>
                                 </tbody>
                             </div>
-                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
 
@@ -121,7 +127,7 @@
     <script src="{{ asset('js/shortlen.js') }}"></script>
 
     <script>
-          async function SyncDataPasienAntrian() {
+        async function SyncDataPasienAntrian() {
 
             let data = {
                 dataform: null,
@@ -148,102 +154,78 @@
             }
         }
 
-        $( document ).ready(function() {
+        $(document).ready(function () {
 
             SyncDataPasienAntrian().then(function (data) {
-                    
-                    let datapasien = new Array();
 
-                    for (i = 0; i < data.data.length; i++) {
-                        datapasien[i] = data.data[i];
-                    }
+                let datapasien = new Array();
 
-                    let listenDataFormat = function(arr){
-                        let str = '';
+                for (i = 0; i < data.data.length; i++) {
+                    datapasien[i] = data.data[i];
+                }
 
-                        for(let i = 0; i < arr.length; i++){
-                            
-                            var status = arr[i]['status_docs'];
-                            var data = '';
+                let listenDataFormat = function (arr) {
+                    let str = '';
 
-                            if(status == 'Selesai'){
-                                data = '<td><span class="badge badge-success justify-content-center" style="font-size:13.5px;text-align:center"><center>'+arr[i]['status_docs'] +'</center></span></td>';
-                            } else {
-                                data = '<td><span class="badge badge-danger justify-content-center" style="font-size:13.5px;text-align:center"><center>'+arr[i]['status_docs'] +'</center></span></td>';
+                    for (let i = 0; i < arr.length; i++) {
 
-                            }
+                        var status = arr[i]['status_docs'];
+                        var data = '';
 
-                            str += '<div class="fixTableHead">'
-                                +'<table>'
-                                    +'<tbody>'
-                                                 +'<tr class="wdt-loading-phrase">'
-                                                    +'<div>'
-                                                        +'<td>'+arr[i]['id'] +'</td>'
-                                                        +'<td>'+arr[i]['nama_pasien'] +'</td>'
-                                                        +'<td>'+arr[i]['no_ktp'] +'</td>'
-                                                        +'<td>'+arr[i]['poli'] +'</td>'
-                                                        + data  
-                                                    +'</div>'
-                                                +'</tr>'
-                                            +'</tbody>'
-                                        +'</table>'
-                                    +'</table>'
-                                +'</div>';
-                                // + arr[i]['id'] + ' | ' + arr[i]['nama_pasien'] + ' | ' + arr[i]['no_ktp'] + ' | ' + arr[i]['poli'] + ' | ' + arr[i]['status_docs'] +'</div> \r\n';
+                        if (status == 'Selesai') {
+                            data =
+                                '<td><span class="badge badge-success justify-content-center" style="font-size:13.5px;text-align:center"><center>' +
+                                arr[i]['status_docs'] + '</center></span></td>';
+                        } else {
+                            data =
+                                '<td><span class="badge badge-danger justify-content-center" style="font-size:13.5px;text-align:center"><center>' +
+                                arr[i]['status_docs'] + '</center></span></td>';
+
                         }
 
-                        return str;
+                        str += '<div class="fixTableHead">' +
+                            '<table>' +
+                            '<tbody>' +
+                            '<tr class="wdt-loading-phrase">' +
+                            '<div>' +
+                            '<td>' + arr[i]['id'] + '</td>' +
+                            '<td>' + arr[i]['nama_pasien'] + '</td>' +
+                            '<td>' + arr[i]['no_ktp'] + '</td>' +
+                            '<td>' + arr[i]['poli'] + '</td>' +
+                            data +
+                            '</div>' +
+                            '</tr>' +
+                            '</tbody>' +
+                            '</table>' +
+                            '</table>' +
+                            '</div>';
                     }
-                    
-                    let nama_pasien = [];
 
-                    for (i = 0; i < datapasien.length; i++) {
-                        nama_pasien.push(datapasien[i]);
-                    }
+                    return str;
+                }
 
-                    $('.cxmod').html(listenDataFormat(datapasien.sort()));
+                let nama_pasien = [];
 
-                    wdtLoading.start({
-                        category: 'profile',
-                        speed: 2500
-                    });
+                for (i = 0; i < datapasien.length; i++) {
+                    nama_pasien.push(datapasien[i]);
+                }
 
+                $('.cxmod').html(listenDataFormat(datapasien.sort()));
+
+                wdtLoading.start({
+                    category: 'profile',
+                    speed: 2500
                 });
 
-           $(function() {
-                var intervalID = setInterval(function() {
+            });
+
+            $(function () {
+                var intervalID = setInterval(function () {
                     SyncDataPasienAntrian();
                 }, 3000);
             });
         });
 
-        // <div class="fixTableHead">'
-        //                         +'<table>'
-        //                         +'<thead>'
-        //                             +'<tr>'
-        //                             +' <th>No. Antrian</th>'
-        //                             +' <th>Nama Pasien</th>'
-        //                             +' <th>No. KTP</th>'
-        //                                 +'<th>Poli</th>'
-        //                                 +'<th>Status</th>'
-        //                             +'</tr>'
-        //                         +'</thead>'
-        //                             +'<tbody>'
-        //                                          +'<tr class="wdt-loading-phrase">'
-        //                                             +'<div>'
-        //                                                 +'<td>'+arr[i]['id'] +'</td>'
-        //                                                 +'<td>'+arr[i]['nama_pasien'] +'</td>'
-        //                                                 +'<td>'+arr[i]['no_ktp'] +'</td>'
-        //                                                 +'<td>'+arr[i]['poli'] +'</td>'
-        //                                                 +'<td>'+arr[i]['status_docs'] +'</td>'
-        //                                             +'</div>'
-        //                                         +'</tr>'
-        //                                     +'</tbody>'
-        //                                 +'</table>'
-        //                             +'</table>'
-        //                         +'</div>
-            
-    
     </script>
 </body>
 
