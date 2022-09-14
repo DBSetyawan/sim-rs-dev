@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://172.22.0.1:8988/public'),
+    'url' => env('APP_URL', 'http://localhost:8988/public'),
 
     'asset_url' => env('ASSET_URL', null),
 
