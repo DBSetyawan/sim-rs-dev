@@ -31,10 +31,10 @@
                     <div class=" dropdown-header noti-title">
                     <h6 class="text-overflow m-0">{{ auth()->user()->roles[0]->name }}</h6>
                     </div>
-                    <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                    {{-- <a href="{{ route('profile.edit') }}" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My profile') }}</span>
-                    </a>
+                    </a> --}}
                     {{-- 
                     <a href="#" class="dropdown-item">
                         <i class="ni ni-settings-gear-65"></i>

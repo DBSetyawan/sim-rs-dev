@@ -20,8 +20,6 @@
     <!-- Argon CSS -->
     <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     <!-- Extra details for Live View on GitHub Pages -->
-    <!-- Canonical SEO -->
-    <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-laravel" />
     <!--  Social tags      -->
     <meta name="keywords"
         content="dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, argon, argon ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit, argon dashboard">
@@ -29,48 +27,16 @@
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Argon - Free Dashboard for Bootstrap 4 by Creative Tim">
     <meta itemprop="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta itemprop="image"
-        content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg">
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim">
     <meta name="twitter:title" content="Argon - Free Dashboard for Bootstrap 4 by Creative Tim">
     <meta name="twitter:description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="twitter:creator" content="@creativetim">
-    <meta name="twitter:image"
-        content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg">
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="655968634437471">
     <meta property="og:title" content="Argon - Free Dashboard for Bootstrap 4 by Creative Tim" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://demos.creative-tim.com/argon-dashboard/index.html" />
-    <meta property="og:image"
-        content="https://s3.amazonaws.com/creativetim_bucket/products/96/original/opt_ad_thumbnail.jpg" />
-    <meta property="og:description" content="Start your development with a Dashboard for Bootstrap 4." />
-    <meta property="og:site_name" content="Creative Tim" />
-    <!-- Google Tag Manager -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
-    {{-- <link rel="stylesheet" href="{{ asset('wdt/wdtLoading.css')}}"/>
-    <script type="text/javascript" src="{{ asset('wdt/wdtLoading.js') }}"></script> --}}
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
-
-    </script>
-    <!-- End Google Tag Manager -->
     <style>
         .placeholder-item {
             box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
@@ -531,11 +497,11 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">No. RM</th>
-                                            <th scope="col">NAMA PASIEN</th>
-                                            <th scope="col">BPJS</th>
-                                            <th scope="col">KTP</th>
-                                            <th scope="col">Status Document</th>
                                             <th scope="col">KLINIK</th>
+                                            <th scope="col">NAMA PASIEN</th>
+                                            <th scope="col">NO. BPJS</th>
+                                            <th scope="col">NO. KTP</th>
+                                            <th scope="col">PROSES</th>
                                             <th scope="col">Aksi</th>
                                             {{-- <th scope="col">Aksi</th> --}}
                                         </tr>
@@ -570,7 +536,8 @@
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                      <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin menghapus data ini ?</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -578,7 +545,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none">
                                         <input type="text" readonly class="form-control" id="hapuspasien" placeholder="wajib diisi sebagai primary">
                                     </div>
                                 </div>
@@ -597,7 +564,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Poli Gigi</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Menu Update data</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -851,6 +818,10 @@
                     name: 'No. RM',
                 },
                 {
+                    data: 'poli',
+                    name: 'KLINIK'
+                },
+                {
                     data: 'nama_pasien',
                     name: 'PASIEN',
                 },
@@ -865,10 +836,6 @@
                 {
                     data: 'status_docs',
                     name: 'Status Document'
-                },
-                {
-                    data: 'poli',
-                    name: 'KLINIK'
                 },
                 {
                     data: 'klinik',
@@ -1187,34 +1154,40 @@
                         console.log(e)
                     }
                 },
-                    columns: [{
-                        data: 'no_rekamedik',
-                        name: 'No. RM',
-                    },
-                    {
-                        data: 'nama_pasien',
-                        name: 'PASIEN',
-                    },
-                    {
-                        data: 'no_bpjs',
-                        name: 'BPJS',
-                    },
-                    {
-                        data: 'no_ktp',
-                        name: 'KTP'
-                    },
-                    {
-                        data: 'status_docs',
-                        name: 'Status Document'
-                    },
-                    {
-                        data: 'poli',
-                        name: 'KLINIK'
-                    },
-                    {
-                        data: 'klinik',
-                        name: 'KLINIK'
-                    },
+                columns: [{
+                    data: 'no_rekamedik',
+                    name: 'No. RM',
+                },
+                {
+                    data: 'poli',
+                    name: 'KLINIK'
+                },
+                {
+                    data: 'nama_pasien',
+                    name: 'PASIEN',
+                },
+                {
+                    data: 'no_bpjs',
+                    name: 'BPJS',
+                },
+                {
+                    data: 'no_ktp',
+                    name: 'KTP'
+                },
+                {
+                    data: 'status_docs',
+                    name: 'Status Document'
+                },
+                {
+                    data: 'klinik',
+                    name: 'KLINIK'
+                },
+                // {
+                //     data: 'btn',
+                //     name: 'Aksi',
+                //     orderable: false,
+                //     searchable: false
+                // },
                 ]
             });
 
