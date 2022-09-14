@@ -95,32 +95,44 @@ class SaimsControllers extends Controller
     {
 
         $id = $request->dataform['id'];
+        $antrian = $request->dataform['antrian'];
         $status = $request->sts;
         $klinik = $request->dataform['klinik'];
 
-        if (strtoupper($klinik) == "POLI UMUM") {
-            tbsaims::where('id', $id)
-                ->update(
-                    [
-                        'status_docs' => $status,
-                        'arc' => self::generateWorksIDUM(),
-                        'no_rekamedik' => self::generateUM(),
-                        'poli' => strtoupper($klinik)
-                    ]
-                );
-        }
+        tbsaims::where('id', $id)
+        ->update(
+            [
+                'status_docs' => $status,
+                'antrian' => (Int) $antrian,
+                // 'arc' => self::generateWorksIDUM(),
+                // 'no_rekamedik' => self::generateUM(),
+                'poli' => strtoupper($klinik)
+            ]
+        );
 
-        if (strtoupper($klinik) == "POLI GIGI") {
-            tbsaims::where('id', $id)
-                ->update(
-                    [
-                        'status_docs' => $status,
-                        'no_rekamedik' => self::generateGG(),
-                        'ard' => self::generateWorksIDGG(),
-                        'poli' => strtoupper($klinik)
-                    ]
-                );
-        }
+        // if (strtoupper($klinik) == "POLI UMUM") {
+        //     tbsaims::where('id', $id)
+        //         ->update(
+        //             [
+        //                 'status_docs' => $status,
+        //                 'arc' => self::generateWorksIDUM(),
+        //                 'no_rekamedik' => self::generateUM(),
+        //                 'poli' => strtoupper($klinik)
+        //             ]
+        //         );
+        // }
+
+        // if (strtoupper($klinik) == "POLI GIGI") {
+        //     tbsaims::where('id', $id)
+        //         ->update(
+        //             [
+        //                 'status_docs' => $status,
+        //                 'no_rekamedik' => self::generateGG(),
+        //                 'ard' => self::generateWorksIDGG(),
+        //                 'poli' => strtoupper($klinik)
+        //             ]
+        //         );
+        // }
 
         return response()->json(['response_data' => true, 'data' => $request->all()]);
     }
@@ -486,7 +498,7 @@ class SaimsControllers extends Controller
          * menyimpan form normal sai
          */
         $normals = [
-            'no_rekamedik' => '0000000000000',
+            'no_rekamedik' => $normal['no_rekamedik'],
             'no_bpjs' => $normal['no_bpjs'],
             'no_ktp' => $normal['no_ktp'],
             'nama_pasien' => $normal['nama_pasien'],
@@ -700,57 +712,57 @@ class SaimsControllers extends Controller
             $IDnextgenerate = $jobs;
 
             if ($id == null) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1 && $id < 9) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10 && $id < 99) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100 && $id < 999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 1000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000 && $id < 9999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000 && $id < 99999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100000 && $id < 999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1000000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000000 && $id < 9999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000000 && $id < 99999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             }
         } else {
 
@@ -764,61 +776,205 @@ class SaimsControllers extends Controller
             $IDnextgenerate = $jobs;
 
             if ($id == null) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1 && $id < 9) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10 && $id < 99) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100 && $id < 999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 1000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000 && $id < 9999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000 && $id < 99999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100000 && $id < 999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1000000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000000 && $id < 9999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000000 && $id < 99999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999999) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("PGG-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("PGG-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             }
         }
 
         return $resultID;
+    }
+
+    public static function UrutNoRM()
+    {
+
+        $named = tbsaims::all()->last();
+        $YM = Carbon::Now()->format('ymd');
+
+        // LPO - 210628 - 0002
+            $id = 0;
+            $jobs = $id + 1;
+            $IDnextgenerate = $jobs;
+
+            if ($id == null) {
+                $resultID = (str_repeat("RM-" . '00', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 1) {
+                $resultID = (str_repeat("RM-" . '00', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 1 && $id < 9) {
+                $resultID = (str_repeat("RM-" . '00', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 9) {
+                $resultID = (str_repeat("RM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 10) {
+                $resultID = (str_repeat("RM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 10 && $id < 99) {
+                $resultID = (str_repeat("RM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 99) {
+                $resultID = (str_repeat("RM-" . '00', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 100) {
+                $resultID = (str_repeat("RM-" . '00', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 100 && $id < 999) {
+                $resultID = (str_repeat("RM-" . '00', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id === 999) {
+                $resultID = (str_repeat("RM-" . '00', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id === 1000) {
+                $resultID = (str_repeat("RM-" . '00', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 1000 && $id < 9999) {
+                $resultID = (str_repeat("RM-" . '00', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 9999) {
+                $resultID = (str_repeat("RM-" . '00', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 10000) {
+                $resultID = (str_repeat("RM-" . '00', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 10000 && $id < 99999) {
+                $resultID = (str_repeat("RM-" . '00', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 99999) {
+                $resultID = (str_repeat("RM-" . '00', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 100000) {
+                $resultID = (str_repeat("RM-" . '00', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 100000 && $id < 999999) {
+                $resultID = (str_repeat("RM-" . '00', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 1000000) {
+                $resultID = (str_repeat("RM-" . '00', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 999999) {
+                $resultID = (str_repeat("RM-" . '00', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 1000000 && $id < 9999999) {
+                $resultID = (str_repeat("RM-" . '00', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 9999999) {
+                $resultID = (str_repeat("RM-" . '00', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 10000000) {
+                $resultID = (str_repeat("RM-" . '00', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id > 10000000 && $id < 99999999) {
+                $resultID = (str_repeat("RM-" . '00', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 99999999) {
+                $resultID = (str_repeat("RM-" . '00', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } elseif ($id == 10000000) {
+                $resultID = (str_repeat("RM-" . '00', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+            } else {
+
+                    /**
+                     * arc as poli umum
+                     */
+                    $id = isset(tbsaims::latest()->first()->norm_inc)
+                    ? tbsaims::latest()->first()->norm_inc : 0;
+
+                $jobs = $id + 1;
+                $IDnextgenerate = $jobs;
+
+                if ($id == null) {
+                    $resultID = (str_repeat("RM-" . '00', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 1) {
+                    $resultID = (str_repeat("RM-" . '00', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 1 && $id < 9) {
+                    $resultID = (str_repeat("RM-" . '00', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 9) {
+                    $resultID = (str_repeat("RM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 10) {
+                    $resultID = (str_repeat("RM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 10 && $id < 99) {
+                    $resultID = (str_repeat("RM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 99) {
+                    $resultID = (str_repeat("RM-" . '00', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 100) {
+                    $resultID = (str_repeat("RM-" . '00', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 100 && $id < 999) {
+                    $resultID = (str_repeat("RM-" . '00', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id === 999) {
+                    $resultID = (str_repeat("RM-" . '00', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id === 1000) {
+                    $resultID = (str_repeat("RM-" . '00', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 1000 && $id < 9999) {
+                    $resultID = (str_repeat("RM-" . '00', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 9999) {
+                    $resultID = (str_repeat("RM-" . '00', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 10000) {
+                    $resultID = (str_repeat("RM-" . '00', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 10000 && $id < 99999) {
+                    $resultID = (str_repeat("RM-" . '00', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 99999) {
+                    $resultID = (str_repeat("RM-" . '00', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 100000) {
+                    $resultID = (str_repeat("RM-" . '00', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 100000 && $id < 999999) {
+                    $resultID = (str_repeat("RM-" . '00', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 1000000) {
+                    $resultID = (str_repeat("RM-" . '00', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 999999) {
+                    $resultID = (str_repeat("RM-" . '00', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 1000000 && $id < 9999999) {
+                    $resultID = (str_repeat("RM-" . '00', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 9999999) {
+                    $resultID = (str_repeat("RM-" . '00', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 10000000) {
+                    $resultID = (str_repeat("RM-" . '00', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id > 10000000 && $id < 99999999) {
+                    $resultID = (str_repeat("RM-" . '00', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 99999999) {
+                    $resultID = (str_repeat("RM-" . '00', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                } elseif ($id == 10000000) {
+                    $resultID = (str_repeat("RM-" . '00', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                }
+
+            }
+
+        return $resultID;
+    }
+
+    public static function generatenoRM()
+    {
+        $id = isset(tbsaims::latest()->first()->norm_inc)
+        ? tbsaims::latest()->first()->norm_inc : 0;
+        $jobs = $id + 1;
+        $IDnextgenerate = $jobs;
+
+        return "RM00".$IDnextgenerate;
+
     }
 
     public static function generateUM()
@@ -835,57 +991,57 @@ class SaimsControllers extends Controller
             $IDnextgenerate = $jobs;
 
             if ($id == null) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1 && $id < 9) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10 && $id < 99) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100 && $id < 999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 1000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000 && $id < 9999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000 && $id < 99999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100000 && $id < 999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1000000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000000 && $id < 9999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000000 && $id < 99999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             }
         } else {
 
@@ -899,57 +1055,57 @@ class SaimsControllers extends Controller
             $IDnextgenerate = $jobs;
 
             if ($id == null) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1 && $id < 9) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 2 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '000', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10 && $id < 99) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '00', 3 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100 && $id < 999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '0', 4 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id === 1000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000 && $id < 9999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 5 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000 && $id < 99999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 6 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 100000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 100000 && $id < 999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 7 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 1000000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 1000000 && $id < 9999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 8 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 9999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id > 10000000 && $id < 99999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 9 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 99999999) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             } elseif ($id == 10000000) {
-                $resultID = (str_repeat("NPM-" . $YM . '-' . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
+                $resultID = (str_repeat("NPM-" . '', 10 - strlen($IDnextgenerate))) . $IDnextgenerate;
             }
         }
 
@@ -1159,7 +1315,10 @@ class SaimsControllers extends Controller
     public function create(User $model)
     {
         $user = User::all();
-        return view('saims.create', compact('user'));
+
+        $urutanRM = @$this->generatenoRM();
+
+        return view('saims.create', compact('user','urutanRM'));
     }
 
     public function edit($id, $sai)

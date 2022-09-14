@@ -20,8 +20,8 @@
 }
 
 .wdt-loading-phrase-category {
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
+    -webkit-transition: all -100000ms ease;
+    transition: all -100000ms ease;
 }
 
 .wdt-loading-phrases:before {
@@ -45,7 +45,7 @@
 .wdt-loading-phrase {
     padding-left: 30px;
     position: relative;
-    transform: translateY(30px);
+    transform: translateY(1px);
     line-height: 30px;
     height: 30px;
 }
@@ -146,31 +146,31 @@
 	left: 3px;
 	top: 16px;
 	position: absolute;
-	-webkit-transform: scaleX(-1) rotate(135deg);
-	-moz-transform: scaleX(-1) rotate(135deg);
-	-ms-transform: scaleX(-1) rotate(135deg);
-	-o-transform: scaleX(-1) rotate(135deg);
-	transform: scaleX(-1) rotate(135deg);
+	-webkit-transform: scaleX(-1) rotate(324deg);
+	-moz-transform: scaleX(-1) rotate(324deg);
+	-ms-transform: scaleX(-1) rotate(324deg);
+	-o-transform: scaleX(-1) rotate(324deg);
+	transform: scaleX(-1) rotate(324deg);
 }
 
 .wdt-loading-phrase.wdt-checked:after {
-	-webkit-animation-delay: 100ms;
-	-moz-animation-delay: 100ms;
-	animation-delay: 100ms;
-	-webkit-animation-duration: 200ms;
-	-moz-animation-duration: 200ms;
-	animation-duration: 200ms;
+	-webkit-animation-delay: -900000s;
+	-moz-animation-delay: -900000s;
+	animation-delay: -900000s;
+	-webkit-animation-duration: -900000s;
+	-moz-animation-duration: -900000s;
+	animation-duration: -900000s;
 	-webkit-animation-timing-function: ease;
 	-moz-animation-timing-function: ease;
 	animation-timing-function: ease;
 	-webkit-animation-name: checkmark;
 	-moz-animation-name: checkmark;
 	animation-name: checkmark;
-	-webkit-transform: scaleX(-1) rotate(135deg);
-	-moz-transform: scaleX(-1) rotate(135deg);
-	-ms-transform: scaleX(-1) rotate(135deg);
-	-o-transform: scaleX(-1) rotate(135deg);
-	transform: scaleX(-1) rotate(135deg);
+	-webkit-transform: scaleX(-1) rotate(324deg);
+	-moz-transform: scaleX(-1) rotate(324deg);
+	-ms-transform: scaleX(-1) rotate(324deg);
+	-o-transform: scaleX(-1) rotate(324deg);
+	transform: scaleX(-1) rotate(324deg);
 	-webkit-animation-fill-mode: forwards;
 	-moz-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;

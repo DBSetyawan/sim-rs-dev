@@ -578,6 +578,11 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
+                                        <input type="text" class="form-control" id="antrian" placeholder="Nomor antrian">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" id="poligigi_input_status" placeholder="Isikan lokasi poli">
                                     </div>
                                 </div>
@@ -1581,6 +1586,7 @@
             
              var formData = {  
                 'id'     : $("#poligigi_input").val(),
+                'antrian'     : $("#antrian").val(),
                 'klinik'     : $("#poligigi_input_status").val(),
                 'status'       : $('input[name=poligigi_input_status]').val(),
             };

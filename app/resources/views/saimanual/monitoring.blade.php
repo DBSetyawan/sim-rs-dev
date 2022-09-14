@@ -59,7 +59,7 @@
 
     th,
     td {
-        padding: 30px 114px;
+        padding: 30px 116.5px;
         border: 2px solid #529432;
     }
 
@@ -80,11 +80,11 @@
                                 <table style=" position: relative; top : 100px">
                                     <thead class="">
                                         <tr>
-                                            <th style="padding: 30px 84px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 100px;border: 2px solid #529432;" scope="col">
                                                 Antrian</th>
-                                            <th style="padding: 30px 120px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 134px;border: 2px solid #529432;" scope="col">
                                                 NO. RM</th>
-                                            <th style="padding: 30px 163px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 129px;border: 2px solid #529432;" scope="col">
                                                 PASIEN</th>
                                             <th style="padding: 30px 157px;border: 2px solid #529432;" scope="col">NO. BPJS
                                             </th>
@@ -101,7 +101,7 @@
                                 <div class="wdt-loading-phrase-category" data-category="default">
                                 </div>
                                 <tbody>
-                                    <div class="wdt-loading-phrase-category" data-category="profile">
+                                    <div style="font-weight: bold;font-size: 20px;position:absolute" class="wdt-loading-phrase-category" data-category="profile">
                                         <div class="cxmod"></div>
                                     </div>
                                 </tbody>
@@ -172,6 +172,7 @@
                     for (let i = 0; i < arr.length; i++) {
 
                         var status = arr[i]['status_docs'];
+                        var polix = arr[i]['poli'];
                         var data = '';
 
                         if (status == 'Selesai') {
@@ -181,8 +182,18 @@
                         } else {
                             data =
                                 '<td><span class="badge badge-danger justify-content-center" style="font-size:13.5px;text-align:center"><center>' +
-                                arr[i]['status_docs'] + '</center></span></td>';
+                                arr[i]['status_docs'] +
+                            '</center></span></td>';
+                        }
 
+                        var poli = '';
+
+                        if (polix == 'POLI UMUM') {
+                            
+                            poli = '<td style="background-color: yellow"><span><center>' + arr[i]['poli'] + '</center></span></td>';
+
+                            } else {
+                                poli = '<td style="background-color: #06f5f2"><span><center>' + arr[i]['poli'] + '</center></span></td>';
                         }
 
                         str += '<div class="fixTableHead">' +
@@ -190,11 +201,11 @@
                             '<tbody>' +
                             '<tr class="wdt-loading-phrase">' +
                             '<div>' +
-                            '<td>' + arr[i]['id'] + '</td>' +
+                            '<td>' + arr[i]['antrian'] + '</td>' +
                             '<td>' + arr[i]['no_rekamedik'] + '</td>' +
                             '<td>' + arr[i]['nama_pasien'] + '</td>' +
                             '<td>' + arr[i]['no_bpjs'] + '</td>' +
-                            '<td>' + arr[i]['poli'] + '</td>' +
+                            poli +
                             data +
                             '</div>' +
                             '</tr>' +
