@@ -59,7 +59,7 @@
 
     th,
     td {
-        padding: 30px 116.5px;
+        padding: 30px 103.5px;
         border: 2px solid #529432;
     }
 
@@ -80,17 +80,17 @@
                                 <table style=" position: relative; top : 100px">
                                     <thead class="">
                                         <tr>
-                                            <th style="padding: 30px 100px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 78px;border: 2px solid #529432;" scope="col">
                                                 Antrian</th>
-                                            <th style="padding: 30px 134px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 179px;border: 2px solid #529432;" scope="col">
                                                 NO. RM</th>
-                                            <th style="padding: 30px 129px;border: 2px solid #529432;" scope="col">
+                                            <th style="padding: 30px 121px;border: 2px solid #529432;" scope="col">
                                                 PASIEN</th>
-                                            <th style="padding: 30px 157px;border: 2px solid #529432;" scope="col">NO. BPJS
+                                            <th style="padding: 30px 161px;border: 2px solid #529432;" scope="col">NO. BPJS
                                             </th>
-                                            <th style="padding: 30px 147px;border: 2px solid #529432;" scope="col">Poli
+                                            <th style="padding: 30px 151px;border: 2px solid #529432;" scope="col">Poli
                                             </th>
-                                            <th style="padding: 30px 149.5px;border: 2px solid #529432;" scope="col">Status</th>
+                                            <th style="padding: 30px 148px;border: 2px solid #529432;" scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
