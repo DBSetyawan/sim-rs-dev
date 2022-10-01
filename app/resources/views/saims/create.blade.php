@@ -157,7 +157,7 @@
                                         <div class="pl-lg-4">
                                             <div class="form-group{{ $errors->has('no_rekamedik') ? ' has-danger' : '' }}">
                                                 <label class="form-control-label" for="input-name">{{ __('No. REKAM MEDIK') }}</label>
-                                                <input type="text" name="no_rekamedik" id="no_rekamedik" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('NORM') }}" required autofocus>
+                                                <input type="text" name="no_rekamedik" id="no_rekamedik" value="{{ $urutanRM }}" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('NORM') }}" required autofocus>
             
                                                 @if ($errors->has('saim_no'))
                                                     <span class="invalid-feedback" role="alert">

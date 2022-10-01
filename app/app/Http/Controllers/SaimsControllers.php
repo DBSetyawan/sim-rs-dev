@@ -650,11 +650,14 @@ class SaimsControllers extends Controller
      */
     public static function generateWorksIDUM()
     {
-
-        $named = tbsaims::where('poli', '=', 'POLI UMUM')->orderBy('created_at', 'desc')->first();
+        $named = tbsaims::orderBy('created_at', 'desc')->first();
         $YM = Carbon::Now()->format('ymd');
+        //RM-2022/10/1/001
+        // $named = tbsaims::where('poli', '=', 'POLI UMUM')->orderBy('created_at', 'desc')->first();
+        // $YM = Carbon::Now()->format('ymd');
+        if ($YM > substr(isset($named['no_rekamedik']) ? $named['no_rekamedik'] : "RM-" . $YM, 4, 6)) {
 
-        if ($YM > substr(isset($named['no_rekamedik']) ? $named['no_rekamedik'] : "NPM-" . $YM, 4, 6)) {
+        // if ($YM > substr(isset($named['no_rekamedik']) ? $named['no_rekamedik'] : "NPM-" . $YM, 4, 6)) {
             // $id = DB::statement("ALTER TABLE Workorders_local AUTO_INCREMENT = $max");
             $id = 0;
             $jobs = $id + 1;
@@ -1316,10 +1319,72 @@ class SaimsControllers extends Controller
     {
         $user = User::all();
 
-        $urutanRM = @$this->generatenoRM();
+        // $urutanRM = @$this->generatenoRM();generateWorksIDUM
+        $urutanRM = @$this->generateID();
 
         return view('saims.create', compact('user','urutanRM'));
     }
+
+    protected function generateID(){
+
+        $id = tbsaims::select('id')->max('id');
+        $jobs = $id+1;
+        $jincrement_idx = $jobs;
+        $YM = Carbon::Now()->format('my');
+        $Y = substr(Carbon::Now()->format('Ymd'),0,4);
+        $m = Carbon::Now()->format('m');
+        $d = substr(Carbon::Now()->format('d'),1,1);
+        ////RM-2022/10/1/001
+        if ($id==null) {
+        $jobs_order_idx = (str_repeat("RM-".$Y.'/'.$m.'/'.$d.'/'.'00', 2-strlen($jincrement_idx))). $jincrement_idx;
+        }
+        elseif ($id == 1){
+       
+        $jobs_order_idx = (str_repeat("RM-".$Y.'/'.$m.'/'.$d.'/'.'00', 2-strlen($jincrement_idx))). $jincrement_idx;
+        }
+        elseif ($id > 1 && $id < 9 ){
+          $jobs_order_idx=(str_repeat("RM-".$Y.'/'.$m.'/'.$d.'/'.'00', 2-strlen($jincrement_idx))). $jincrement_idx;
+            }
+            elseif ($id == 9){
+       
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 3 - strlen($jincrement_idx))) . $jincrement_idx;
+            }
+            elseif ($id == 10) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 3 - strlen($jincrement_idx))) . $jincrement_idx;
+       
+            }
+            elseif ($id > 10 && $id < 99) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 3 - strlen($jincrement_idx))) . $jincrement_idx;
+                }
+                elseif ($id == 99) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 4 - strlen($jincrement_idx))) . $jincrement_idx;
+       
+                }
+                elseif ($id == 100) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 4 - strlen($jincrement_idx))) . $jincrement_idx;
+                }
+                elseif ($id > 100 && $id < 999) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 4 - strlen($jincrement_idx))) . $jincrement_idx;
+                    }
+                    elseif ($id === 999) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 5 - strlen($jincrement_idx))) . $jincrement_idx;
+                    }
+                    elseif ($id === 1000) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 5 - strlen($jincrement_idx))) . $jincrement_idx;
+                    }
+                    elseif ($id > 1000 && $id < 9999) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 5 - strlen($jincrement_idx))) . $jincrement_idx;
+                        }
+                        elseif ($id == 9999) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 6 - strlen($jincrement_idx))) . $jincrement_idx;
+                        }
+                        elseif ($id == 10000) {
+           $jobs_order_idx = (str_repeat("RM-" . $Y . '/' . $m . '/' . $d . '/'.'00', 6 - strlen($jincrement_idx))) . $jincrement_idx;
+                        }
+       
+                        return $jobs_order_idx;
+       
+                        }
 
     public function edit($id, $sai)
     {
